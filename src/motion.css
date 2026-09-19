@@ -1,0 +1,172 @@
+:root {
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-duration: 0.9s;
+  --motion-duration-slow: 1.2s;
+  --motion-fast: 0.28s;
+  --motion-distance: 1.65rem;
+  --motion-stagger: 90ms;
+  --reveal-delay: 0ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes motion-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes motion-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6%);
+    clip-path: inset(0 0 18% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0);
+  }
+}
+
+@keyframes motion-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html.js-reveal [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+html.js-reveal [data-reveal='up']:not(.is-visible) {
+  transform: translateY(var(--motion-distance));
+}
+
+html.js-reveal [data-reveal='left']:not(.is-visible) {
+  transform: translateX(calc(var(--motion-distance) * -1));
+}
+
+html.js-reveal [data-reveal='right']:not(.is-visible) {
+  transform: translateX(var(--motion-distance));
+}
+
+html.js-reveal [data-reveal='scale']:not(.is-visible) {
+  transform: scale(0.96);
+}
+
+html.js-reveal [data-reveal='fade']:not(.is-visible),
+html.js-reveal [data-reveal='line']:not(.is-visible) {
+  transform: none;
+}
+
+html.js-reveal [data-reveal='line']:not(.is-visible) {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+[data-reveal] {
+  transition:
+    opacity var(--motion-duration) var(--motion-ease) var(--reveal-delay),
+    transform var(--motion-duration) var(--motion-ease) var(--reveal-delay),
+    filter var(--motion-duration) var(--motion-ease) var(--reveal-delay);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  will-change: auto;
+}
+
+[data-reveal='line'].is-visible {
+  transform: scaleX(1);
+  transform-origin: left center;
+  transition:
+    opacity var(--motion-duration) var(--motion-ease) var(--reveal-delay),
+    transform var(--motion-duration) var(--motion-ease) var(--reveal-delay);
+}
+
+.hero__brand {
+  animation: motion-rise var(--motion-duration-slow) var(--motion-ease) both;
+}
+
+.hero__tagline {
+  animation: motion-up var(--motion-duration) var(--motion-ease) 0.14s both;
+}
+
+.hero__visual {
+  animation: motion-fade 1.35s var(--motion-ease) 0.5s both;
+}
+
+.hero__copy {
+  animation: motion-up 0.95s var(--motion-ease) 0.26s both;
+}
+
+.hero__aside {
+  animation: motion-up 0.95s var(--motion-ease) 0.38s both;
+}
+
+a[href],
+button {
+  transition:
+    color var(--motion-fast) var(--motion-ease),
+    opacity var(--motion-fast) var(--motion-ease),
+    filter var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease);
+}
+
+[data-motion='lift']:hover,
+[data-reveal].is-visible[data-motion='lift']:hover {
+  transform: translateY(-3px);
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+
+[data-motion='lift']:active {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.js-reveal [data-reveal]:not(.is-visible),
+  [data-reveal],
+  [data-reveal].is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .hero__brand,
+  .hero__tagline,
+  .hero__visual,
+  .hero__copy,
+  .hero__aside {
+    animation: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-motion='lift']:hover,
+  [data-motion='lift']:active {
+    transform: none;
+  }
+}

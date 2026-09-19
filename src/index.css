@@ -1,0 +1,92 @@
+@import './motion.css';
+
+:root {
+  --color-bg: #f8fdff;
+  --color-primary: #006bc4;
+  --color-secondary: #47fcff;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --section-width: 90%;
+  --section-min-width: 1420px;
+  --section-width-narrow: 72%;
+  --section-min-width-narrow: 960px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  max-width: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+#root,
+main {
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.section {
+  width: 100%;
+}
+
+.section__inner {
+  width: var(--section-width);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 1420px) {
+  .section:not(.section--narrow):not(.section--full) > .section__inner {
+    min-width: var(--section-min-width);
+  }
+}
+
+.section--narrow > .section__inner {
+  width: var(--section-width-narrow);
+  min-width: 0;
+}
+
+@media (min-width: 960px) {
+  .section--narrow > .section__inner {
+    min-width: min(var(--section-min-width-narrow), 100%);
+  }
+}
+
+.section--full .section__inner {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin-inline: 0;
+}

@@ -1,0 +1,140 @@
+.solutions {
+  padding: 5.5rem 0 7rem;
+}
+
+.solutions .section__inner {
+  overflow: visible;
+}
+
+.solutions__intro {
+  max-width: 48rem;
+  margin: 0 auto 4.75rem;
+  text-align: center;
+}
+
+.solutions__eyebrow {
+  margin: 0;
+  color: color-mix(in srgb, var(--color-primary) 42%, #d0e0ec);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.solutions__intro h2 {
+  margin: 0.55rem 0 0;
+  color: var(--color-primary);
+  font-size: clamp(2.05rem, 3.1vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.solutions__lead {
+  margin: 1.15rem 0 0;
+  color: var(--color-primary);
+  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.solutions__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  padding-top: 3.25rem;
+}
+
+.solutions__card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  color: inherit;
+  text-decoration: none;
+  overflow: visible;
+}
+
+.solutions__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.solutions__figure {
+  position: absolute;
+  z-index: 1;
+  max-width: none;
+  pointer-events: none;
+}
+
+.solutions__figure--leg {
+  left: 2%;
+  bottom: 5%;
+  height: 118%;
+  width: auto;
+}
+
+.solutions__figure--arm {
+  right: -11%;
+  bottom: 10%;
+  width: 78%;
+  height: auto;
+}
+
+.solutions__label {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.solutions__card--leg .solutions__label {
+  top: 1.55rem;
+  right: 1.7rem;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.solutions__card--arm .solutions__label {
+  top: 1.55rem;
+  left: 1.7rem;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.solutions__label span {
+  color: var(--color-primary);
+  font-size: clamp(1.12rem, 1.4vw, 1.4rem);
+  font-weight: 500;
+}
+
+.solutions__label strong {
+  margin-top: 0.05rem;
+  color: var(--color-primary);
+  font-size: clamp(2.2rem, 3.1vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.solutions__card:hover .solutions__figure--leg {
+  transform: translateY(-0.35rem);
+}
+
+.solutions__card:hover .solutions__figure--arm {
+  transform: translateX(0.35rem);
+}
+
+.solutions__figure--leg,
+.solutions__figure--arm {
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+
+.solutions__card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 6px;
+  border-radius: 2rem;
+}

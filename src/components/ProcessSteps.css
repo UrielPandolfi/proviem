@@ -1,0 +1,112 @@
+.process-steps {
+  padding: 3.5rem 0 6.5rem;
+}
+
+.process-steps__intro {
+  max-width: 42rem;
+  margin: 0 auto 3.4rem;
+  text-align: center;
+}
+
+.process-steps__eyebrow {
+  margin: 0;
+  color: color-mix(in srgb, var(--color-primary) 42%, #d0e0ec);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.process-steps__intro h2 {
+  margin: 0.5rem 0 0;
+  color: var(--color-primary);
+  font-size: clamp(2.05rem, 3.1vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.process-steps__lead {
+  margin: 1.05rem 0 0;
+  color: var(--color-primary);
+  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.process-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.95rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.process-steps__card {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 1.15rem 1.1rem 0.85rem;
+  overflow: hidden;
+  border-radius: 1.45rem;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.process-steps__card[data-motion='lift']:hover,
+.process-steps__card.is-visible:hover {
+  transform: translateY(-4px);
+}
+
+.process-steps__card h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 8.6em;
+  margin: 0;
+  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.process-steps__icon {
+  position: relative;
+  z-index: 1;
+  width: 3.15rem;
+  height: 3.15rem;
+  max-width: none;
+  margin-top: 1.15rem;
+}
+
+.process-steps__num {
+  position: absolute;
+  right: calc(0.55rem + 12px);
+  bottom: -0.12rem;
+  color: var(--color-secondary);
+  font-size: clamp(3.6rem, 5.4vw, 4.85rem);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+}
+
+.process-steps__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 2.35rem auto 0;
+  padding: 0.78rem 1.7rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.process-steps__cta:hover {
+  filter: brightness(1.05);
+}
+
+.process-steps__cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
