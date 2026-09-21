@@ -1,7 +1,9 @@
 import logo from '../assets/logo.svg'
 import './Header.css'
 
-type Page = 'home' | 'nosotros' | 'contacto'
+type Page = 'home' | 'nosotros' | 'contacto' | 'blog'
+
+const PAGE_LINKS = new Set(['Inicio', 'Nosotros', 'Blog', 'Contacto'])
 
 const LINKS = [
   { label: 'Inicio', href: '#inicio', page: 'home' },
@@ -10,7 +12,7 @@ const LINKS = [
   { label: 'Proceso', href: '#proceso', page: 'home' },
   { label: 'Clínicas', href: '#' },
   { label: 'Seguro', href: '#colaboracion', page: 'home' },
-  { label: 'Blog', href: '#' },
+  { label: 'Blog', href: '#blog', page: 'blog' },
   { label: 'Contacto', href: '#contacto', page: 'contacto' },
 ] as const
 
@@ -29,11 +31,9 @@ export function Header({ page = 'home' }: HeaderProps) {
         <nav className="site-header__nav" aria-label="Principal">
           {LINKS.map((link) => {
             const active =
-              link.label === 'Nosotros'
-                ? page === 'nosotros'
-                : link.label === 'Contacto'
-                  ? page === 'contacto'
-                  : link.label === 'Inicio' && page === 'home'
+              PAGE_LINKS.has(link.label) &&
+              'page' in link &&
+              link.page === page
 
             return (
               <a

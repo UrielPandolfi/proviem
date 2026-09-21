@@ -147,6 +147,18 @@ html.js-reveal [data-reveal='line']:not(.is-visible) {
   animation: motion-fade 1.15s var(--motion-ease) 0.08s both;
 }
 
+.blog__intro {
+  animation: motion-up 0.95s var(--motion-ease) 0.12s both;
+}
+
+.blog-post__intro {
+  animation: motion-up 0.95s var(--motion-ease) 0.12s both;
+}
+
+.blog-post__cover-wrap {
+  animation: motion-fade 1.15s var(--motion-ease) 0.2s both;
+}
+
 a[href],
 button {
   transition:
@@ -193,7 +205,10 @@ button {
   .nosotros-hero__visual,
   .contacto__copy,
   .contacto__card,
-  .contacto__shape {
+  .contacto__shape,
+  .blog__intro,
+  .blog-post__intro,
+  .blog-post__cover-wrap {
     animation: none !important;
     clip-path: none !important;
     opacity: 1 !important;
