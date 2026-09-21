@@ -2,7 +2,7 @@ import { useLayoutEffect } from 'react'
 
 const STAGGER_MS = 90
 
-export function useReveal() {
+export function useReveal(key = '') {
   useLayoutEffect(() => {
     const root = document.documentElement
     root.classList.add('js-reveal')
@@ -46,5 +46,5 @@ export function useReveal() {
     nodes.forEach((el) => io.observe(el))
 
     return () => io.disconnect()
-  }, [])
+  }, [key])
 }

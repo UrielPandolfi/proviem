@@ -123,6 +123,30 @@ html.js-reveal [data-reveal='line']:not(.is-visible) {
   animation: motion-up 0.95s var(--motion-ease) 0.38s both;
 }
 
+.nosotros-hero__mark {
+  animation: motion-fade 1.1s var(--motion-ease) 0.08s both;
+}
+
+.nosotros-hero__copy {
+  animation: motion-up 0.95s var(--motion-ease) 0.14s both;
+}
+
+.nosotros-hero__visual {
+  animation: motion-fade 1.25s var(--motion-ease) 0.26s both;
+}
+
+.contacto__copy {
+  animation: motion-up 0.95s var(--motion-ease) 0.12s both;
+}
+
+.contacto__card {
+  animation: motion-up 0.95s var(--motion-ease) 0.22s both;
+}
+
+.contacto__shape {
+  animation: motion-fade 1.15s var(--motion-ease) 0.08s both;
+}
+
 a[href],
 button {
   transition:
@@ -163,7 +187,13 @@ button {
   .hero__visual,
   .hero__copy,
   .hero__link,
-  .hero__aside {
+  .hero__aside,
+  .nosotros-hero__mark,
+  .nosotros-hero__copy,
+  .nosotros-hero__visual,
+  .contacto__copy,
+  .contacto__card,
+  .contacto__shape {
     animation: none !important;
     clip-path: none !important;
     opacity: 1 !important;

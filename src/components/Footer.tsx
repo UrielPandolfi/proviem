@@ -8,7 +8,7 @@ const NAV = [
   { href: '#proceso', label: 'Proceso' },
   { href: '#clinicas', label: 'Clínicas' },
   { href: '#colaboracion', label: 'Seguro' },
-  { href: '#cita', label: 'Contacto' },
+  { href: '#contacto', label: 'Contacto' },
 ] as const
 
 function FacebookIcon() {
