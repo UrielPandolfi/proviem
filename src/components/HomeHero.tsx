@@ -128,39 +128,75 @@ export function HomeHero() {
       />
 
       <div className="hero__stage">
+        <div className="hero__fold">
+          <div className="hero__copyblock">
+            <div className="hero__copy">
+              <h2>
+                <span className="hero__copy-lead">Prótesis</span>
+                <br />
+                para tu vida
+                <br />
+                diaria
+              </h2>
+              <p>
+                Valoramos tu caso y te acompañamos en la selección, fabricación,
+                prueba, entrenamiento y seguimiento de tu prótesis.
+              </p>
+            </div>
+            <a className="hero__link" href="#cita" data-motion="lift">
+              Agenda una cita
+              <ArrowIcon />
+            </a>
+          </div>
 
-        <div className="hero__copy">
-          <h2>
-            <span className="hero__copy-lead">Prótesis</span>
-            <br />
-            para tu vida
-            <br />
-            diaria
-          </h2>
-          <p>
-            Valoramos tu caso y te acompañamos en la selección, fabricación,
-            prueba, entrenamiento y seguimiento de tu prótesis.
-          </p>
-          <a className="hero__link" href="#cita" data-motion="lift">
-            Agenda una cita
-            <ArrowIcon />
-          </a>
+          <div className="hero__aside">
+            <a className="hero__stat" href="#resultados">
+              <span className="hero__stat-arrow">
+                <ArrowIcon />
+              </span>
+              <p>Personas atendidas recuperaron su movilidad</p>
+              <strong>+1,000</strong>
+            </a>
+            <img
+              className="hero__network"
+              src={networkImg}
+              alt=""
+              draggable={false}
+            />
+          </div>
         </div>
 
-        <div className="hero__aside">
-          <a className="hero__stat" href="#resultados">
-            <span className="hero__stat-arrow">
-              <ArrowIcon />
-            </span>
-            <p>Personas atendidas recuperaron su movilidad</p>
-            <strong>+1,000</strong>
+        <div className="hero__needs" {...reveal('up')}>
+          <h2>
+            Elegir una prótesis
+            <br />
+            comienza por entender
+            <br />
+            tus necesidades
+          </h2>
+          <p>
+            Una prótesis no debería elegirse únicamente por su apariencia o
+            nivel tecnológico. Consideramos tu nivel de amputación, condición
+            física, actividades, entorno y objetivos para orientarte hacia una
+            solución funcional para tu caso.
+          </p>
+          <a className="hero__pill" href="#proceso" data-motion="lift">
+            Conoce nuestro proceso
           </a>
-          <img
-            className="hero__network"
-            src={networkImg}
-            alt=""
-            draggable={false}
-          />
+          <div className="hero__needs-visual">
+            <img
+              className="hero__needs-photo"
+              src={photoImg}
+              alt=""
+              draggable={false}
+            />
+            <img
+              className="hero__needs-mark"
+              src={maskImg}
+              alt=""
+              draggable={false}
+            />
+          </div>
         </div>
 
         <div className="hero__process" {...reveal('up')}>

@@ -211,3 +211,73 @@
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
+
+@media (max-width: 899px) {
+  .contact {
+    padding: 3.75rem 0 4.75rem;
+    background: var(--color-bg);
+  }
+
+  .contact__visual {
+    display: none;
+  }
+
+  .contact__content {
+    max-width: none;
+    text-align: center;
+  }
+
+  .contact__eyebrow {
+    color: color-mix(in srgb, var(--color-primary) 42%, #d0e0ec);
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .contact h2 {
+    margin-top: 0.45rem;
+    font-size: var(--mobile-title);
+  }
+
+  .contact__lead {
+    margin-top: 1rem;
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .contact__form {
+    margin-top: 1.45rem;
+  }
+
+  .contact__field select,
+  .contact__field input[type='text'],
+  .contact__field input[type='email'],
+  .contact__field input[type='tel'] {
+    font-size: 0.88rem;
+  }
+
+  .contact__field select {
+    padding-right: 2.35rem;
+    white-space: normal;
+    text-overflow: clip;
+    height: auto;
+    min-height: 2.85rem;
+    padding-block: 0.62rem;
+    line-height: 1.25;
+  }
+
+  .contact__submit {
+    margin-top: 0.55rem;
+    font-size: 1rem;
+  }
+
+  .contact__legal {
+    text-align: left;
+    font-size: 0.8rem;
+  }
+
+  .contact__disclaimer {
+    max-width: none;
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    line-height: 1.42;
+  }
+}

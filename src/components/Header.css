@@ -68,3 +68,38 @@
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
+
+@media (max-width: 899px) {
+  .site-header {
+    padding: 0.85rem 0 0.4rem;
+  }
+
+  .site-header__inner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .site-header__logo {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .site-header__logo img {
+    width: 1.7rem;
+  }
+
+  .site-header__nav {
+    justify-self: end;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-header__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-header__link {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+  }
+}

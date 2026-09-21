@@ -63,6 +63,10 @@
   pointer-events: none;
 }
 
+.solutions__bg--mobile {
+  display: none;
+}
+
 .solutions__figure {
   position: absolute;
   z-index: 1;
@@ -137,4 +141,85 @@
   outline: 2px solid var(--color-primary);
   outline-offset: 6px;
   border-radius: 2rem;
+}
+
+@media (max-width: 899px) {
+  .solutions {
+    padding: 3.75rem 0 4.75rem;
+  }
+
+  .solutions .section__inner {
+    width: calc(100% - 2.1rem);
+  }
+
+  .solutions__intro {
+    max-width: none;
+    margin: 0 auto 1.85rem;
+  }
+
+  .solutions__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .solutions__intro h2 {
+    font-size: var(--mobile-title);
+  }
+
+  .solutions__lead {
+    margin-top: 1rem;
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .solutions__lead br {
+    display: none;
+  }
+
+  .solutions__grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    padding-top: 4.15rem;
+  }
+
+  .solutions__card {
+    aspect-ratio: 316 / 187;
+  }
+
+  .solutions__bg--desktop {
+    display: none;
+  }
+
+  .solutions__bg--mobile {
+    display: block;
+  }
+
+  .solutions__figure--leg {
+    left: 2%;
+    bottom: 2%;
+    height: 130%;
+  }
+
+  .solutions__figure--arm {
+    right: -3%;
+    bottom: 10%;
+    width: 62%;
+  }
+
+  .solutions__card--leg .solutions__label {
+    top: 1.05rem;
+    right: 1.2rem;
+  }
+
+  .solutions__card--arm .solutions__label {
+    top: 1.05rem;
+    left: 1.2rem;
+  }
+
+  .solutions__label span {
+    font-size: 1rem;
+  }
+
+  .solutions__label strong {
+    font-size: clamp(1.52rem, 6.5vw, 1.82rem);
+  }
 }

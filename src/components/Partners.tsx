@@ -22,7 +22,11 @@ export function Partners() {
     <Section id="colaboracion" className="partners">
       <header className="partners__intro" {...reveal('up')}>
         <p className="partners__eyebrow">Confianza y colaboración</p>
-        <h2>Trabajamos con pacientes, empresas e instituciones</h2>
+        <h2>
+          Trabajamos con pacientes,{' '}
+          <br className="partners__title-break" />
+          empresas e instituciones
+        </h2>
         <p className="partners__lead">
           Coordinamos casos con organizaciones públicas y privadas, aseguradoras
           y equipos de salud para construir rutas de atención más claras y

@@ -115,6 +115,10 @@ html.js-reveal [data-reveal='line']:not(.is-visible) {
   animation: motion-up 0.95s var(--motion-ease) 0.26s both;
 }
 
+.hero__link {
+  animation: motion-up 0.95s var(--motion-ease) 0.32s both;
+}
+
 .hero__aside {
   animation: motion-up 0.95s var(--motion-ease) 0.38s both;
 }
@@ -158,6 +162,7 @@ button {
   .hero__tagline,
   .hero__visual,
   .hero__copy,
+  .hero__link,
   .hero__aside {
     animation: none !important;
     clip-path: none !important;

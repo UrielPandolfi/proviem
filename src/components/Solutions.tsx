@@ -1,6 +1,8 @@
 import { Section } from './Section'
 import bgLeft from '../assets/bloque-izq.png'
 import bgRight from '../assets/bloque-der.png'
+import bgLegMobile from '../assets/bloque-pierna-mobile.png'
+import bgArmMobile from '../assets/bloque-brazo-mobile.png'
 import legImg from '../assets/pierna.png'
 import armImg from '../assets/brazo.png'
 import { reveal } from '../motion/reveal'
@@ -13,7 +15,7 @@ export function Solutions() {
           <p className="solutions__eyebrow">Soluciones protésicas</p>
           <h2>¿Qué tipo de prótesis necesitas?</h2>
           <p className="solutions__lead">
-            Explora nuestras alternativas para miembro inferior y superior.
+            Explora nuestras alternativas para miembro inferior y superior.{' '}
             <br />
             La recomendación final se determina después de conocer las
             condiciones y objetivos de cada persona.
@@ -26,7 +28,18 @@ export function Solutions() {
             href="#protesis-pierna"
             {...reveal('scale')}
           >
-            <img className="solutions__bg" src={bgLeft} alt="" draggable={false} />
+            <img
+              className="solutions__bg solutions__bg--desktop"
+              src={bgLeft}
+              alt=""
+              draggable={false}
+            />
+            <img
+              className="solutions__bg solutions__bg--mobile"
+              src={bgLegMobile}
+              alt=""
+              draggable={false}
+            />
             <img
               className="solutions__figure solutions__figure--leg"
               src={legImg}
@@ -48,7 +61,18 @@ export function Solutions() {
             href="#protesis-brazo"
             {...reveal('scale')}
           >
-            <img className="solutions__bg" src={bgRight} alt="" draggable={false} />
+            <img
+              className="solutions__bg solutions__bg--desktop"
+              src={bgRight}
+              alt=""
+              draggable={false}
+            />
+            <img
+              className="solutions__bg solutions__bg--mobile"
+              src={bgArmMobile}
+              alt=""
+              draggable={false}
+            />
             <img
               className="solutions__figure solutions__figure--arm"
               src={armImg}

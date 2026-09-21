@@ -26,10 +26,14 @@ export function ProcessSteps() {
     <Section id="proceso" className="process-steps" narrow>
       <header className="process-steps__intro" {...reveal('up')}>
         <p className="process-steps__eyebrow">De la valoración al seguimiento</p>
-        <h2>Tu proceso protésico, paso a paso</h2>
+        <h2>
+          Tu proceso protésico,{' '}
+          <br className="process-steps__title-break" />
+          paso a paso
+        </h2>
         <p className="process-steps__lead">
           Cada etapa tiene un objetivo diferente. Te explicamos qué hacemos, qué
-          puedes esperar
+          puedes esperar{' '}
           <br />
           y cómo te acompañamos durante el proceso.
         </p>

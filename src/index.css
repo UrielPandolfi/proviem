@@ -9,6 +9,10 @@
   --section-min-width: 1420px;
   --section-width-narrow: 72%;
   --section-min-width-narrow: 960px;
+  --mobile-eyebrow: 0.92rem;
+  --mobile-title: clamp(1.72rem, 7.2vw, 2.05rem);
+  --mobile-lead: 0.95rem;
+  --mobile-lead-leading: 1.42;
 }
 
 *,
@@ -89,4 +93,11 @@ select {
   min-width: 0;
   max-width: none;
   margin-inline: 0;
+}
+
+@media (max-width: 899px) {
+  .section:not(.section--full) > .section__inner,
+  .section--narrow > .section__inner {
+    width: calc(100% - 2.1rem);
+  }
 }

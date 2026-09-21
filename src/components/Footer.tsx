@@ -88,11 +88,11 @@ export function Footer() {
           <address className="site-footer__city">
             <p className="site-footer__city-name">CDMX</p>
             <p>
-              Mitikah, Torre de Consultorios
+              Mitikah, Torre de Consultorios{' '}
               <br />
-              2, Local 2, Río Churubusco 601,
+              2, Local 2, Río Churubusco 601,{' '}
               <br />
-              Xoco, Benito Juárez, C.P.
+              Xoco, Benito Juárez, C.P.{' '}
               <br />
               03330, CDMX.
             </p>
@@ -105,11 +105,11 @@ export function Footer() {
           <address className="site-footer__city">
             <p className="site-footer__city-name">MONTERREY</p>
             <p>
-              Plaza José Benítez 2020,
+              Plaza José Benítez 2020,{' '}
               <br />
-              Eje Metropolitano 24,
+              Eje Metropolitano 24,{' '}
               <br />
-              Deportivo Obispado,
+              Deportivo Obispado,{' '}
               <br />
               Monterrey, N.L.
             </p>
