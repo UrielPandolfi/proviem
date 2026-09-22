@@ -39,7 +39,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 2.25rem;
-  row-gap: 2.15rem;
+  row-gap: 3.75rem;
   align-items: center;
   justify-items: center;
   margin-top: 3.4rem;
@@ -133,7 +133,7 @@
   .partners__logos {
     grid-template-columns: 1fr 1fr;
     column-gap: 1.35rem;
-    row-gap: 2.15rem;
+    row-gap: 3.1rem;
     margin-top: 2.65rem;
   }
 
