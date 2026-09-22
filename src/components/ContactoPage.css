@@ -35,6 +35,7 @@
 
 .contacto__copy {
   max-width: 32rem;
+  align-self: start;
 }
 
 .contacto__eyebrow {
@@ -148,6 +149,7 @@
 
   .contacto__copy {
     max-width: none;
+    align-self: auto;
     text-align: center;
   }
 

@@ -3,10 +3,9 @@ import './Header.css'
 
 type Page = 'home' | 'nosotros' | 'contacto' | 'blog'
 
-const PAGE_LINKS = new Set(['Inicio', 'Nosotros', 'Blog', 'Contacto'])
+const PAGE_LINKS = new Set(['Nosotros', 'Blog', 'Contacto'])
 
 const LINKS = [
-  { label: 'Inicio', href: '#inicio', page: 'home' },
   { label: 'Prótesis', href: '#soluciones', page: 'home' },
   { label: 'Nosotros', href: '#nosotros', page: 'nosotros' },
   { label: 'Proceso', href: '#proceso', page: 'home' },
@@ -25,7 +24,13 @@ export function Header({ page = 'home' }: HeaderProps) {
     <header className="site-header">
       <div className="section__inner site-header__inner">
         <a className="site-header__logo" href="#inicio" aria-label="Proviem">
-          <img src={logo} alt="" draggable={false} />
+          <span
+            className="site-header__mark"
+            style={{
+              maskImage: `url("${logo}")`,
+              WebkitMaskImage: `url("${logo}")`,
+            }}
+          />
         </a>
 
         <nav className="site-header__nav" aria-label="Principal">

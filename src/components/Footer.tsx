@@ -1,17 +1,6 @@
 import logo from '../assets/LogoProviem_Logo 1.svg'
 import './Footer.css'
 
-const NAV = [
-  { href: '#inicio', label: 'Inicio' },
-  { href: '#nosotros', label: 'Nosotros' },
-  { href: '#soluciones', label: 'Prótesis' },
-  { href: '#proceso', label: 'Proceso' },
-  { href: '#clinicas', label: 'Clínicas' },
-  { href: '#colaboracion', label: 'Seguro' },
-  { href: '#blog', label: 'Blog' },
-  { href: '#contacto', label: 'Contacto' },
-] as const
-
 function FacebookIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -56,9 +45,9 @@ function PhoneIcon() {
   )
 }
 
-export function Footer() {
+export function Footer({ squareTop = false }: { squareTop?: boolean }) {
   return (
-    <footer className="site-footer">
+    <footer className={squareTop ? 'site-footer site-footer--square' : 'site-footer'}>
       <div className="section__inner">
         <div className="site-footer__grid">
           <div className="site-footer__brand">
@@ -124,14 +113,6 @@ export function Footer() {
               </a>
             </div>
           </address>
-
-          <nav className="site-footer__nav" aria-label="Pie de página">
-            {NAV.map((item) => (
-              <a key={item.label} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
         </div>
 
         <div className="site-footer__bottom">

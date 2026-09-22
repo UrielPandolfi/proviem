@@ -1,5 +1,5 @@
 .solutions {
-  padding: 5.5rem 0 7rem;
+  padding: 0 0 7rem;
 }
 
 .solutions .section__inner {
@@ -61,6 +61,12 @@
   max-width: none;
   object-fit: fill;
   pointer-events: none;
+  transition: filter var(--motion-fast) var(--motion-ease);
+}
+
+.solutions__card:hover .solutions__bg,
+.solutions__card:focus-visible .solutions__bg {
+  filter: saturate(2.4) hue-rotate(-28deg) brightness(1.02);
 }
 
 .solutions__bg--mobile {
@@ -145,7 +151,7 @@
 
 @media (max-width: 899px) {
   .solutions {
-    padding: 3.75rem 0 4.75rem;
+    padding: 0 0 4.75rem;
   }
 
   .solutions .section__inner {

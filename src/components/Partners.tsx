@@ -9,12 +9,12 @@ import { reveal } from '../motion/reveal'
 import './Partners.css'
 
 const LOGOS = [
-  { src: gnpLogo, alt: 'GNP', size: 'wide' },
-  { src: axaLogo, alt: 'AXA', size: 'compact' },
-  { src: imssLogo, alt: 'IMSS', size: 'compact' },
-  { src: nlLogo, alt: 'NL Salud', size: 'mid' },
-  { src: christusLogo, alt: 'Christus Muguerza', size: 'wide' },
-  { src: oaxacaLogo, alt: 'Oaxaca Salud', size: 'xl' },
+  { src: gnpLogo, alt: 'GNP' },
+  { src: axaLogo, alt: 'AXA' },
+  { src: imssLogo, alt: 'IMSS' },
+  { src: nlLogo, alt: 'NL Salud' },
+  { src: christusLogo, alt: 'Christus Muguerza' },
+  { src: oaxacaLogo, alt: 'Oaxaca Salud' },
 ] as const
 
 export function Partners() {
@@ -40,7 +40,7 @@ export function Partners() {
         {LOGOS.map((logo) => (
           <img
             key={logo.alt}
-            className={`partners__logo partners__logo--${logo.size}`}
+            className="partners__logo"
             src={logo.src}
             alt={logo.alt}
             draggable={false}

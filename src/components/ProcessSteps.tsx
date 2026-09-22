@@ -12,12 +12,12 @@ import './ProcessSteps.css'
 
 const STEPS = [
   { n: 1, title: 'Valoración', icon: icon1 },
-  { n: 2, title: 'Terapia Física', icon: icon2 },
-  { n: 3, title: 'Recomendación Protésica', icon: icon3 },
+  { n: 2, title: 'Terapia física', icon: icon2 },
+  { n: 3, title: 'Recomendación protésica', icon: icon3 },
   { n: 4, title: 'Toma de medidas', icon: icon4 },
   { n: 5, title: 'Fabricación', icon: icon5 },
   { n: 6, title: 'Prueba de la prótesis', icon: icon6 },
-  { n: 7, title: 'Entrenamiento Protésico', icon: icon7 },
+  { n: 7, title: 'Entrenamiento protésico', icon: icon7 },
   { n: 8, title: 'Entrega de prótesis y seguimiento', icon: icon8 },
 ] as const
 

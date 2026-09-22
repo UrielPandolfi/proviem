@@ -5,7 +5,7 @@
   --color-primary: #006bc4;
   --color-secondary: #47fcff;
   --font-sans: 'Instrument Sans', system-ui, sans-serif;
-  --section-width: 90%;
+  --section-width: min(90%, 1420px);
   --section-min-width: 1420px;
   --section-width-narrow: 72%;
   --section-min-width-narrow: 960px;
@@ -69,12 +69,6 @@ select {
   width: var(--section-width);
   max-width: 100%;
   margin-inline: auto;
-}
-
-@media (min-width: 1420px) {
-  .section:not(.section--narrow):not(.section--full) > .section__inner {
-    min-width: var(--section-min-width);
-  }
 }
 
 .section--narrow > .section__inner {

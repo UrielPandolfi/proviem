@@ -5,6 +5,7 @@ import networkImg from '../assets/Group 2.png'
 import maskImg from '../assets/Mask group.png'
 import photoImg from '../assets/Group 4.png'
 import { reveal } from '../motion/reveal'
+import { FIRST_LEG_FRAME, useHeroLegFrames } from '../motion/useHeroLegFrames'
 import './HomeHero.css'
 
 function useFitToWidth(mode: 'size' | 'tracking', text: string) {
@@ -67,6 +68,68 @@ function FitTrack({ text }: { text: string }) {
   return <span ref={ref}>{text}</span>
 }
 
+const STAT_COUNT = 1000
+const STAT_DURATION_MS = 1600
+const DESKTOP_QUERY = '(min-width: 900px)'
+
+function formatStatCount(value: number) {
+  return `+${Math.round(value).toLocaleString('en-US')}`
+}
+
+function StatCount() {
+  const ref = useRef<HTMLElement>(null)
+
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const desktopMq = window.matchMedia(DESKTOP_QUERY)
+    const motionMq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let raf = 0
+
+    const showFinal = () => {
+      el.textContent = formatStatCount(STAT_COUNT)
+    }
+
+    const run = () => {
+      if (!desktopMq.matches || motionMq.matches) {
+        showFinal()
+        return
+      }
+
+      const start = performance.now()
+      el.textContent = formatStatCount(0)
+
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / STAT_DURATION_MS)
+        const eased = 1 - (1 - t) ** 3
+        el.textContent = formatStatCount(STAT_COUNT * eased)
+        if (t < 1) raf = requestAnimationFrame(tick)
+      }
+
+      raf = requestAnimationFrame(tick)
+    }
+
+    run()
+
+    const onChange = () => {
+      cancelAnimationFrame(raf)
+      run()
+    }
+
+    desktopMq.addEventListener('change', onChange)
+    motionMq.addEventListener('change', onChange)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      desktopMq.removeEventListener('change', onChange)
+      motionMq.removeEventListener('change', onChange)
+    }
+  }, [])
+
+  return <strong ref={ref}>{formatStatCount(STAT_COUNT)}</strong>
+}
+
 function ArrowIcon() {
   return (
     <svg
@@ -88,8 +151,18 @@ function ArrowIcon() {
 }
 
 export function HomeHero() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const visualRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  useHeroLegFrames(sectionRef, canvasRef, visualRef)
+
   return (
-    <section id="inicio" className="hero" aria-label="Inicio Proviem">
+    <section
+      ref={sectionRef}
+      id="inicio"
+      className="hero"
+      aria-label="Inicio Proviem"
+    >
       <h1 className="hero__brand">
         <FitSize text="PROVIEM" />
       </h1>
@@ -97,18 +170,34 @@ export function HomeHero() {
         <FitTrack text="Tecnología en Movilidad Integral" />
       </p>
 
-      <div className="hero__visual">
+      <div className="hero__visual" ref={visualRef}>
         <img
           className="hero__glow"
           src={glowImg}
           alt=""
           draggable={false}
         />
-        <img
-          className="hero__leg"
-          src={piernaImg}
-          alt="Prótesis de miembro inferior"
-          draggable={false}
+        <picture>
+          {FIRST_LEG_FRAME ? (
+            <source
+              media="(min-width: 900px)"
+              srcSet={FIRST_LEG_FRAME}
+              type="image/webp"
+            />
+          ) : null}
+          <img
+            className="hero__leg hero__leg--static"
+            src={piernaImg}
+            alt="Prótesis de miembro inferior"
+            draggable={false}
+          />
+        </picture>
+        <canvas
+          ref={canvasRef}
+          className="hero__leg hero__leg--frames"
+          width={1088}
+          height={1900}
+          aria-hidden="true"
         />
       </div>
 
@@ -154,8 +243,8 @@ export function HomeHero() {
               <span className="hero__stat-arrow">
                 <ArrowIcon />
               </span>
+              <StatCount />
               <p>Personas atendidas recuperaron su movilidad</p>
-              <strong>+1,000</strong>
             </a>
             <img
               className="hero__network"
@@ -223,9 +312,6 @@ export function HomeHero() {
             Te incluimos terapias de rehabilitación, para que aprendas a usar tu
             nueva prótesis.
           </p>
-          <a className="hero__closing-link" href="#enfoque">
-            El enfoque Proviem
-          </a>
         </div>
       </div>
     </section>

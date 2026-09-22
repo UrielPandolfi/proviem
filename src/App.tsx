@@ -127,7 +127,7 @@ function App() {
           </>
         )}
       </main>
-      <Footer />
+      <Footer squareTop={page === 'contacto'} />
     </>
   )
 }

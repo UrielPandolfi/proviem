@@ -37,9 +37,9 @@
 
 .partners__logos {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 1.6rem;
-  row-gap: 2.6rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 2.25rem;
+  row-gap: 2.15rem;
   align-items: center;
   justify-items: center;
   margin-top: 3.4rem;
@@ -48,36 +48,54 @@
 .partners__logo {
   display: block;
   width: auto;
-  max-width: 100%;
+  height: 3.35rem;
+  max-width: 11.5rem;
   object-fit: contain;
 }
 
-.partners__logo--wide {
-  height: 3.35rem;
-  max-width: 12.5rem;
+.partners__logo:nth-child(1) {
+  order: 4;
 }
 
-.partners__logo--mid {
-  height: 3.85rem;
-  max-width: 11rem;
+.partners__logo:nth-child(2) {
+  order: 1;
 }
 
-.partners__logo--compact {
-  height: 4.35rem;
-  max-width: 5.25rem;
+.partners__logo:nth-child(3) {
+  order: 2;
 }
 
-.partners__logo--xl {
-  height: 2.85rem;
-  max-width: 15.5rem;
+.partners__logo:nth-child(4) {
+  order: 3;
 }
 
 .partners__logo:nth-child(5) {
-  grid-column: 1 / 3;
+  order: 5;
 }
 
 .partners__logo:nth-child(6) {
-  grid-column: 3 / 5;
+  order: 6;
+}
+
+.partners__logo:nth-child(2) {
+  height: 4.45rem;
+  max-width: 5.35rem;
+}
+
+.partners__logo:nth-child(3) {
+  height: 4.75rem;
+  max-width: 4.85rem;
+}
+
+.partners__logo:nth-child(4) {
+  height: 3.85rem;
+}
+
+.partners__logo:nth-child(5),
+.partners__logo:nth-child(6) {
+  width: 58%;
+  height: auto;
+  max-height: 3.35rem;
 }
 
 .partners__title-break {
@@ -119,51 +137,46 @@
     margin-top: 2.65rem;
   }
 
+  .partners__logo {
+    height: 2.45rem;
+    max-width: 8.5rem;
+  }
+
   .partners__logo:nth-child(1) {
     order: 1;
   }
 
   .partners__logo:nth-child(5) {
     order: 2;
-    grid-column: auto;
+    width: auto;
+    height: 2.35rem;
+    max-width: 8.5rem;
+    max-height: none;
   }
 
   .partners__logo:nth-child(2) {
     order: 3;
+    height: 3.15rem;
+    max-width: 3.85rem;
   }
 
   .partners__logo:nth-child(3) {
     order: 4;
-    height: 4.35rem;
-    max-width: 3.65rem;
+    height: 3.15rem;
+    max-width: 3.25rem;
   }
 
   .partners__logo:nth-child(6) {
     order: 5;
-    grid-column: auto;
+    width: 78%;
+    height: auto;
+    max-height: 2.45rem;
   }
 
   .partners__logo:nth-child(4) {
     order: 6;
-  }
-
-  .partners__logo--wide {
-    height: 2.35rem;
-    max-width: 9.25rem;
-  }
-
-  .partners__logo--compact {
-    height: 3.35rem;
-    max-width: 4.75rem;
-  }
-
-  .partners__logo--mid {
-    height: 3.45rem;
-    max-width: 7.25rem;
-  }
-
-  .partners__logo--xl {
-    height: 2.2rem;
-    max-width: 9.5rem;
+    width: auto;
+    height: 2.65rem;
+    max-width: 8.5rem;
   }
 }
