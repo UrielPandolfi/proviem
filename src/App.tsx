@@ -11,15 +11,24 @@ import { NosotrosHistoria } from './components/NosotrosHistoria'
 import { ContactoPage } from './components/ContactoPage'
 import { BlogPage } from './components/BlogPage'
 import { BlogMissing, BlogPostPage } from './components/BlogPost'
+import { ClinicasHero } from './components/ClinicasHero'
+import { ClinicasUbicaciones } from './components/ClinicasUbicaciones'
+import { ClinicasEspacios } from './components/ClinicasEspacios'
 import { getBlogPostBySlug } from './data/blog'
 import contactNosotrosImg from './assets/nosotros/contact-nosotros.png'
 import contactBlogImg from './assets/blog/contact-blog.png'
+import contactClinicasImg from './assets/clinicas/contacto.png'
 import { useReveal } from './motion/useReveal'
 
-type Page = 'home' | 'nosotros' | 'contacto' | 'blog'
+type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas'
 
 const NOSOTROS_HASHES = new Set(['#nosotros', '#enfoque', '#historia', '#equipo'])
 const CONTACTO_HASHES = new Set(['#contacto'])
+const CLINICAS_HASHES = new Set([
+  '#clinicas',
+  '#ubicaciones',
+  '#instalaciones',
+])
 const SHARED_HASHES = new Set(['#cita', '#colaboracion'])
 
 function isBlogHash(hash: string) {
@@ -35,6 +44,7 @@ function getBlogSlug(hash: string) {
 function resolvePage(hash: string, fallback: Page): Page {
   if (NOSOTROS_HASHES.has(hash)) return 'nosotros'
   if (CONTACTO_HASHES.has(hash)) return 'contacto'
+  if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (isBlogHash(hash)) return 'blog'
   if (hash === '#cita') return fallback === 'contacto' ? 'home' : fallback
   if (SHARED_HASHES.has(hash)) {
@@ -69,6 +79,7 @@ function App() {
       id === 'inicio' ||
       id === 'nosotros' ||
       id === 'contacto' ||
+      id === 'clinicas' ||
       id === 'blog' ||
       id.startsWith('blog/')
     ) {
@@ -101,6 +112,16 @@ function App() {
           </>
         ) : page === 'contacto' ? (
           <ContactoPage />
+        ) : page === 'clinicas' ? (
+          <>
+            <ClinicasHero />
+            <ClinicasUbicaciones />
+            <ClinicasEspacios />
+            <Contact
+              photo={contactClinicasImg}
+              photoAlt="Especialistas de Proviem, uno de ellos con una prótesis de brazo"
+            />
+          </>
         ) : page === 'blog' ? (
           <>
             {blogSlug ? (

@@ -1,0 +1,188 @@
+.clinicas-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - 5.6rem);
+  overflow: clip;
+  padding: 2.4rem 0 2.8rem;
+  background: var(--color-bg);
+}
+
+.clinicas-hero__filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.clinicas-hero__mark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 30%;
+  height: auto;
+  max-width: none;
+  filter: url(#clinicas-mark);
+  pointer-events: none;
+  user-select: none;
+}
+
+.clinicas-hero__visual {
+  position: absolute;
+  top: 52%;
+  right: -2%;
+  z-index: 1;
+  width: min(66%, 54rem);
+  transform: translateY(-48%);
+  pointer-events: none;
+}
+
+.clinicas-hero__ramp {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  object-position: right center;
+}
+
+.clinicas-hero .section__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.clinicas-hero__copy {
+  max-width: min(34rem, 46%);
+}
+
+.clinicas-hero__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--color-primary);
+  font-size: clamp(1.02rem, 1.25vw, 1.22rem);
+  font-weight: 500;
+}
+
+.clinicas-hero__copy h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.9rem, 2.65vw, 2.85rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.35px currentColor;
+}
+
+.clinicas-hero__copy h1 span {
+  white-space: nowrap;
+}
+
+.clinicas-hero__copy p:not(.clinicas-hero__eyebrow) {
+  max-width: 42ch;
+  margin: 1.15rem 0 0;
+  color: color-mix(in srgb, var(--color-primary) 90%, #10283e);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.48;
+}
+
+.clinicas-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.85rem;
+  padding: 0.78rem 1.55rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.clinicas-hero__cta:hover {
+  filter: brightness(1.05);
+}
+
+.clinicas-hero__cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1040px) {
+  .clinicas-hero__visual {
+    right: 0;
+    width: 50%;
+  }
+
+  .clinicas-hero__copy {
+    max-width: 44%;
+  }
+
+  .clinicas-hero__copy h1 {
+    font-size: 1.62rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .clinicas-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 1.35rem 0 2.4rem;
+  }
+
+  .clinicas-hero .section__inner {
+    order: 1;
+  }
+
+  .clinicas-hero__copy {
+    max-width: none;
+  }
+
+  .clinicas-hero__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .clinicas-hero__copy h1 {
+    font-size: var(--mobile-title);
+    -webkit-text-stroke: 0.28px currentColor;
+  }
+
+  .clinicas-hero__copy h1 span {
+    white-space: normal;
+  }
+
+  .clinicas-hero__copy p:not(.clinicas-hero__eyebrow) {
+    max-width: none;
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .clinicas-hero__cta {
+    width: 100%;
+    margin-top: 1.45rem;
+    font-size: 0.95rem;
+  }
+
+  .clinicas-hero__visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    order: 2;
+    width: calc(100% - 1.2rem);
+    margin: 1.6rem 0 0 auto;
+    transform: none;
+  }
+
+  .clinicas-hero__mark {
+    top: 0;
+    right: -6%;
+    width: 8.5rem;
+  }
+}

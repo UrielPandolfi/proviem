@@ -1,0 +1,138 @@
+.espacios {
+  padding: 2.4rem 0 3.4rem;
+}
+
+.espacios__intro {
+  max-width: none;
+  margin: 0 auto 2.6rem;
+  text-align: center;
+}
+
+.espacios__eyebrow {
+  margin: 0;
+  color: color-mix(in srgb, var(--color-primary) 42%, #d0e0ec);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.espacios__intro h2 {
+  margin: 0.45rem 0 0;
+  color: var(--color-primary);
+  font-size: clamp(2.05rem, 3.1vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.espacios__lead {
+  max-width: 40rem;
+  margin: 1rem auto 0;
+  color: var(--color-primary);
+  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.espacios__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 1.7rem;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-primary) 8%, #fff);
+  touch-action: pan-y;
+}
+
+.espacios__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.espacios__photo.is-active {
+  opacity: 1;
+}
+
+.espacios__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  transform: translateX(-50%);
+}
+
+.espacios__dot {
+  display: grid;
+  place-items: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.espacios__dot::before {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.62);
+  box-shadow: 0 0 0 1px rgb(0 40 80 / 0.12);
+}
+
+.espacios__dot.is-active::before {
+  background: #fff;
+}
+
+.espacios__dot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .espacios__photo {
+    transition: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .espacios {
+    padding: 1.5rem 0 2.2rem;
+  }
+
+  .espacios__intro {
+    margin-bottom: 1.6rem;
+  }
+
+  .espacios__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .espacios__intro h2 {
+    font-size: var(--mobile-title);
+  }
+
+  .espacios__lead {
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .espacios__stage {
+    border-radius: 1.35rem;
+  }
+
+  .espacios__dots {
+    bottom: 0.65rem;
+  }
+}
