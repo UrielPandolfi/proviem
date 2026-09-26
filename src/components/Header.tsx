@@ -1,14 +1,14 @@
 import logo from '../assets/logo.svg'
 import './Header.css'
 
-type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas'
+type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas' | 'proceso'
 
-const PAGE_LINKS = new Set(['Nosotros', 'Blog', 'Contacto', 'Clínicas'])
+const PAGE_LINKS = new Set(['Nosotros', 'Blog', 'Contacto', 'Clínicas', 'Proceso'])
 
 const LINKS = [
   { label: 'Prótesis', href: '#soluciones', page: 'home' },
   { label: 'Nosotros', href: '#nosotros', page: 'nosotros' },
-  { label: 'Proceso', href: '#proceso', page: 'home' },
+  { label: 'Proceso', href: '#proceso', page: 'proceso' },
   { label: 'Clínicas', href: '#clinicas', page: 'clinicas' },
   { label: 'Seguro', href: '#colaboracion', page: 'home' },
   { label: 'Blog', href: '#blog', page: 'blog' },

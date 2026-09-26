@@ -14,13 +14,17 @@ import { BlogMissing, BlogPostPage } from './components/BlogPost'
 import { ClinicasHero } from './components/ClinicasHero'
 import { ClinicasUbicaciones } from './components/ClinicasUbicaciones'
 import { ClinicasEspacios } from './components/ClinicasEspacios'
+import { ProcesoHero } from './components/ProcesoHero'
+import { ProcesoEtapas } from './components/ProcesoEtapas'
+import { ProcesoVideo } from './components/ProcesoVideo'
 import { getBlogPostBySlug } from './data/blog'
 import contactNosotrosImg from './assets/nosotros/contact-nosotros.png'
 import contactBlogImg from './assets/blog/contact-blog.png'
 import contactClinicasImg from './assets/clinicas/contacto.png'
+import contactProcesoImg from './assets/Proceso/contacto.png'
 import { useReveal } from './motion/useReveal'
 
-type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas'
+type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas' | 'proceso'
 
 const NOSOTROS_HASHES = new Set(['#nosotros', '#enfoque', '#historia', '#equipo'])
 const CONTACTO_HASHES = new Set(['#contacto'])
@@ -29,6 +33,7 @@ const CLINICAS_HASHES = new Set([
   '#ubicaciones',
   '#instalaciones',
 ])
+const PROCESO_HASHES = new Set(['#proceso', '#etapas'])
 const SHARED_HASHES = new Set(['#cita', '#colaboracion'])
 
 function isBlogHash(hash: string) {
@@ -45,6 +50,7 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (NOSOTROS_HASHES.has(hash)) return 'nosotros'
   if (CONTACTO_HASHES.has(hash)) return 'contacto'
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
+  if (PROCESO_HASHES.has(hash)) return 'proceso'
   if (isBlogHash(hash)) return 'blog'
   if (hash === '#cita') return fallback === 'contacto' ? 'home' : fallback
   if (SHARED_HASHES.has(hash)) {
@@ -80,6 +86,7 @@ function App() {
       id === 'nosotros' ||
       id === 'contacto' ||
       id === 'clinicas' ||
+      id === 'proceso' ||
       id === 'blog' ||
       id.startsWith('blog/')
     ) {
@@ -120,6 +127,16 @@ function App() {
             <Contact
               photo={contactClinicasImg}
               photoAlt="Especialistas de Proviem, uno de ellos con una prótesis de brazo"
+            />
+          </>
+        ) : page === 'proceso' ? (
+          <>
+            <ProcesoHero />
+            <ProcesoEtapas />
+            <ProcesoVideo />
+            <Contact
+              photo={contactProcesoImg}
+              photoAlt="Especialista de Proviem junto a las barras paralelas"
             />
           </>
         ) : page === 'blog' ? (

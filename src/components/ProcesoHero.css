@@ -1,0 +1,243 @@
+.proceso-hero {
+  --proceso-photo-ratio: calc(875 / 814);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: max(
+    calc(100svh - 5.6rem),
+    calc(50vw * var(--proceso-photo-ratio) + 3.2rem)
+  );
+  overflow: visible;
+  padding: 2.6rem 0 2.8rem;
+  background:
+    radial-gradient(
+      ellipse 58% 78% at 12% 48%,
+      #fff 0%,
+      transparent 70%
+    ),
+    var(--color-bg);
+}
+
+.proceso-hero__filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.proceso-hero__mark {
+  position: absolute;
+  left: 0;
+  top: 54%;
+  z-index: 0;
+  width: auto;
+  height: min(36rem, 68%);
+  transform: translate(-22%, -50%);
+  object-fit: contain;
+  object-position: left center;
+  filter: url(#proceso-alpha-mark);
+  pointer-events: none;
+}
+
+.proceso-hero__visual {
+  position: absolute;
+  top: 0.85rem;
+  right: 0;
+  bottom: 0.85rem;
+  z-index: 0;
+  width: 50%;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.proceso-hero__stack {
+  position: relative;
+  width: min(100cqi, calc(100cqh * 814 / 875));
+  height: min(100cqh, calc(100cqi * 875 / 814));
+}
+
+.proceso-hero__glow {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  z-index: 0;
+  width: 108%;
+  height: 108%;
+  transform: translate(-50%, -50%);
+  border-radius: 38% 62% 48% 52% / 42% 36% 64% 58%;
+  background: radial-gradient(
+    ellipse 72% 68% at 58% 46%,
+    var(--color-secondary) 0%,
+    color-mix(in srgb, var(--color-secondary) 70%, transparent) 38%,
+    transparent 72%
+  );
+  opacity: 0.4;
+  filter: blur(36px);
+}
+
+.proceso-hero__photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.proceso-hero .section__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.proceso-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 32rem;
+}
+
+.proceso-hero__eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--color-primary);
+  font-size: clamp(1.02rem, 1.25vw, 1.22rem);
+  font-weight: 500;
+}
+
+.proceso-hero__copy h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(2rem, 2.85vw, 3.05rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.35px currentColor;
+}
+
+.proceso-hero__copy h1 span {
+  white-space: nowrap;
+}
+
+.proceso-hero__lead {
+  font-size: 1.18em;
+}
+
+.proceso-hero__copy p:not(.proceso-hero__eyebrow) {
+  max-width: 38ch;
+  margin: 0.95rem 0 0;
+  color: color-mix(in srgb, var(--color-primary) 90%, #10283e);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.48;
+}
+
+.proceso-hero__copy p:not(.proceso-hero__eyebrow) + p {
+  margin-top: 0.85rem;
+}
+
+.proceso-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.85rem;
+  padding: 0.78rem 1.45rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.proceso-hero__cta:hover {
+  filter: brightness(1.05);
+}
+
+.proceso-hero__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.15rem;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.proceso-hero__cta:focus-visible,
+.proceso-hero__more:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 899px) {
+  .proceso-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 1.35rem 0 2.4rem;
+  }
+
+  .proceso-hero__mark {
+    height: min(22rem, 48%);
+  }
+
+  .proceso-hero .section__inner {
+    order: 1;
+  }
+
+  .proceso-hero__copy {
+    max-width: none;
+  }
+
+  .proceso-hero__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .proceso-hero__copy h1 {
+    font-size: var(--mobile-title);
+    -webkit-text-stroke: 0.28px currentColor;
+  }
+
+  .proceso-hero__copy h1 span {
+    white-space: normal;
+  }
+
+  .proceso-hero__copy p:not(.proceso-hero__eyebrow) {
+    max-width: none;
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .proceso-hero__cta {
+    width: 100%;
+    margin-top: 1.45rem;
+    font-size: 0.95rem;
+  }
+
+  .proceso-hero__visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    order: 2;
+    width: calc(100% - 2.1rem);
+    height: auto;
+    margin: 1.7rem auto 0;
+    aspect-ratio: 814 / 875;
+    container-type: normal;
+  }
+
+  .proceso-hero__stack {
+    width: 100%;
+    height: 100%;
+  }
+}

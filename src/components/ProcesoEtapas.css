@@ -1,0 +1,228 @@
+.etapas {
+  padding: 4.2rem 0 3.4rem;
+}
+
+.etapas__intro {
+  max-width: none;
+  margin: 0 auto 3.2rem;
+  text-align: center;
+}
+
+.etapas__eyebrow {
+  margin: 0;
+  color: color-mix(in srgb, var(--color-primary) 42%, #d0e0ec);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.etapas__intro h2 {
+  margin: 0.45rem 0 0;
+  color: var(--color-primary);
+  font-size: clamp(2.05rem, 3.1vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.etapas__lead {
+  max-width: 46rem;
+  margin: 1rem auto 0;
+  color: var(--color-primary);
+  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.etapas__track {
+  position: relative;
+}
+
+.etapas__lines {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.etapas__line {
+  --line-draw: 0;
+  --line-fade: 3rem;
+  position: absolute;
+  left: 6%;
+  width: 88%;
+  max-width: none;
+  object-fit: fill;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 calc(var(--line-draw) * 100% - var(--line-fade)),
+    transparent calc(var(--line-draw) * 100%)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(var(--line-draw) * 100% - var(--line-fade)),
+    transparent calc(var(--line-draw) * 100%)
+  );
+}
+
+.etapas__list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.65rem;
+  width: 100%;
+}
+
+.etapas__row {
+  --motion-distance: 3.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+  align-items: stretch;
+}
+
+.etapas__title {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.etapas__copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.etapas__row--reverse .etapas__title {
+  grid-column: 3;
+}
+
+.etapas__row--reverse .etapas__copy {
+  grid-column: 2;
+}
+
+.etapas__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 15.5rem;
+  padding: 1.55rem 1.35rem 1.2rem;
+  border-radius: 1.55rem;
+  background: var(--color-primary);
+}
+
+.etapas__title--light {
+  background: var(--color-secondary);
+}
+
+.etapas__title h3 {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: clamp(1.45rem, 1.8vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.etapas__title--light h3 {
+  color: var(--color-primary);
+}
+
+.etapas__title img {
+  width: 4.15rem;
+  height: auto;
+  max-width: none;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.etapas__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.15rem;
+  padding: 2rem 2.2rem;
+  border-radius: 1.55rem;
+  background: #fff;
+  text-align: center;
+}
+
+.etapas__copy p {
+  max-width: 22.5rem;
+  margin: 0 auto;
+  color: var(--color-primary);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .etapas__line {
+    --line-draw: 1;
+    --line-fade: 0px;
+  }
+}
+
+@media (max-width: 899px) {
+  .etapas {
+    padding: 2.4rem 0 1.8rem;
+  }
+
+  .etapas__intro {
+    margin-bottom: 1.7rem;
+  }
+
+  .etapas__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .etapas__intro h2 {
+    font-size: var(--mobile-title);
+  }
+
+  .etapas__lead {
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .etapas__lines {
+    display: none;
+  }
+
+  .etapas__row,
+  .etapas__row--reverse {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .etapas__title,
+  .etapas__copy,
+  .etapas__row--reverse .etapas__title,
+  .etapas__row--reverse .etapas__copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .etapas__row--reverse .etapas__title {
+    order: -1;
+  }
+
+  .etapas__title {
+    min-height: 12.5rem;
+    padding: 1.3rem 1.15rem 1rem;
+    border-radius: 1.35rem;
+  }
+
+  .etapas__title h3 {
+    font-size: 1.45rem;
+  }
+
+  .etapas__copy {
+    padding: 1.35rem 1.15rem;
+    border-radius: 1.35rem;
+  }
+
+  .etapas__copy p {
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+}
