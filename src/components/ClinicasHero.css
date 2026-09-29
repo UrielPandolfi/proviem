@@ -34,7 +34,7 @@
   top: 52%;
   right: -2%;
   z-index: 1;
-  width: min(66%, 54rem);
+  width: max(50%, min(66%, 54rem));
   transform: translateY(-48%);
   pointer-events: none;
 }

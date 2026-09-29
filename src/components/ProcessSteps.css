@@ -47,7 +47,8 @@
 
 .process-steps__card {
   position: relative;
-  aspect-ratio: 1;
+  container-type: inline-size;
+  aspect-ratio: 1 / 1.16;
   padding: 1.15rem 1.1rem 0.85rem;
   overflow: hidden;
   border-radius: 1.45rem;
@@ -63,9 +64,9 @@
 .process-steps__card h3 {
   position: relative;
   z-index: 1;
-  max-width: 8.6em;
+  max-width: 9.2em;
   margin: 0;
-  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
+  font-size: clamp(1.05rem, 14.5cqi, 2.5rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -74,10 +75,10 @@
 .process-steps__icon {
   position: relative;
   z-index: 1;
-  width: 3.15rem;
-  height: 3.15rem;
+  width: clamp(2.4rem, 38cqi, 7.2rem);
+  height: clamp(2.4rem, 38cqi, 7.2rem);
   max-width: none;
-  margin-top: 1.15rem;
+  margin-top: clamp(0.75rem, 7cqi, 1.35rem);
 }
 
 .process-steps__num {
@@ -163,12 +164,11 @@
   }
 
   .process-steps__card h3 {
-    max-width: 7.2em;
-    font-size: 1.06rem;
+    max-width: 8.4em;
   }
 
   .process-steps__icon {
-    display: none;
+    margin-top: 0.55rem;
   }
 
   .process-steps__num {
