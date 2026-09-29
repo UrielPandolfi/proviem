@@ -23,6 +23,18 @@
     var(--color-bg);
 }
 
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: 7rem;
+  background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
+  pointer-events: none;
+}
+
 .contact__visual {
   position: absolute;
   top: clamp(2rem, 7%, 4.5rem);
@@ -57,6 +69,8 @@
   object-fit: contain;
   object-position: right center;
   opacity: 0.78;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 18%);
 }
 
 .contact__photo {

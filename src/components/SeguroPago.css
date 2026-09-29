@@ -3,7 +3,7 @@
   isolation: isolate;
   z-index: 2;
   overflow: visible;
-  padding: 4.4rem 0 0;
+  padding: 7.6rem 0 3.6rem;
   background: var(--color-primary);
   color: #fff;
 }
@@ -31,7 +31,7 @@
 
 .seguro-pago__intro {
   max-width: 68rem;
-  margin: 0 auto 2.1rem;
+  margin: 0 auto 4.2rem;
   text-align: center;
 }
 
@@ -63,7 +63,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-bottom: -2.35rem;
+  margin-bottom: -5.95rem;
   padding: 2.15rem 2.75rem 3.5rem;
   border-radius: 1.7rem;
   background: linear-gradient(
@@ -97,7 +97,7 @@
 
 .seguro-pago__step {
   position: relative;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1.22;
   min-height: 0;
   padding: 1.15rem 1.15rem 0;
   overflow: hidden;
@@ -111,7 +111,7 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  font-size: 1.18rem;
+  font-size: clamp(1.15rem, 2.05vw, 1.75rem);
   font-weight: 600;
   line-height: 1.2;
 }
@@ -122,8 +122,8 @@
 
 .seguro-pago__num {
   position: absolute;
-  right: 0.45rem;
-  bottom: -0.09em;
+  right: calc(0.45rem + 6px);
+  bottom: calc(0.04em + 2px);
   margin: 0;
   color: var(--color-secondary);
   font-size: clamp(4.35rem, 5.4vw, 5.35rem);
@@ -167,11 +167,11 @@
 
 @media (max-width: 899px) {
   .seguro-pago {
-    padding: 2.6rem 0 0;
+    padding: 4.2rem 0 1.8rem;
   }
 
   .seguro-pago__intro {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.6rem;
   }
 
   .seguro-pago__eyebrow {
@@ -189,7 +189,7 @@
   }
 
   .seguro-pago__panel {
-    margin-bottom: -1.6rem;
+    margin-bottom: -3.4rem;
     padding: 1.35rem 1.15rem 2rem;
     border-radius: 1.25rem;
   }
@@ -208,7 +208,7 @@
 
   .seguro-pago__step p {
     max-width: 78%;
-    font-size: 1.14rem;
+    font-size: clamp(1.08rem, 4.8vw, 1.35rem);
   }
 
   .seguro-pago__num {

@@ -130,8 +130,8 @@ function App() {
         ) : page === 'clinicas' ? (
           <>
             <ClinicasHero />
-            <ClinicasUbicaciones />
             <ClinicasEspacios />
+            <ClinicasUbicaciones />
             <Contact
               photo={contactClinicasImg}
               photoAlt="Especialistas de Proviem, uno de ellos con una prótesis de brazo"

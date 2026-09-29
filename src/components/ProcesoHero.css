@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   min-height: max(
-    calc(100svh - 5.6rem),
+    calc(100svh - var(--header-offset)),
     calc(50vw * var(--proceso-photo-ratio) + 3.2rem)
   );
   overflow: visible;
@@ -91,6 +91,7 @@
 .proceso-hero .section__inner {
   position: relative;
   z-index: 1;
+  transform: translateY(-2.75rem);
 }
 
 .proceso-hero__copy {
@@ -112,6 +113,7 @@
   flex-direction: column;
   margin: 0;
   color: var(--color-primary);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 2.85vw, 3.05rem);
   font-weight: 800;
   line-height: 0.98;
@@ -192,6 +194,7 @@
 
   .proceso-hero .section__inner {
     order: 1;
+    transform: none;
   }
 
   .proceso-hero__copy {

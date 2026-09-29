@@ -1,7 +1,7 @@
 // Contenido temporal del blog. Más adelante se sustituye por el headless de WordPress.
 import coverValoracion from '../assets/nosotros/historia.png'
 import coverTecnologia from '../assets/nosotros/historia-2.png'
-import coverSeguros from '../assets/nosotros/historia.png'
+import coverSeguros from '../assets/Proceso/image 16.png'
 import coverRehab from '../assets/nosotros/historia-2.png'
 
 export const BLOG_CATEGORIES = [
@@ -125,7 +125,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'seguros',
     date: '2026-06-18',
     cover: coverSeguros,
-    coverAlt: 'Área de entrenamiento protésico en una clínica Proviem',
+    coverAlt: 'Especialista de Proviem en el área de entrenamiento de la clínica',
     blocks: [
       {
         type: 'p',

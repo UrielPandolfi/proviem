@@ -5,6 +5,7 @@
   --color-primary: #006bc4;
   --color-secondary: #47fcff;
   --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --font-display: 'Montserrat', var(--font-sans);
   --section-width: min(90%, 1420px);
   --section-min-width: 1420px;
   --section-width-narrow: 72%;
@@ -13,6 +14,7 @@
   --mobile-title: clamp(1.72rem, 7.2vw, 2.05rem);
   --mobile-lead: 0.95rem;
   --mobile-lead-leading: 1.42;
+  --header-offset: 4.7rem;
 }
 
 *,
@@ -31,6 +33,10 @@ body,
 html,
 body {
   overflow-x: clip;
+}
+
+html {
+  scroll-padding-top: var(--header-offset);
 }
 
 #root,
@@ -90,8 +96,16 @@ select {
 }
 
 @media (max-width: 899px) {
+  :root {
+    --header-offset: 3.65rem;
+  }
+
   .section:not(.section--full) > .section__inner,
   .section--narrow > .section__inner {
     width: calc(100% - 2.1rem);
   }
+}
+
+main {
+  padding-top: var(--header-offset);
 }

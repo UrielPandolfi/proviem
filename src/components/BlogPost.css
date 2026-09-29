@@ -4,7 +4,7 @@
 }
 
 .blog-post--missing {
-  min-height: calc(100svh - 5.6rem);
+  min-height: calc(100svh - var(--header-offset));
   padding-top: 4.5rem;
 }
 

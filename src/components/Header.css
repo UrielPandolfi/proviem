@@ -1,6 +1,9 @@
 .site-header {
-  position: relative;
-  z-index: 20;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 40;
   padding: 1.15rem 0 0.85rem;
   background: var(--color-bg);
 }
@@ -14,6 +17,7 @@
 .site-header__logo {
   display: block;
   justify-self: start;
+  text-decoration: none;
 }
 
 .site-header__mark {
@@ -21,6 +25,7 @@
   width: 2.15rem;
   aspect-ratio: 69 / 64;
   background: var(--color-primary);
+  clip-path: inset(1.5px 0 0 0);
   mask-mode: alpha;
   mask-repeat: no-repeat;
   mask-position: center;
