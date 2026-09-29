@@ -39,13 +39,16 @@
 
 .seguro-hero__photo {
   position: absolute;
-  inset: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
-  width: 100%;
+  width: auto;
   height: 100%;
-  max-width: none;
+  max-width: 100%;
   object-fit: contain;
   object-position: right bottom;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%);
   pointer-events: none;
   user-select: none;
 }

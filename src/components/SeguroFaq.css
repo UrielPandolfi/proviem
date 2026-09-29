@@ -15,7 +15,7 @@
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center center;
+  object-position: center bottom;
   pointer-events: none;
   user-select: none;
   -webkit-mask-image: linear-gradient(
