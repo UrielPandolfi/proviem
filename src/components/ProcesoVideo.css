@@ -45,7 +45,7 @@
   background: #d7e8f2;
 }
 
-.proceso-video__frame img {
+.proceso-video__frame video {
   width: 100%;
   height: 100%;
   max-width: none;
@@ -61,16 +61,30 @@
   place-items: center;
   width: clamp(5.6rem, 11vw, 8.4rem);
   aspect-ratio: 1;
+  padding: 0;
+  border: 0;
   border-radius: 50%;
   background: var(--color-secondary);
   color: var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 0.7rem 1.6rem rgb(0 48 96 / 18%);
   transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.proceso-video__play:hover {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.proceso-video__play:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 
 .proceso-video__play svg {
-  width: 34%;
-  height: auto;
-  margin-left: 7%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 899px) {

@@ -1,8 +1,19 @@
+import { useRef, useState } from 'react'
 import poster from '../assets/Proceso/image 16.png'
+import videoSrc from '../assets/Proceso/VideoSiteProviem.mp4'
 import { reveal } from '../motion/reveal'
 import './ProcesoVideo.css'
 
 export function ProcesoVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [started, setStarted] = useState(false)
+
+  function play() {
+    const video = videoRef.current
+    if (!video) return
+    void video.play()
+  }
+
   return (
     <section className="proceso-video" aria-labelledby="proceso-video-title">
       <div className="section__inner">
@@ -24,19 +35,34 @@ export function ProcesoVideo() {
       </div>
 
       <figure className="proceso-video__frame" {...reveal('fade')}>
-        <img
-          src={poster}
-          alt="Especialista de Proviem en la clínica, junto a las barras paralelas"
-          draggable={false}
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          poster={poster}
+          controls={started}
+          playsInline
+          preload="metadata"
+          aria-label="Especialista de Proviem en la clínica, junto a las barras paralelas"
+          onPlay={() => setStarted(true)}
         />
-        <span className="proceso-video__play" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path
-              d="M8.2 5.7c0-.9 1-1.5 1.8-.9l9.2 6.3c.7.5.7 1.5 0 1.9l-9.2 6.3c-.8.5-1.8 0-1.8-.9V5.7Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
+        {started ? null : (
+          <button
+            type="button"
+            className="proceso-video__play"
+            aria-label="Reproducir video"
+            onClick={play}
+          >
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <polygon
+                points="34,30 66,50 34,70"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        )}
       </figure>
     </section>
   )
