@@ -48,7 +48,7 @@
 .process-steps__card {
   position: relative;
   container-type: inline-size;
-  aspect-ratio: 1 / 1.16;
+  aspect-ratio: 1 / 1.05;
   padding: 1.15rem 1.1rem 0.85rem;
   overflow: hidden;
   border-radius: 1.45rem;
@@ -66,7 +66,7 @@
   z-index: 1;
   max-width: 9.2em;
   margin: 0;
-  font-size: clamp(1.05rem, 14.5cqi, 2.5rem);
+  font-size: clamp(1rem, 11.5cqi, 1.6rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -75,8 +75,8 @@
 .process-steps__icon {
   position: relative;
   z-index: 1;
-  width: clamp(2.4rem, 38cqi, 7.2rem);
-  height: clamp(2.4rem, 38cqi, 7.2rem);
+  width: clamp(2.15rem, 28cqi, 4.4rem);
+  height: clamp(2.15rem, 28cqi, 4.4rem);
   max-width: none;
   margin-top: clamp(0.75rem, 7cqi, 1.35rem);
 }

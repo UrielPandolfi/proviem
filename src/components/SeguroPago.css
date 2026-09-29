@@ -111,7 +111,7 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  font-size: clamp(1.15rem, 2.05vw, 1.75rem);
+  font-size: clamp(1.05rem, 1.7vw, 1.45rem);
   font-weight: 600;
   line-height: 1.2;
 }
@@ -208,7 +208,7 @@
 
   .seguro-pago__step p {
     max-width: 78%;
-    font-size: clamp(1.08rem, 4.8vw, 1.35rem);
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
   }
 
   .seguro-pago__num {
