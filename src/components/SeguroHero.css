@@ -1,0 +1,208 @@
+.seguro-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - 5.6rem);
+  overflow: clip;
+  padding: 2.4rem 0 2.2rem;
+  background: var(--color-bg);
+}
+
+.seguro-hero__wash {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 52% 70% at 78% 42%,
+    color-mix(in srgb, var(--color-primary) 16%, transparent) 0%,
+    color-mix(in srgb, var(--color-secondary) 12%, transparent) 42%,
+    transparent 74%
+  );
+  pointer-events: none;
+}
+
+.seguro-hero__shape {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 0;
+  width: auto;
+  height: 108%;
+  max-width: none;
+  transform: translateY(-48%);
+  object-fit: contain;
+  object-position: right center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.seguro-hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: right 62%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.seguro-hero .section__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.seguro-hero__copy {
+  max-width: min(34rem, 46%);
+}
+
+.seguro-hero__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--color-primary);
+  font-size: clamp(1.02rem, 1.25vw, 1.22rem);
+  font-weight: 500;
+}
+
+.seguro-hero__copy h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.85rem, 2.55vw, 2.72rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.35px currentColor;
+}
+
+.seguro-hero__copy h1 span {
+  white-space: nowrap;
+}
+
+.seguro-hero__copy p:not(.seguro-hero__eyebrow) {
+  max-width: 42ch;
+  margin: 1.15rem 0 0;
+  color: color-mix(in srgb, var(--color-primary) 90%, #10283e);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.48;
+}
+
+.seguro-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.7rem;
+  padding: 0.72rem 1.55rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.seguro-hero__cta:hover {
+  filter: brightness(1.05);
+}
+
+.seguro-hero__cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1040px) {
+  .seguro-hero__copy {
+    max-width: 44%;
+  }
+
+  .seguro-hero__copy h1 {
+    font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .seguro-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 1.35rem 0 0;
+  }
+
+  .seguro-hero .section__inner {
+    order: 1;
+  }
+
+  .seguro-hero__copy {
+    max-width: none;
+  }
+
+  .seguro-hero__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .seguro-hero__copy h1 {
+    font-size: var(--mobile-title);
+    -webkit-text-stroke: 0.28px currentColor;
+  }
+
+  .seguro-hero__copy h1 span {
+    white-space: normal;
+  }
+
+  .seguro-hero__copy p:not(.seguro-hero__eyebrow) {
+    max-width: none;
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .seguro-hero__cta {
+    width: 100%;
+    margin-top: 1.45rem;
+    font-size: 0.95rem;
+  }
+
+  .seguro-hero__wash,
+  .seguro-hero__shape,
+  .seguro-hero__photo {
+    position: relative;
+    inset: auto;
+    top: auto;
+    right: auto;
+    order: 2;
+    transform: none;
+  }
+
+  .seguro-hero__wash {
+    position: absolute;
+    inset: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 46%;
+  }
+
+  .seguro-hero__shape {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 44%;
+    transform: none;
+  }
+
+  .seguro-hero__photo {
+    width: 100%;
+    height: auto;
+    margin-top: 1.4rem;
+    aspect-ratio: 2268 / 1578;
+    object-fit: cover;
+    object-position: right bottom;
+  }
+}

@@ -17,14 +17,19 @@ import { ClinicasEspacios } from './components/ClinicasEspacios'
 import { ProcesoHero } from './components/ProcesoHero'
 import { ProcesoEtapas } from './components/ProcesoEtapas'
 import { ProcesoVideo } from './components/ProcesoVideo'
+import { SeguroHero } from './components/SeguroHero'
+import { SeguroPago } from './components/SeguroPago'
+import { SeguroFaq } from './components/SeguroFaq'
+import { SeguroDudas } from './components/SeguroDudas'
 import { getBlogPostBySlug } from './data/blog'
 import contactNosotrosImg from './assets/nosotros/contact-nosotros.png'
 import contactBlogImg from './assets/blog/contact-blog.png'
 import contactClinicasImg from './assets/clinicas/contacto.png'
 import contactProcesoImg from './assets/Proceso/contacto.png'
+import contactSeguroImg from './assets/seguro/contacto.png'
 import { useReveal } from './motion/useReveal'
 
-type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas' | 'proceso'
+type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas' | 'proceso' | 'seguro'
 
 const NOSOTROS_HASHES = new Set(['#nosotros', '#enfoque', '#historia', '#equipo'])
 const CONTACTO_HASHES = new Set(['#contacto'])
@@ -34,6 +39,7 @@ const CLINICAS_HASHES = new Set([
   '#instalaciones',
 ])
 const PROCESO_HASHES = new Set(['#proceso', '#etapas'])
+const SEGURO_HASHES = new Set(['#seguro', '#pago-directo', '#faq'])
 const SHARED_HASHES = new Set(['#cita', '#colaboracion'])
 
 function isBlogHash(hash: string) {
@@ -51,6 +57,7 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (CONTACTO_HASHES.has(hash)) return 'contacto'
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (PROCESO_HASHES.has(hash)) return 'proceso'
+  if (SEGURO_HASHES.has(hash)) return 'seguro'
   if (isBlogHash(hash)) return 'blog'
   if (hash === '#cita') return fallback === 'contacto' ? 'home' : fallback
   if (SHARED_HASHES.has(hash)) {
@@ -87,6 +94,7 @@ function App() {
       id === 'contacto' ||
       id === 'clinicas' ||
       id === 'proceso' ||
+      id === 'seguro' ||
       id === 'blog' ||
       id.startsWith('blog/')
     ) {
@@ -137,6 +145,17 @@ function App() {
             <Contact
               photo={contactProcesoImg}
               photoAlt="Especialista de Proviem junto a las barras paralelas"
+            />
+          </>
+        ) : page === 'seguro' ? (
+          <>
+            <SeguroHero />
+            <SeguroPago />
+            <SeguroFaq />
+            <SeguroDudas />
+            <Contact
+              photo={contactSeguroImg}
+              photoAlt="Especialista de Proviem acompañando a un paciente con prótesis en la escalera de entrenamiento"
             />
           </>
         ) : page === 'blog' ? (
