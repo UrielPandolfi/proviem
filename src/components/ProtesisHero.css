@@ -1,0 +1,199 @@
+.protesis-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--header-offset));
+  overflow: clip;
+  padding: 2.4rem 0;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-primary) 13%, var(--color-bg)) 0%,
+      color-mix(in srgb, var(--color-primary) 4%, var(--color-bg)) 16%,
+      var(--color-bg) 38%
+    );
+}
+
+.protesis-hero__shape {
+  position: absolute;
+  top: 54%;
+  left: 0;
+  z-index: 0;
+  width: auto;
+  height: 72%;
+  max-width: none;
+  object-fit: contain;
+  object-position: left center;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.protesis-hero__figure {
+  position: absolute;
+  top: 52%;
+  left: 5%;
+  z-index: 1;
+  width: auto;
+  height: 112%;
+  max-width: none;
+  object-fit: contain;
+  object-position: left center;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.protesis-hero .section__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.protesis-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: min(34rem, 46%);
+  text-align: right;
+}
+
+.protesis-hero__eyebrow {
+  margin: 0 0 0.55rem;
+  color: var(--color-primary);
+  font-size: clamp(1.02rem, 1.25vw, 1.22rem);
+  font-weight: 500;
+}
+
+.protesis-hero__copy h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 3.35vw, 3.35rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.35px currentColor;
+}
+
+.protesis-hero__copy h1 span {
+  white-space: nowrap;
+}
+
+.protesis-hero__copy p:not(.protesis-hero__eyebrow) {
+  max-width: 36ch;
+  margin: 1.2rem 0 0;
+  color: color-mix(in srgb, var(--color-primary) 90%, #10283e);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.48;
+}
+
+.protesis-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-top: 1.7rem;
+  padding: 0.78rem 1.55rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.protesis-hero__cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1040px) {
+  .protesis-hero__figure {
+    left: 2%;
+    height: 100%;
+  }
+
+  .protesis-hero__copy {
+    width: min(28rem, 48%);
+  }
+}
+
+@media (max-width: 899px) {
+  .protesis-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 1.35rem 0 0;
+  }
+
+  .protesis-hero .section__inner {
+    order: 1;
+    justify-content: stretch;
+  }
+
+  .protesis-hero__copy {
+    align-items: flex-start;
+    width: 100%;
+    text-align: left;
+  }
+
+  .protesis-hero__eyebrow {
+    font-size: var(--mobile-eyebrow);
+  }
+
+  .protesis-hero__copy h1 {
+    align-items: flex-start;
+    font-size: var(--mobile-title);
+    -webkit-text-stroke: 0.28px currentColor;
+  }
+
+  .protesis-hero__copy h1 span {
+    white-space: normal;
+  }
+
+  .protesis-hero__copy p:not(.protesis-hero__eyebrow) {
+    max-width: none;
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+
+  .protesis-hero__cta {
+    width: 100%;
+    margin-top: 1.45rem;
+    font-size: 0.95rem;
+  }
+
+  .protesis-hero__shape,
+  .protesis-hero__figure {
+    position: relative;
+    top: auto;
+    left: auto;
+    order: 2;
+    height: auto;
+    transform: none;
+  }
+
+  .protesis-hero__shape {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    height: 46%;
+  }
+
+  .protesis-hero__figure {
+    width: min(100%, 28rem);
+    margin: 1.2rem 0 0;
+  }
+}

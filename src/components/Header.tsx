@@ -11,11 +11,20 @@ type Page =
   | 'seguro'
   | 'aviso'
   | 'terminos'
+  | 'protesis'
 
-const PAGE_LINKS = new Set(['Nosotros', 'Blog', 'Contacto', 'Clínicas', 'Proceso', 'Seguro'])
+const PAGE_LINKS = new Set([
+  'Prótesis',
+  'Nosotros',
+  'Blog',
+  'Contacto',
+  'Clínicas',
+  'Proceso',
+  'Seguro',
+])
 
 const LINKS = [
-  { label: 'Prótesis', href: '#soluciones', page: 'home' },
+  { label: 'Prótesis', href: '#protesis', page: 'protesis' },
   { label: 'Nosotros', href: '#nosotros', page: 'nosotros' },
   { label: 'Proceso', href: '#proceso', page: 'proceso' },
   { label: 'Clínicas', href: '#clinicas', page: 'clinicas' },

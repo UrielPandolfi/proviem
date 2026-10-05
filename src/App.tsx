@@ -27,6 +27,8 @@ import contactBlogImg from './assets/blog/contact-blog.png'
 import contactClinicasImg from './assets/clinicas/contacto.png'
 import contactProcesoImg from './assets/Proceso/contacto.png'
 import contactSeguroImg from './assets/seguro/contacto.png'
+import { ProtesisHero } from './components/ProtesisHero'
+import { ProtesisTipos } from './components/ProtesisTipos'
 import { LegalPage } from './components/LegalPage'
 import { avisoBlocks, terminosBlocks } from './data/legal'
 import { useReveal } from './motion/useReveal'
@@ -42,6 +44,7 @@ type Page =
   | 'seguro'
   | 'aviso'
   | 'terminos'
+  | 'protesis'
 
 const NOSOTROS_HASHES = new Set(['#nosotros', '#enfoque', '#historia', '#equipo'])
 const CONTACTO_HASHES = new Set(['#contacto'])
@@ -70,6 +73,7 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (PROCESO_HASHES.has(hash)) return 'proceso'
   if (SEGURO_HASHES.has(hash)) return 'seguro'
+  if (hash === '#protesis') return 'protesis'
   if (hash === '#aviso') return 'aviso'
   if (hash === '#terminos') return 'terminos'
   if (isBlogHash(hash)) return 'blog'
@@ -109,6 +113,7 @@ function App() {
       id === 'clinicas' ||
       id === 'proceso' ||
       id === 'seguro' ||
+      id === 'protesis' ||
       id === 'aviso' ||
       id === 'terminos' ||
       id === 'blog' ||
@@ -172,6 +177,15 @@ function App() {
             <Contact
               photo={contactSeguroImg}
               photoAlt="Especialista de Proviem acompañando a un paciente con prótesis en la escalera de entrenamiento"
+            />
+          </>
+        ) : page === 'protesis' ? (
+          <>
+            <ProtesisHero />
+            <ProtesisTipos />
+            <Contact
+              photo={contactProcesoImg}
+              photoAlt="Especialista de Proviem junto a las barras paralelas"
             />
           </>
         ) : page === 'aviso' ? (
