@@ -144,10 +144,6 @@
   background: var(--color-secondary);
 }
 
-.ubicaciones__btn:hover {
-  filter: brightness(1.05);
-}
-
 .ubicaciones__btn:focus-visible,
 .ubicaciones__phones a:focus-visible {
   outline: 2px solid var(--color-secondary);

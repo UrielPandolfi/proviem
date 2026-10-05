@@ -20,7 +20,6 @@ export function ContactForm({ className = '' }: ContactFormProps) {
               ¿En qué clínica deseas recibir atención?
             </option>
             <option>Ciudad de México</option>
-            <option>Guadalajara</option>
             <option>Monterrey</option>
           </select>
         </label>

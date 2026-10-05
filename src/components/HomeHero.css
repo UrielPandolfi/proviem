@@ -208,11 +208,6 @@
   display: none;
 }
 
-.hero__link:hover {
-  color: var(--color-primary);
-  filter: brightness(1.05);
-}
-
 .hero__aside {
   position: absolute;
   top: 8.75rem;
@@ -310,10 +305,6 @@
   font-size: 1.02rem;
   font-weight: 600;
   text-decoration: none;
-}
-
-.hero__pill:hover {
-  filter: brightness(1.05);
 }
 
 @media (min-width: 2100px) {
@@ -494,11 +485,6 @@
 
   .hero__link svg {
     display: none;
-  }
-
-  .hero__link:hover {
-    color: var(--color-primary);
-    filter: brightness(1.05);
   }
 
   .hero__aside {

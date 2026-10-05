@@ -176,10 +176,6 @@
   cursor: pointer;
 }
 
-.contact__submit:hover {
-  filter: brightness(1.05);
-}
-
 .contact__legal {
   display: flex;
   gap: 0.65rem;

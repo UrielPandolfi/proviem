@@ -61,10 +61,6 @@
   font-weight: 600;
 }
 
-.site-header__link:hover:not(.is-active) {
-  background: color-mix(in srgb, var(--color-primary) 7%, #fff);
-}
-
 .site-header__logo:focus-visible,
 .site-header__link:focus-visible {
   outline: 2px solid var(--color-primary);

@@ -107,10 +107,6 @@
   text-decoration: none;
 }
 
-.process-steps__cta:hover {
-  filter: brightness(1.05);
-}
-
 .process-steps__cta:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;

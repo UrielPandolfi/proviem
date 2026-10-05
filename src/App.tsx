@@ -27,9 +27,21 @@ import contactBlogImg from './assets/blog/contact-blog.png'
 import contactClinicasImg from './assets/clinicas/contacto.png'
 import contactProcesoImg from './assets/Proceso/contacto.png'
 import contactSeguroImg from './assets/seguro/contacto.png'
+import { LegalPage } from './components/LegalPage'
+import { avisoBlocks, terminosBlocks } from './data/legal'
 import { useReveal } from './motion/useReveal'
+import './button-hover.css'
 
-type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas' | 'proceso' | 'seguro'
+type Page =
+  | 'home'
+  | 'nosotros'
+  | 'contacto'
+  | 'blog'
+  | 'clinicas'
+  | 'proceso'
+  | 'seguro'
+  | 'aviso'
+  | 'terminos'
 
 const NOSOTROS_HASHES = new Set(['#nosotros', '#enfoque', '#historia', '#equipo'])
 const CONTACTO_HASHES = new Set(['#contacto'])
@@ -58,6 +70,8 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (PROCESO_HASHES.has(hash)) return 'proceso'
   if (SEGURO_HASHES.has(hash)) return 'seguro'
+  if (hash === '#aviso') return 'aviso'
+  if (hash === '#terminos') return 'terminos'
   if (isBlogHash(hash)) return 'blog'
   if (hash === '#cita') return fallback === 'contacto' ? 'home' : fallback
   if (SHARED_HASHES.has(hash)) {
@@ -95,6 +109,8 @@ function App() {
       id === 'clinicas' ||
       id === 'proceso' ||
       id === 'seguro' ||
+      id === 'aviso' ||
+      id === 'terminos' ||
       id === 'blog' ||
       id.startsWith('blog/')
     ) {
@@ -158,6 +174,14 @@ function App() {
               photoAlt="Especialista de Proviem acompañando a un paciente con prótesis en la escalera de entrenamiento"
             />
           </>
+        ) : page === 'aviso' ? (
+          <LegalPage id="aviso" title="Aviso de privacidad" blocks={avisoBlocks} />
+        ) : page === 'terminos' ? (
+          <LegalPage
+            id="terminos"
+            title="Términos y Condiciones"
+            blocks={terminosBlocks}
+          />
         ) : page === 'blog' ? (
           <>
             {blogSlug ? (

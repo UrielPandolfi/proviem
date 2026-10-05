@@ -1,7 +1,16 @@
 import logo from '../assets/logo.svg'
 import './Header.css'
 
-type Page = 'home' | 'nosotros' | 'contacto' | 'blog' | 'clinicas' | 'proceso' | 'seguro'
+type Page =
+  | 'home'
+  | 'nosotros'
+  | 'contacto'
+  | 'blog'
+  | 'clinicas'
+  | 'proceso'
+  | 'seguro'
+  | 'aviso'
+  | 'terminos'
 
 const PAGE_LINKS = new Set(['Nosotros', 'Blog', 'Contacto', 'Clínicas', 'Proceso', 'Seguro'])
 

@@ -158,10 +158,6 @@
   white-space: nowrap;
 }
 
-.proceso-hero__cta:hover {
-  filter: brightness(1.05);
-}
-
 .proceso-hero__more {
   display: inline-flex;
   align-items: center;

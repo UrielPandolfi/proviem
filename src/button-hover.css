@@ -1,0 +1,137 @@
+:is(
+  a.hero__link,
+  a.hero__pill,
+  a.nosotros-hero__cta,
+  a.contacto__cta,
+  a.proceso-hero__cta,
+  a.clinicas-hero__cta,
+  a.seguro-hero__cta,
+  a.process-steps__cta,
+  a.seguro-pago__cta,
+  a.blog-post__cta-btn,
+  a.seguro-dudas__cita,
+  a.seguro-dudas__whatsapp,
+  a.ubicaciones__btn,
+  a.site-header__link,
+  button.contact__submit,
+  button.blog__filter,
+  button.blog__page,
+  button.proceso-video__play
+) {
+  --btn-fill: var(--color-secondary);
+  --btn-ink: var(--color-primary);
+  background-image: linear-gradient(var(--btn-ink), var(--btn-ink));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0% 100%;
+  transition:
+    background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0s linear,
+    transform 0.28s ease,
+    filter 0.28s ease;
+}
+
+:is(a.ubicaciones__btn, a.site-header__link, button.blog__page) {
+  --btn-fill: #fff;
+  --btn-ink: var(--color-primary);
+}
+
+a.ubicaciones__btn--maps {
+  --btn-fill: var(--color-secondary);
+  --btn-ink: var(--color-primary);
+}
+
+:is(
+  a.seguro-dudas__cita,
+  button.blog__filter.is-active,
+  button.blog__page.is-active,
+  a.site-header__link.is-active
+) {
+  --btn-fill: var(--color-primary);
+  --btn-ink: #fff;
+}
+
+:is(
+  a.hero__link,
+  a.hero__pill,
+  a.nosotros-hero__cta,
+  a.contacto__cta,
+  a.proceso-hero__cta,
+  a.clinicas-hero__cta,
+  a.seguro-hero__cta,
+  a.process-steps__cta,
+  a.seguro-pago__cta,
+  a.blog-post__cta-btn,
+  a.seguro-dudas__cita,
+  a.seguro-dudas__whatsapp,
+  a.ubicaciones__btn,
+  a.site-header__link,
+  button.contact__submit,
+  button.blog__filter,
+  button.blog__page,
+  button.proceso-video__play
+):hover {
+  background-size: 100% 100%;
+  color: var(--btn-fill);
+  filter: none;
+  transition:
+    background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0s linear 0.18s,
+    transform 0.28s ease,
+    filter 0.28s ease;
+}
+
+button.blog__page:disabled:hover {
+  background-size: 0% 100%;
+  color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    a.hero__link,
+    a.hero__pill,
+    a.nosotros-hero__cta,
+    a.contacto__cta,
+    a.proceso-hero__cta,
+    a.clinicas-hero__cta,
+    a.seguro-hero__cta,
+    a.process-steps__cta,
+    a.seguro-pago__cta,
+    a.blog-post__cta-btn,
+    a.seguro-dudas__cita,
+    a.seguro-dudas__whatsapp,
+    a.ubicaciones__btn,
+    a.site-header__link,
+    button.contact__submit,
+    button.blog__filter,
+    button.blog__page,
+    button.proceso-video__play
+  ) {
+    transition: none;
+  }
+
+  :is(
+    a.hero__link,
+    a.hero__pill,
+    a.nosotros-hero__cta,
+    a.contacto__cta,
+    a.proceso-hero__cta,
+    a.clinicas-hero__cta,
+    a.seguro-hero__cta,
+    a.process-steps__cta,
+    a.seguro-pago__cta,
+    a.blog-post__cta-btn,
+    a.seguro-dudas__cita,
+    a.seguro-dudas__whatsapp,
+    a.ubicaciones__btn,
+    a.site-header__link,
+    button.contact__submit,
+    button.blog__filter,
+    button.blog__page,
+    button.proceso-video__play
+  ):hover {
+    background-color: var(--btn-ink);
+    background-image: none;
+    transition: none;
+  }
+}

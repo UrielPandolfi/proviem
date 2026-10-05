@@ -56,10 +56,6 @@
   color: #fff;
 }
 
-.blog__filter:hover:not(.is-active) {
-  filter: brightness(1.04);
-}
-
 .blog__filter:focus-visible,
 .blog__page:focus-visible {
   outline: 2px solid var(--color-primary);

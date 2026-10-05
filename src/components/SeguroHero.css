@@ -112,10 +112,6 @@
   text-decoration: none;
 }
 
-.seguro-hero__cta:hover {
-  filter: brightness(1.05);
-}
-
 .seguro-hero__cta:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
