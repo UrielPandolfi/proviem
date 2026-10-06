@@ -85,7 +85,7 @@
 .gracias__steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(100%, 40rem);
+  width: min(100%, 45rem);
   margin-top: 7rem;
   margin-inline: auto;
   background: #fff;
@@ -124,8 +124,9 @@
 .gracias__step h3 {
   margin: 0;
   color: var(--color-primary);
-  font-size: 1.45rem;
-  font-weight: 800;
+  font-family: var(--font-sans);
+  font-size: 1.28rem;
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
