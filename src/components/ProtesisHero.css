@@ -15,6 +15,23 @@
     );
 }
 
+.protesis-hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 9.5rem;
+  background: linear-gradient(
+    to top,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg) 78%, transparent) 42%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
 .protesis-hero__shape {
   position: absolute;
   top: 54%;
