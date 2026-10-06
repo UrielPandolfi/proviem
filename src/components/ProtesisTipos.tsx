@@ -847,8 +847,12 @@ function ProsthesisDetail({
   )
 }
 
+function memberFromHash(hash: string): Member {
+  return hash === '#protesis-brazo' ? 'superior' : 'inferior'
+}
+
 export function ProtesisTipos() {
-  const [member, setMember] = useState<Member>('inferior')
+  const [member, setMember] = useState<Member>(() => memberFromHash(window.location.hash))
   const [open, setOpen] = useState<string | null>(null)
   const [diagram, setDiagram] = useState<LimbDiagram>('transfemoral')
   const [detail, setDetail] = useState<null | 'parts' | PartView>(null)
@@ -860,6 +864,16 @@ export function ProtesisTipos() {
     setOpen(null)
     setDetail(null)
   }
+
+  useEffect(() => {
+    function syncMember() {
+      const hash = window.location.hash
+      if (hash !== '#protesis' && hash !== '#protesis-pierna' && hash !== '#protesis-brazo') return
+      selectMember(memberFromHash(hash))
+    }
+    window.addEventListener('hashchange', syncMember)
+    return () => window.removeEventListener('hashchange', syncMember)
+  }, [])
 
   function openDiagram(next: LimbDiagram) {
     setDiagram(next)
@@ -877,7 +891,7 @@ export function ProtesisTipos() {
   }
 
   return (
-    <section className="section section--narrow protesis-tipos" aria-labelledby="protesis-tipos-title">
+    <section id="protesis-tipos" className="section section--narrow protesis-tipos" aria-labelledby="protesis-tipos-title">
       <div className="section__inner">
         <div className="protesis-tipos__intro">
           <p className="protesis-tipos__eyebrow">Tecnología de punta</p>

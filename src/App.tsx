@@ -75,7 +75,7 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (PROCESO_HASHES.has(hash)) return 'proceso'
   if (SEGURO_HASHES.has(hash)) return 'seguro'
-  if (hash === '#protesis') return 'protesis'
+  if (hash === '#protesis' || hash === '#protesis-pierna' || hash === '#protesis-brazo') return 'protesis'
   if (hash === '#aviso') return 'aviso'
   if (hash === '#terminos') return 'terminos'
   if (hash === '#gracias') return 'gracias'
@@ -107,6 +107,16 @@ function App() {
   useEffect(() => {
     const root = document.documentElement
     const id = hash.slice(1)
+
+    if (id === 'protesis-pierna' || id === 'protesis-brazo') {
+      const scrollToTypes = () => {
+        const target = document.getElementById('protesis-tipos')
+        if (target) target.scrollIntoView()
+        else root.scrollTop = 0
+      }
+      requestAnimationFrame(scrollToTypes)
+      return
+    }
 
     if (
       !id ||
