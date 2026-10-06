@@ -1,3 +1,4 @@
+import type { FormEvent } from 'react'
 import './Contact.css'
 
 type ContactFormProps = {
@@ -5,17 +6,35 @@ type ContactFormProps = {
 }
 
 export function ContactForm({ className = '' }: ContactFormProps) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    for (const field of form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]')) {
+      if (field instanceof HTMLInputElement) field.value = field.value.trim()
+    }
+    if (!form.checkValidity()) {
+      form.reportValidity()
+      return
+    }
+    window.location.hash = '#gracias'
+  }
+
   return (
     <>
       <form
         className={['contact__form', className].filter(Boolean).join(' ')}
-        onSubmit={(event) => event.preventDefault()}
+        onSubmit={onSubmit}
       >
         <label className="contact__field">
           <span className="visually-hidden">
             ¿En qué clínica deseas recibir atención?
           </span>
-          <select defaultValue="" aria-label="¿En qué clínica deseas recibir atención?">
+          <select
+            name="clinica"
+            defaultValue=""
+            required
+            aria-label="¿En qué clínica deseas recibir atención?"
+          >
             <option value="" disabled>
               ¿En qué clínica deseas recibir atención?
             </option>
@@ -26,7 +45,12 @@ export function ContactForm({ className = '' }: ContactFormProps) {
 
         <label className="contact__field">
           <span className="visually-hidden">¿Para quién buscas atención?</span>
-          <select defaultValue="" aria-label="¿Para quién buscas atención?">
+          <select
+            name="para"
+            defaultValue=""
+            required
+            aria-label="¿Para quién buscas atención?"
+          >
             <option value="" disabled>
               ¿Para quién buscas atención?
             </option>
@@ -40,7 +64,9 @@ export function ContactForm({ className = '' }: ContactFormProps) {
             ¿Qué tipo de prótesis u orientación necesitas?
           </span>
           <select
+            name="tipo"
             defaultValue=""
+            required
             aria-label="¿Qué tipo de prótesis u orientación necesitas?"
           >
             <option value="" disabled>
@@ -54,12 +80,24 @@ export function ContactForm({ className = '' }: ContactFormProps) {
 
         <label className="contact__field">
           <span className="visually-hidden">Nombre completo</span>
-          <input type="text" name="nombre" placeholder="Nombre completo" />
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre completo"
+            required
+            autoComplete="name"
+          />
         </label>
 
         <label className="contact__field">
           <span className="visually-hidden">Correo electrónico</span>
-          <input type="email" name="email" placeholder="Correo electrónico" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Correo electrónico"
+            required
+            autoComplete="email"
+          />
         </label>
 
         <label className="contact__field">
@@ -68,6 +106,8 @@ export function ContactForm({ className = '' }: ContactFormProps) {
             type="tel"
             name="telefono"
             placeholder="Teléfono o WhatsApp"
+            required
+            autoComplete="tel"
           />
         </label>
 
@@ -76,7 +116,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
         </button>
 
         <label className="contact__legal">
-          <input type="checkbox" name="privacidad" defaultChecked />
+          <input type="checkbox" name="privacidad" defaultChecked required />
           <span>
             He leído y acepto el{' '}
             <a href="#aviso">Aviso de Privacidad</a> y autorizo a Proviem a

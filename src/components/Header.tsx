@@ -12,6 +12,7 @@ type Page =
   | 'aviso'
   | 'terminos'
   | 'protesis'
+  | 'gracias'
 
 const PAGE_LINKS = new Set([
   'Prótesis',

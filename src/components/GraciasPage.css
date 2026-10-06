@@ -1,0 +1,114 @@
+.gracias {
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - var(--header-offset));
+  padding: 3.2rem 1.25rem 4.6rem;
+  background:
+    radial-gradient(
+      32rem 18rem at 50% 38%,
+      color-mix(in srgb, var(--color-secondary) 22%, transparent),
+      transparent 70%
+    );
+}
+
+.gracias__card {
+  width: min(100%, 36rem);
+  text-align: center;
+}
+
+.gracias__mark {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto 1.45rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-primary);
+  box-shadow:
+    0 0 0 0.55rem color-mix(in srgb, var(--color-secondary) 42%, #fff),
+    0 0 0 1.15rem color-mix(in srgb, var(--color-secondary) 16%, transparent);
+}
+
+.gracias__mark svg {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.gracias__eyebrow {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gracias h1 {
+  margin: 0.55rem 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 4.2vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.gracias__lead {
+  max-width: 28rem;
+  margin: 1.15rem auto 0;
+  color: var(--color-primary);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.gracias__note {
+  max-width: 26rem;
+  margin: 0.85rem auto 0;
+  color: color-mix(in srgb, var(--color-primary) 72%, #7ea8c8);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.gracias__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.85rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.gracias__cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 899px) {
+  .gracias {
+    min-height: calc(100svh - var(--header-offset));
+    padding: 2.4rem 1.15rem 3.4rem;
+  }
+
+  .gracias h1 {
+    font-size: var(--mobile-title);
+  }
+
+  .gracias__lead {
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gracias__cta {
+    transition: none;
+  }
+}

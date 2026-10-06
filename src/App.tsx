@@ -30,6 +30,7 @@ import contactSeguroImg from './assets/seguro/contacto.png'
 import { ProtesisHero } from './components/ProtesisHero'
 import { ProtesisTipos } from './components/ProtesisTipos'
 import { LegalPage } from './components/LegalPage'
+import { GraciasPage } from './components/GraciasPage'
 import { avisoBlocks, terminosBlocks } from './data/legal'
 import { useReveal } from './motion/useReveal'
 import './button-hover.css'
@@ -45,6 +46,7 @@ type Page =
   | 'aviso'
   | 'terminos'
   | 'protesis'
+  | 'gracias'
 
 const NOSOTROS_HASHES = new Set(['#nosotros', '#enfoque', '#historia', '#equipo'])
 const CONTACTO_HASHES = new Set(['#contacto'])
@@ -76,6 +78,7 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (hash === '#protesis') return 'protesis'
   if (hash === '#aviso') return 'aviso'
   if (hash === '#terminos') return 'terminos'
+  if (hash === '#gracias') return 'gracias'
   if (isBlogHash(hash)) return 'blog'
   if (hash === '#cita') return fallback === 'contacto' ? 'home' : fallback
   if (SHARED_HASHES.has(hash)) {
@@ -116,6 +119,7 @@ function App() {
       id === 'protesis' ||
       id === 'aviso' ||
       id === 'terminos' ||
+      id === 'gracias' ||
       id === 'blog' ||
       id.startsWith('blog/')
     ) {
@@ -196,6 +200,8 @@ function App() {
             title="Términos y Condiciones"
             blocks={terminosBlocks}
           />
+        ) : page === 'gracias' ? (
+          <GraciasPage />
         ) : page === 'blog' ? (
           <>
             {blogSlug ? (
