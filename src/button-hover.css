@@ -6,7 +6,6 @@
   a.proceso-hero__cta,
   a.clinicas-hero__cta,
   a.protesis-hero__cta,
-  a.gracias__cta,
   a.seguro-hero__cta,
   a.process-steps__cta,
   a.seguro-pago__cta,
@@ -16,6 +15,7 @@
   a.ubicaciones__btn,
   a.site-header__link,
   button.contact__submit,
+  button.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
   button.proceso-video__play
@@ -61,7 +61,6 @@ a.ubicaciones__btn--maps {
   a.proceso-hero__cta,
   a.clinicas-hero__cta,
   a.protesis-hero__cta,
-  a.gracias__cta,
   a.seguro-hero__cta,
   a.process-steps__cta,
   a.seguro-pago__cta,
@@ -71,6 +70,7 @@ a.ubicaciones__btn--maps {
   a.ubicaciones__btn,
   a.site-header__link,
   button.contact__submit,
+  button.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
   button.proceso-video__play
@@ -99,7 +99,6 @@ button.blog__page:disabled:hover {
     a.proceso-hero__cta,
     a.clinicas-hero__cta,
   a.protesis-hero__cta,
-  a.gracias__cta,
     a.seguro-hero__cta,
     a.process-steps__cta,
     a.seguro-pago__cta,
@@ -109,6 +108,7 @@ button.blog__page:disabled:hover {
     a.ubicaciones__btn,
     a.site-header__link,
     button.contact__submit,
+  button.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
     button.proceso-video__play
@@ -124,7 +124,6 @@ button.blog__page:disabled:hover {
     a.proceso-hero__cta,
     a.clinicas-hero__cta,
   a.protesis-hero__cta,
-  a.gracias__cta,
     a.seguro-hero__cta,
     a.process-steps__cta,
     a.seguro-pago__cta,
@@ -134,6 +133,7 @@ button.blog__page:disabled:hover {
     a.ubicaciones__btn,
     a.site-header__link,
     button.contact__submit,
+  button.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
     button.proceso-video__play

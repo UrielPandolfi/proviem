@@ -1,114 +1,311 @@
 .gracias {
-  display: grid;
-  place-items: center;
-  min-height: calc(100svh - var(--header-offset));
-  padding: 3.2rem 1.25rem 4.6rem;
-  background:
-    radial-gradient(
-      32rem 18rem at 50% 38%,
-      color-mix(in srgb, var(--color-secondary) 22%, transparent),
-      transparent 70%
-    );
+  position: relative;
+  overflow: clip;
+  padding: 2.6rem 0 5.2rem;
+  background: var(--color-bg);
 }
 
-.gracias__card {
-  width: min(100%, 36rem);
+.gracias__shape {
+  position: absolute;
+  top: 10.75rem;
+  left: -3rem;
+  z-index: 0;
+  width: min(19.6rem, 26.6vw);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.gracias__inner {
+  position: relative;
+  z-index: 1;
+  width: var(--section-width-narrow);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.gracias__intro,
+.gracias__next,
+.gracias__more-title,
+.gracias__step {
   text-align: center;
 }
 
 .gracias__mark {
   display: grid;
   place-items: center;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin: 0 auto 1.45rem;
+  width: 3.65rem;
+  height: 3.65rem;
+  margin: 0 auto 1.15rem;
   border-radius: 50%;
-  background: #fff;
-  color: var(--color-primary);
-  box-shadow:
-    0 0 0 0.55rem color-mix(in srgb, var(--color-secondary) 42%, #fff),
-    0 0 0 1.15rem color-mix(in srgb, var(--color-secondary) 16%, transparent);
+  background: var(--color-secondary);
+  color: #fff;
 }
 
 .gracias__mark svg {
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.7rem;
+  height: 1.7rem;
 }
 
-.gracias__eyebrow {
+.gracias h1,
+.gracias h2 {
   margin: 0;
   color: var(--color-primary);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
 }
 
+.gracias h1 span,
+.gracias__more-title span {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+  letter-spacing: 0.04em;
+}
+
 .gracias h1 {
-  margin: 0.55rem 0 0;
-  color: var(--color-primary);
-  font-family: var(--font-display);
-  font-size: clamp(2.15rem, 4.2vw, 3.15rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.85rem, 3.1vw, 2.65rem);
 }
 
-.gracias__lead {
-  max-width: 28rem;
-  margin: 1.15rem auto 0;
+.gracias__intro p {
+  margin: 0.85rem 0 0;
   color: var(--color-primary);
-  font-size: 1.02rem;
+  font-size: clamp(0.98rem, 1.15vw, 1.12rem);
   font-weight: 500;
-  line-height: 1.5;
 }
 
-.gracias__note {
-  max-width: 26rem;
-  margin: 0.85rem auto 0;
-  color: color-mix(in srgb, var(--color-primary) 72%, #7ea8c8);
+.gracias h2.gracias__next {
+  margin-top: 2.15rem;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+}
+
+.gracias__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 40rem);
+  margin-top: 7rem;
+  margin-inline: auto;
+  background: #fff;
+  border-radius: 1.7rem;
+  box-shadow: 0 14px 36px rgb(0 80 140 / 7%);
+}
+
+.gracias__step {
+  position: relative;
+  padding: 3.2rem 1.15rem 2.15rem;
+}
+
+.gracias__step + .gracias__step {
+  border-left: 1px solid color-mix(in srgb, var(--color-primary) 14%, #fff);
+}
+
+.gracias__step-icon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  transform: translate(-50%, -50%);
+}
+
+.gracias__step-icon img {
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: contain;
+}
+
+.gracias__step h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.gracias__step p {
+  max-width: 16rem;
+  margin: 0.7rem auto 0;
+  color: var(--color-primary);
   font-size: 0.86rem;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
-.gracias__cta {
+.gracias h2.gracias__more-title {
+  margin-top: 7.5rem;
+  font-size: clamp(1.7rem, 2.7vw, 2.35rem);
+}
+
+.gracias__links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-top: 1.7rem;
+}
+
+.gracias__link {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.7rem 0.7rem 1rem;
+  border-radius: 1.45rem;
+  background: #fff;
+  color: var(--color-primary);
+  text-decoration: none;
+  box-shadow: 0 12px 32px rgb(0 80 140 / 8%);
+}
+
+.gracias__link img {
+  width: 100%;
+  aspect-ratio: 314 / 250;
+  object-fit: cover;
+  border-radius: 1.05rem;
+}
+
+.gracias__link-title {
+  margin-top: 0.9rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.gracias__link-more {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 1.85rem;
-  padding: 0.85rem 1.7rem;
-  border-radius: 999px;
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  font-size: 1.02rem;
+  align-self: flex-end;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.gracias__cta:focus-visible {
+.gracias__link-more svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.gracias__link:hover .gracias__link-more,
+.gracias__link:focus-visible .gracias__link-more {
+  color: color-mix(in srgb, var(--color-primary) 70%, #000);
+}
+
+.gracias__link:focus-visible,
+.gracias__whatsapp:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
+.gracias__follow {
+  margin-top: 9.5rem;
+  margin-bottom: 7.5rem;
+  text-align: center;
+}
+
+.gracias__follow p {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.gracias__whatsapp {
+  margin-top: 1.05rem;
+  padding: 0.72rem 1.45rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (min-width: 960px) {
+  .gracias__inner {
+    min-width: min(var(--section-min-width-narrow), 100%);
+  }
+}
+
 @media (max-width: 899px) {
   .gracias {
-    min-height: calc(100svh - var(--header-offset));
-    padding: 2.4rem 1.15rem 3.4rem;
+    padding: 1.8rem 0 3.4rem;
+  }
+
+  .gracias__inner {
+    width: calc(100% - 2.1rem);
+  }
+
+  .gracias__shape {
+    top: 15.8rem;
+    left: -3.5rem;
+    width: 9.1rem;
+    height: auto;
   }
 
   .gracias h1 {
     font-size: var(--mobile-title);
   }
 
-  .gracias__lead {
+  .gracias__intro p {
     font-size: var(--mobile-lead);
     line-height: var(--mobile-lead-leading);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .gracias__cta {
-    transition: none;
+  .gracias__steps,
+  .gracias__links {
+    grid-template-columns: 1fr;
+  }
+
+  .gracias__steps {
+    width: 100%;
+    gap: 2.6rem;
+    margin-top: 4.4rem;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .gracias__step {
+    margin-top: 1.15rem;
+    padding: 3.05rem 1.1rem 1.7rem;
+    border-radius: 1.35rem;
+    background: #fff;
+    box-shadow: 0 12px 32px rgb(0 80 140 / 8%);
+  }
+
+  .gracias__step + .gracias__step {
+    border-left: 0;
+  }
+
+  .gracias__step p {
+    max-width: 22rem;
+  }
+
+  .gracias h2.gracias__more-title {
+    margin-top: 4.6rem;
+    font-size: var(--mobile-title);
+  }
+
+  .gracias__follow {
+    margin-top: 6.5rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .gracias__follow p {
+    font-size: var(--mobile-lead);
+    line-height: var(--mobile-lead-leading);
   }
 }
