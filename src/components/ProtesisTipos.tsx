@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { FocusEvent, PointerEvent } from 'react'
 import piernaImg from '../assets/protesis/pierna1.png'
 import brazoImg from '../assets/protesis/brazo1.png'
@@ -8,8 +8,12 @@ import transhumeralImg from '../assets/protesis/transhumeral.png'
 import transradialImg from '../assets/protesis/transradial.png'
 import linerImg from '../assets/protesis/liner.png'
 import linerElementsImg from '../assets/protesis/liner-elements.png'
-import pieImg from '../assets/protesis/pie.png'
-import rodillaImg from '../assets/protesis/rodilla.png'
+import pie1d10 from '../assets/protesis/PROTESIS/1D10 Dynamic.png'
+import pieTerion from '../assets/protesis/PROTESIS/Terion 1D10.png'
+import pieTrias from '../assets/protesis/PROTESIS/Trias 1C30-1.png'
+import rodilla3r78 from '../assets/protesis/PROTESIS/Rodilla 3R78.png'
+import rodilla3r90 from '../assets/protesis/PROTESIS/Rodilla 3R90.png'
+import rodilla3r95 from '../assets/protesis/PROTESIS/Rodilla 3R95.png'
 import myofacilImg from '../assets/protesis/myofacil.png'
 import accesImg from '../assets/protesis/acces.png'
 import mecanicoImg from '../assets/protesis/mecanico.png'
@@ -239,43 +243,79 @@ type CatalogItem = {
   id: string
   name: string
   summary: string
+  activity?: string
   mobility: string
   weight: string
-  image: string
+  image?: string
 }
 
 const FEET: CatalogItem[] = [
   {
     id: 'sach-1s49',
     name: 'SACH 1S49',
-    summary: 'Baja actividad y estabilidad básica',
+    summary: 'Pie protésico SACH',
+    activity: 'Baja actividad y estabilidad básica',
     mobility: '1 - 2',
     weight: '125 kg',
-    image: pieImg,
   },
   {
     id: '1d10-dynamic',
     name: '1D10 Dynamic',
-    summary: 'Baja a moderada actividad',
+    summary: 'Pie protésico dinámico',
+    activity: 'Baja a moderada actividad',
     mobility: '1 - 2',
     weight: '150 kg',
-    image: pieImg,
+    image: pie1d10,
   },
   {
     id: 'terion-1c10',
     name: 'Terion 1C10',
-    summary: 'Actividad moderada y uso cotidiano',
+    summary: 'Pie protésico de material compuesto',
+    activity: 'Actividad moderada y uso cotidiano',
     mobility: '2 - 3',
     weight: '125 kg',
-    image: pieImg,
+    image: pieTerion,
   },
   {
     id: 'trias-1c30-1',
     name: 'Trias 1C30-1',
-    summary: 'Actividad moderada y marcha estable',
+    summary: 'Pie protésico de material compuesto',
+    activity: 'Actividad moderada y marcha estable',
     mobility: '2 - 3',
     weight: '125 kg',
-    image: pieImg,
+    image: pieTrias,
+  },
+  {
+    id: 'taleo-1c50',
+    name: 'Taleo 1C50',
+    summary: 'Pie protésico de material compuesto',
+    activity: 'Actividad alta y terrenos variados',
+    mobility: '2 - 4',
+    weight: '150 kg',
+  },
+  {
+    id: 'triton-1c60',
+    name: 'Triton 1C60',
+    summary: 'Pie protésico de material compuesto',
+    activity: 'Alta actividad y mayor dinamismo',
+    mobility: '3 - 4',
+    weight: 'Hasta 150 kg*',
+  },
+  {
+    id: 'triton-1c64',
+    name: 'Triton Heavy Duty 1C64',
+    summary: 'Pie protésico de material compuesto',
+    activity: 'Alta actividad y uso exigente',
+    mobility: '3 - 4',
+    weight: '150 kg',
+  },
+  {
+    id: 'triton-1c62',
+    name: 'Triton Harmony 1C62',
+    summary: 'Pie protésico con sistema de vacío',
+    activity: 'Alta actividad y sujeción dinámica',
+    mobility: '3 - 4',
+    weight: 'Hasta 150 kg*',
   },
 ]
 
@@ -284,33 +324,84 @@ const KNEES: CatalogItem[] = [
     id: '3r90',
     name: '3R90',
     summary: 'Rodilla mecánica monocéntrica con freno',
+    activity: 'Baja actividad y uso cotidiano',
     mobility: '1 - 2',
     weight: '125 kg',
-    image: rodillaImg,
+    image: rodilla3r90,
   },
   {
     id: '3r95',
     name: '3R95',
-    summary: 'Alta actividad y marcha dinámica',
+    summary: 'Rodilla hidráulica',
+    activity: 'Alta actividad y marcha dinámica',
     mobility: '3 - 4',
-    weight: '125 kg',
-    image: rodillaImg,
+    weight: '150 kg',
+    image: rodilla3r95,
   },
   {
     id: '3r78',
     name: '3R78',
     summary: 'Rodilla mecánica policéntrica',
+    activity: 'Actividad moderada y marcha variable',
     mobility: '2 - 3',
     weight: '100 kg',
-    image: rodillaImg,
+    image: rodilla3r78,
   },
   {
-    id: '3b1-3',
-    name: '3B1-3',
-    summary: 'Rodilla Genium',
+    id: '3r92',
+    name: '3R92',
+    summary: 'Rodilla mecánica monocéntrica',
+    activity: 'Actividad moderada y control de marcha',
+    mobility: '2 - 3',
+    weight: '125 kg',
+  },
+  {
+    id: '3r106',
+    name: '3R106',
+    summary: 'Rodilla mecánica policéntrica',
+    activity: 'Actividad moderada y uso diario',
+    mobility: '2 - 3',
+    weight: '100 kg',
+  },
+  {
+    id: '3r15',
+    name: '3R15',
+    summary: 'Rodilla mecánica monocéntrica',
+    activity: 'Baja actividad y trayectos cortos',
+    mobility: '1 - 2',
+    weight: '100 kg',
+  },
+  {
+    id: '3r20',
+    name: '3R20',
+    summary: 'Rodilla mecánica policéntrica',
+    activity: 'Baja actividad y marcha estable',
+    mobility: '1 - 2',
+    weight: '100 kg',
+  },
+  {
+    id: '3r85-dynion',
+    name: '3R85 Dynion',
+    summary: 'Rodilla mecánica monocéntrica hidráulica',
+    activity: 'Alta actividad y terrenos variados',
+    mobility: '3 - 4',
+    weight: '100 kg',
+  },
+  {
+    id: 'c-leg-4',
+    name: 'C-Leg 4',
+    summary: 'Rodilla con microprocesador',
+    activity: 'Actividad variable y movilidad avanzada',
     mobility: '2 - 4',
+    weight: '136 kg',
+  },
+  {
+    id: '3r80',
+    name: '3R80',
+    summary: 'Rodilla mecánica monocéntrica hidráulica',
+    activity: 'Alta actividad y uso dinámico',
+    mobility: '3 - 4',
     weight: '150 kg',
-    image: rodillaImg,
   },
 ]
 
@@ -325,8 +416,53 @@ function PartCatalog({
 }) {
   const [itemId, setItemId] = useState(initialId)
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const listRef = useRef<HTMLDivElement>(null)
+  const [windowHeight, setWindowHeight] = useState<number>()
+  const [progress, setProgress] = useState(0)
   const current = items.find((item) => item.id === itemId) ?? items[0]
   const index = Math.max(0, items.findIndex((item) => item.id === current.id))
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const buttons = optionRefs.current.filter((button): button is HTMLButtonElement => button !== null)
+      const height = buttons.slice(0, 4).reduce((sum, button) => sum + button.offsetHeight, 0)
+      setWindowHeight(height > 0 ? height : undefined)
+    }
+    measure()
+    const observer = new ResizeObserver(measure)
+    optionRefs.current.forEach((button) => {
+      if (button) observer.observe(button)
+    })
+    return () => observer.disconnect()
+  }, [items])
+
+  useEffect(() => {
+    const list = listRef.current
+    if (!list) return
+    const sync = () => {
+      const max = list.scrollHeight - list.clientHeight
+      if (max <= 1) {
+        setProgress((index + 0.5) / Math.max(items.length, 1))
+        return
+      }
+      setProgress(list.scrollTop / max)
+    }
+    sync()
+    list.addEventListener('scroll', sync, { passive: true })
+    return () => list.removeEventListener('scroll', sync)
+  }, [index, items.length, windowHeight])
+
+  useEffect(() => {
+    const list = listRef.current
+    const button = optionRefs.current[index]
+    if (!list || !button) return
+    const top = button.offsetTop
+    const bottom = top + button.offsetHeight
+    if (top < list.scrollTop) list.scrollTop = top
+    else if (bottom > list.scrollTop + list.clientHeight + 1) {
+      list.scrollTop = bottom - list.clientHeight
+    }
+  }, [index, windowHeight])
 
   useEffect(() => {
     const start = Math.max(0, items.findIndex((item) => item.id === initialId))
@@ -337,13 +473,34 @@ function PartCatalog({
     const next = items[nextIndex]
     if (!next) return
     setItemId(next.id)
-    optionRefs.current[nextIndex]?.focus()
+    optionRefs.current[nextIndex]?.focus({ preventScroll: true })
+  }
+
+  function scrollRail(clientY: number, rail: HTMLDivElement) {
+    const list = listRef.current
+    if (!list) return
+    const rect = rail.getBoundingClientRect()
+    const ratio = Math.min(1, Math.max(0, (clientY - rect.top) / Math.max(rect.height, 1)))
+    list.scrollTop = ratio * (list.scrollHeight - list.clientHeight)
+  }
+
+  function onRailPointerDown(event: PointerEvent<HTMLDivElement>) {
+    scrollRail(event.clientY, event.currentTarget)
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+
+  function onRailPointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (!event.currentTarget.hasPointerCapture(event.pointerId)) return
+    scrollRail(event.clientY, event.currentTarget)
   }
 
   return (
     <div className="protesis-pies">
-      <img className="protesis-pies__photo" src={current.image} alt={label(current.name)} />
-      <div className="protesis-pies__list">
+      <div className={`protesis-pies__photo${current.image ? '' : ' is-empty'}`}>
+        {current.image ? <img src={current.image} alt={label(current.name)} /> : null}
+      </div>
+      <div className="protesis-pies__panel">
+      <div className="protesis-pies__list" ref={listRef} style={windowHeight ? { maxHeight: windowHeight } : undefined}>
         {items.map((item, itemIndex) => {
           const selected = item.id === current.id
           return (
@@ -370,6 +527,7 @@ function PartCatalog({
               <span className="protesis-pies__main">
                 <span className="protesis-pies__name">{item.name}</span>
                 <span className="protesis-pies__summary">{item.summary}</span>
+                {item.activity ? <span className="protesis-pies__activity">{item.activity}</span> : null}
               </span>
               <span className="protesis-pies__specs">
                 <span className="protesis-pies__spec">
@@ -385,11 +543,14 @@ function PartCatalog({
           )
         })}
       </div>
-      <div className="protesis-pies__rail" aria-hidden="true">
-        <span
-          className="protesis-pies__rail-dot"
-          style={{ ['--i' as string]: String(index), ['--n' as string]: String(items.length) }}
-        />
+      <div
+        className="protesis-pies__rail"
+        aria-hidden="true"
+        onPointerDown={onRailPointerDown}
+        onPointerMove={onRailPointerMove}
+      >
+        <span className="protesis-pies__rail-dot" style={{ ['--p' as string]: String(progress) }} />
+      </div>
       </div>
     </div>
   )
@@ -571,7 +732,9 @@ function ProsthesisDetail({
                   : DIAGRAMS[diagram].alt
             }
           />
-          {rodilla ? <span className="protesis-rodilla__pulse" aria-hidden="true" /> : null}
+          {rodilla || liner ? (
+            <span className={`protesis-rodilla__pulse${liner ? ' is-liner' : ''}`} aria-hidden="true" />
+          ) : null}
         </div>
         {liner ? (
           <div className="protesis-liner" role="region" aria-labelledby="protesis-liner-title">
