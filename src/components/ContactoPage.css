@@ -84,49 +84,20 @@
 }
 
 .contacto__card {
-  padding: 2.15rem 1.85rem 1.65rem;
+  padding: 0.55rem 0.55rem 1.2rem;
   border-radius: 1.85rem;
   background: var(--color-primary);
   color: #fff;
 }
 
-.contacto__card h2 {
-  margin: 0 0 1.35rem;
-  color: #fff;
-  font-size: clamp(1.45rem, 1.8vw, 1.82rem);
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
-  text-align: center;
-}
-
-.contacto__card h2 span {
-  font-weight: 800;
-}
-
 .contacto__card .contact__form {
   margin-top: 0;
+  border-color: transparent;
+  border-radius: 1.35rem;
 }
 
-.contacto__card .contact__field select,
-.contacto__card .contact__field input[type='text'],
-.contacto__card .contact__field input[type='email'],
-.contacto__card .contact__field input[type='tel'] {
-  border-color: #fff;
-  background: #fff;
-}
-
-.contacto__card .contact__legal,
-.contacto__card .contact__disclaimer {
-  color: #fff;
-}
-
-.contacto__card .contact__legal a {
-  color: #fff;
-}
-
-.contacto__card .contact__legal input {
-  accent-color: var(--color-secondary);
+.contacto__card .contact__form iframe {
+  height: 55rem;
 }
 
 .contacto__card .contact__disclaimer {
@@ -175,11 +146,11 @@
   }
 
   .contacto__card {
-    padding: 1.55rem 1.15rem 1.3rem;
+    padding: 0.45rem 0.45rem 1.05rem;
     border-radius: 1.35rem;
   }
 
-  .contacto__card h2 {
-    font-size: 1.28rem;
+  .contacto__card .contact__form iframe {
+    height: 64rem;
   }
 }

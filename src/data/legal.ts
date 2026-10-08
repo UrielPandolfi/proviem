@@ -159,7 +159,7 @@ export const avisoBlocks: LegalBlock[] = [
   },
   {
     kind: 'paragraph',
-    text: 'El sitio web de Proviem puede utilizar cookies y tecnologías similares para funciones técnicas, seguridad, preferencias, medición de desempeño y, cuando estén efectivamente habilitadas, analítica o publicidad. La Política de Cookies deberá identificar las tecnologías utilizadas, su finalidad, duración, proveedor, categoría y los mecanismos disponibles para aceptar, rechazar o configurar aquellas que no sean estrictamente necesarias.',
+    text: 'El detalle de las cookies y tecnologías similares que usa este sitio, su finalidad, duración y la forma de aceptarlas o rechazarlas está en la Política de Cookies, disponible en este mismo sitio.',
   },
   {
     kind: 'heading',
@@ -459,5 +459,89 @@ export const terminosBlocks: LegalBlock[] = [
   {
     kind: 'paragraph',
     text: 'Última actualización: 11 de agosto de 2026.',
+  },
+]
+
+export const cookiesBlocks: LegalBlock[] = [
+  {
+    kind: 'paragraph',
+    text: 'Esta Política de Cookies explica qué tecnologías de almacenamiento y rastreo puede usar el sitio de GRUPO PROVIEM (“Proviem”), para qué sirven y cómo puedes gestionarlas. Complementa el Aviso de Privacidad y aplica a quienes visitan este sitio desde México o desde cualquier otro lugar.',
+  },
+  {
+    kind: 'heading',
+    text: '1. Qué son las cookies',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Las cookies son pequeños archivos que un sitio o un tercero guarda en tu navegador. También existen tecnologías parecidas, como el almacenamiento local del navegador, píxeles y identificadores del dispositivo. Sirven para recordar una preferencia, mantener una función técnica, medir el uso de un sitio o, cuando se habilitan, personalizar publicidad.',
+  },
+  {
+    kind: 'heading',
+    text: '2. Qué usa este sitio hoy',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Al 8 de octubre de 2026, el sitio de Proviem no instala cookies propias de analítica, publicidad, redes sociales ni de seguimiento entre sitios. La navegación entre secciones se resuelve en el propio navegador y no requiere una cuenta ni una cookie de sesión.',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Para mostrar la tipografía se solicitan las fuentes Instrument Sans y Montserrat a Google Fonts (Google Ireland Limited y sus afiliadas). Esa conexión solo se usa para cargar las letras. Proviem no la utiliza para publicidad. Google puede tratar datos técnicos de la solicitud, como la dirección IP, conforme a su propia política de privacidad.',
+  },
+  {
+    kind: 'paragraph',
+    text: 'El formulario de contacto está incrustado desde Monday.com. Se carga con la página para solicitar una valoración. Monday puede guardar cookies o identificadores propios para operar el formulario, recordar el avance y proteger el envío, conforme a su política de privacidad. Proviem no usa ese formulario para publicidad ni para medir las visitas al resto del sitio.',
+  },
+  {
+    kind: 'heading',
+    text: '3. Categorías',
+  },
+  {
+    kind: 'list',
+    items: [
+      'Necesarias: permiten que el sitio se muestre y funcione. En este sitio no hay cookies propias de este tipo más allá de lo que el navegador requiera para cargar la página.',
+      'De preferencia: recordarían idioma u otras elecciones. Hoy no están activas.',
+      'De medición: servirían para estadísticas de visita. Hoy no están activas.',
+      'De publicidad o redes sociales: servirían para anuncios o para incrustar contenidos de terceros. Hoy no están activas en el sitio.',
+    ],
+  },
+  {
+    kind: 'heading',
+    text: '4. Enlaces a otros servicios',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Algunos botones abren servicios externos: WhatsApp, Facebook, Instagram, LinkedIn, Google Maps y llamadas telefónicas. Esas páginas pertenecen a sus propios responsables. Pueden instalar cookies o identificadores cuando entras en ellas, conforme a sus políticas, no a esta. Proviem no controla esas cookies.',
+  },
+  {
+    kind: 'heading',
+    text: '5. Cómo gestionarlas',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Puedes bloquear, limitar o borrar cookies desde la configuración de tu navegador. También puedes usar la navegación privada. Si bloqueas todas las cookies, el sitio debe seguir pudiendo consultarse, aunque algún recurso externo, como la tipografía o el formulario de contacto, podría no cargarse igual.',
+  },
+  {
+    kind: 'paragraph',
+    text: 'En Chrome, Edge, Firefox y Safari la opción está en la configuración de privacidad o de cookies del navegador. Cada navegador publica instrucciones actualizadas en su sitio de ayuda.',
+  },
+  {
+    kind: 'heading',
+    text: '6. Cambios y cookies futuras',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Si Proviem habilita más adelante cookies de medición, publicidad u otra tecnología no necesaria, actualizará esta política antes de activarlas e informará la finalidad, el proveedor, la duración y la forma de aceptarlas o rechazarlas. Las cookies que no sean estrictamente necesarias no se activarán sin una base informada para hacerlo.',
+  },
+  {
+    kind: 'heading',
+    text: '7. Contacto',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Para dudas sobre esta política puedes comunicarte a las clínicas de Proviem: Ciudad de México, 55 7328 9409, Mítikah, Torre de Consultorios 2, Local 2, Río Churubusco 601, Xoco, Benito Juárez, C.P. 03330; y Monterrey, 81 2710 6577 y 81 2711 6224, Plaza José Benítez 2020, Eje Metropolitano 24, Deportivo Obispado.',
+  },
+  {
+    kind: 'paragraph',
+    text: 'Última actualización: 8 de octubre de 2026.',
   },
 ]

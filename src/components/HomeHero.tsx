@@ -239,13 +239,13 @@ export function HomeHero() {
           </div>
 
           <div className="hero__aside">
-            <a className="hero__stat" href="#resultados">
+            <div className="hero__stat">
               <span className="hero__stat-arrow">
                 <ArrowIcon />
               </span>
               <StatCount />
               <p>Personas atendidas recuperaron su movilidad</p>
-            </a>
+            </div>
             <img
               className="hero__network"
               src={networkImg}

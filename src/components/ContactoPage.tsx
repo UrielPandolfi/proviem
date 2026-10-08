@@ -40,11 +40,6 @@ export function ContactoPage() {
           </div>
 
           <div className="contacto__card" {...reveal('up', 80)}>
-            <h2>
-              El primer paso para
-              <br />
-              tu <span>proceso protésico</span>
-            </h2>
             <ContactForm />
           </div>
         </div>

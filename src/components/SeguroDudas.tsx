@@ -1,6 +1,5 @@
+import { WHATSAPP_URL } from '../data/whatsapp'
 import './SeguroDudas.css'
-
-const WHATSAPP_URL = 'https://wa.me/525573289409'
 
 export function SeguroDudas() {
   return (

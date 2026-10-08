@@ -7,6 +7,7 @@ import transtibialImg from '../assets/protesis/transtibial.png'
 import transhumeralImg from '../assets/protesis/transhumeral.png'
 import transradialImg from '../assets/protesis/transradial.png'
 import linerImg from '../assets/protesis/liner.png'
+import rodillaImg from '../assets/protesis/rodilla.png'
 import linerElementsImg from '../assets/protesis/liner-elements.png'
 import pie1d10 from '../assets/protesis/PROTESIS/1D10 Dynamic.png'
 import pieTerion from '../assets/protesis/PROTESIS/Terion 1D10.png'
@@ -723,7 +724,7 @@ function ProsthesisDetail({
         <div className="protesis-partes__figure">
           <img
             className="protesis-partes__photo"
-            src={liner || rodilla ? linerImg : DIAGRAMS[diagram].src}
+            src={rodilla ? rodillaImg : liner ? linerImg : DIAGRAMS[diagram].src}
             alt={
               rodilla
                 ? 'Prótesis transfemoral con la rodilla señalada'
@@ -903,7 +904,16 @@ export function ProtesisTipos() {
           </p>
         </div>
 
-        <div className="protesis-tipos__switch" role="tablist" aria-label="Tipo de miembro">
+        <div
+          className={
+            member === 'superior'
+              ? 'protesis-tipos__switch is-superior'
+              : 'protesis-tipos__switch'
+          }
+          role="tablist"
+          aria-label="Tipo de miembro"
+        >
+          <span className="protesis-tipos__switch-thumb" aria-hidden="true" />
           <button
             type="button"
             role="tab"

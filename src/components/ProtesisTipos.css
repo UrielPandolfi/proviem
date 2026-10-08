@@ -35,29 +35,51 @@
 }
 
 .protesis-tipos__switch {
-  display: flex;
-  justify-content: center;
+  --switch-gap: 0.55rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--switch-gap);
   width: fit-content;
   margin: 1.7rem auto 0;
-  padding: 0.28rem;
+  padding: 0;
   border-radius: 999px;
   background: color-mix(in srgb, var(--color-secondary) 32%, #e7f6fb);
 }
 
+.protesis-tipos__switch-thumb {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc((100% - var(--switch-gap)) / 2);
+  border-radius: 999px;
+  background: var(--color-primary);
+  pointer-events: none;
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.protesis-tipos__switch.is-superior .protesis-tipos__switch-thumb {
+  transform: translateX(calc(100% + var(--switch-gap)));
+}
+
 .protesis-tipos__switch button {
+  position: relative;
+  z-index: 1;
   border: 0;
   border-radius: 999px;
-  padding: 0.62rem 1.35rem;
+  padding: 0.72rem 1.7rem;
   background: transparent;
   color: var(--color-primary);
   font-size: 0.98rem;
   font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
+  transition: color 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .protesis-tipos__switch button.is-active {
-  background: var(--color-primary);
   color: #fff;
 }
 
@@ -725,8 +747,12 @@ button.protesis-partes__name:focus-visible {
     padding: 3.2rem 0 3.6rem;
   }
 
+  .protesis-tipos__switch {
+    --switch-gap: 0.4rem;
+  }
+
   .protesis-tipos__switch button {
-    padding: 0.58rem 0.95rem;
+    padding: 0.64rem 1.15rem;
     font-size: 0.92rem;
   }
 
@@ -904,7 +930,9 @@ button.protesis-partes__name:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .protesis-tipos__detail,
-  .protesis-tipos__dot {
+  .protesis-tipos__dot,
+  .protesis-tipos__switch-thumb,
+  .protesis-tipos__switch button {
     transition: none;
   }
 

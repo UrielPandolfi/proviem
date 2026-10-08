@@ -5,6 +5,7 @@ import icon3 from '../assets/gracias/icon3.png'
 import photo1 from '../assets/gracias/photo1.png'
 import photo2 from '../assets/gracias/photo2.png'
 import photo3 from '../assets/gracias/photo3.png'
+import { WHATSAPP_URL } from '../data/whatsapp'
 import './GraciasPage.css'
 
 const STEPS = [
@@ -118,9 +119,14 @@ export function GraciasPage() {
 
         <div className="gracias__follow">
           <p>¿Necesitas agregar información a tu solicitud?</p>
-          <button type="button" className="gracias__whatsapp">
+          <a
+            className="gracias__whatsapp"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Escríbenos en WhatsApp
-          </button>
+          </a>
         </div>
       </div>
     </section>

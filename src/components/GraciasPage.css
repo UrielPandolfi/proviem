@@ -223,10 +223,12 @@
 }
 
 .gracias__whatsapp {
+  display: inline-block;
   margin-top: 1.05rem;
   padding: 0.72rem 1.45rem;
   border: 0;
   border-radius: 999px;
+  text-decoration: none;
   background: var(--color-secondary);
   color: var(--color-primary);
   font: inherit;

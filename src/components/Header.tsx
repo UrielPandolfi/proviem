@@ -11,6 +11,7 @@ type Page =
   | 'seguro'
   | 'aviso'
   | 'terminos'
+  | 'cookies'
   | 'protesis'
   | 'gracias'
 

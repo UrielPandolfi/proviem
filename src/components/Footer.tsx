@@ -63,13 +63,13 @@ export function Footer({ squareTop = false }: { squareTop?: boolean }) {
               personalizadas.
             </p>
             <div className="site-footer__social">
-              <a href="#" aria-label="Facebook">
+              <a href="https://www.facebook.com/proviem2017" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FacebookIcon />
               </a>
-              <a href="#" aria-label="Instagram">
+              <a href="https://www.instagram.com/proviem/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <InstagramIcon />
               </a>
-              <a href="#" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/proviem/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <LinkedInIcon />
               </a>
             </div>

@@ -14,8 +14,7 @@
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
-  button.contact__submit,
-  button.gracias__whatsapp,
+  a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
   button.proceso-video__play
@@ -69,8 +68,7 @@ a.ubicaciones__btn--maps {
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
-  button.contact__submit,
-  button.gracias__whatsapp,
+  a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
   button.proceso-video__play
@@ -107,8 +105,7 @@ button.blog__page:disabled:hover {
     a.seguro-dudas__whatsapp,
     a.ubicaciones__btn,
     a.site-header__link,
-    button.contact__submit,
-  button.gracias__whatsapp,
+  a.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
     button.proceso-video__play
@@ -132,8 +129,7 @@ button.blog__page:disabled:hover {
     a.seguro-dudas__whatsapp,
     a.ubicaciones__btn,
     a.site-header__link,
-    button.contact__submit,
-  button.gracias__whatsapp,
+  a.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
     button.proceso-video__play

@@ -29,9 +29,10 @@ import contactProcesoImg from './assets/Proceso/contacto.png'
 import contactSeguroImg from './assets/seguro/contacto.png'
 import { ProtesisHero } from './components/ProtesisHero'
 import { ProtesisTipos } from './components/ProtesisTipos'
+import { ProtesisGaleria } from './components/ProtesisGaleria'
 import { LegalPage } from './components/LegalPage'
 import { GraciasPage } from './components/GraciasPage'
-import { avisoBlocks, terminosBlocks } from './data/legal'
+import { avisoBlocks, cookiesBlocks, terminosBlocks } from './data/legal'
 import { useReveal } from './motion/useReveal'
 import './button-hover.css'
 
@@ -45,6 +46,7 @@ type Page =
   | 'seguro'
   | 'aviso'
   | 'terminos'
+  | 'cookies'
   | 'protesis'
   | 'gracias'
 
@@ -75,9 +77,17 @@ function resolvePage(hash: string, fallback: Page): Page {
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (PROCESO_HASHES.has(hash)) return 'proceso'
   if (SEGURO_HASHES.has(hash)) return 'seguro'
-  if (hash === '#protesis' || hash === '#protesis-pierna' || hash === '#protesis-brazo') return 'protesis'
+  if (
+    hash === '#protesis' ||
+    hash === '#protesis-pierna' ||
+    hash === '#protesis-brazo' ||
+    hash === '#galeria'
+  ) {
+    return 'protesis'
+  }
   if (hash === '#aviso') return 'aviso'
   if (hash === '#terminos') return 'terminos'
+  if (hash === '#cookies') return 'cookies'
   if (hash === '#gracias') return 'gracias'
   if (isBlogHash(hash)) return 'blog'
   if (hash === '#cita') return fallback === 'contacto' ? 'home' : fallback
@@ -129,6 +139,7 @@ function App() {
       id === 'protesis' ||
       id === 'aviso' ||
       id === 'terminos' ||
+      id === 'cookies' ||
       id === 'gracias' ||
       id === 'blog' ||
       id.startsWith('blog/')
@@ -197,6 +208,7 @@ function App() {
           <>
             <ProtesisHero />
             <ProtesisTipos />
+            <ProtesisGaleria />
             <Contact
               photo={contactProcesoImg}
               photoAlt="Especialista de Proviem junto a las barras paralelas"
@@ -210,6 +222,8 @@ function App() {
             title="Términos y Condiciones"
             blocks={terminosBlocks}
           />
+        ) : page === 'cookies' ? (
+          <LegalPage id="cookies" title="Política de Cookies" blocks={cookiesBlocks} />
         ) : page === 'gracias' ? (
           <GraciasPage />
         ) : page === 'blog' ? (
