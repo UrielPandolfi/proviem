@@ -21,15 +21,35 @@
 ) {
   --btn-fill: var(--color-secondary);
   --btn-ink: var(--color-primary);
-  background-image: linear-gradient(var(--btn-ink), var(--btn-ink));
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 0% 100%;
+  isolation: isolate;
   transition:
-    background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0s linear,
+    color 0.22s ease,
     transform 0.28s ease,
     filter 0.28s ease;
+}
+
+:is(
+  a.hero__link,
+  a.hero__pill,
+  a.nosotros-hero__cta,
+  a.contacto__cta,
+  a.proceso-hero__cta,
+  a.clinicas-hero__cta,
+  a.protesis-hero__cta,
+  a.seguro-hero__cta,
+  a.process-steps__cta,
+  a.seguro-pago__cta,
+  a.blog-post__cta-btn,
+  a.seguro-dudas__cita,
+  a.seguro-dudas__whatsapp,
+  a.ubicaciones__btn,
+  a.site-header__link,
+  a.gracias__whatsapp,
+  button.blog__filter,
+  button.blog__page
+) {
+  position: relative;
+  z-index: 0;
 }
 
 :is(a.ubicaciones__btn, a.site-header__link, button.blog__page) {
@@ -72,20 +92,77 @@ a.ubicaciones__btn--maps {
   button.blog__filter,
   button.blog__page,
   button.proceso-video__play
+)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--btn-ink);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+:is(
+  a.hero__link,
+  a.hero__pill,
+  a.nosotros-hero__cta,
+  a.contacto__cta,
+  a.proceso-hero__cta,
+  a.clinicas-hero__cta,
+  a.protesis-hero__cta,
+  a.seguro-hero__cta,
+  a.process-steps__cta,
+  a.seguro-pago__cta,
+  a.blog-post__cta-btn,
+  a.seguro-dudas__cita,
+  a.seguro-dudas__whatsapp,
+  a.ubicaciones__btn,
+  a.site-header__link,
+  a.gracias__whatsapp,
+  button.blog__filter,
+  button.blog__page,
+  button.proceso-video__play
 ):hover {
-  background-size: 100% 100%;
   color: var(--btn-fill);
   filter: none;
   transition:
-    background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0s linear 0.18s,
+    color 0.22s ease 0.12s,
     transform 0.28s ease,
     filter 0.28s ease;
 }
 
+:is(
+  a.hero__link,
+  a.hero__pill,
+  a.nosotros-hero__cta,
+  a.contacto__cta,
+  a.proceso-hero__cta,
+  a.clinicas-hero__cta,
+  a.protesis-hero__cta,
+  a.seguro-hero__cta,
+  a.process-steps__cta,
+  a.seguro-pago__cta,
+  a.blog-post__cta-btn,
+  a.seguro-dudas__cita,
+  a.seguro-dudas__whatsapp,
+  a.ubicaciones__btn,
+  a.site-header__link,
+  a.gracias__whatsapp,
+  button.blog__filter,
+  button.blog__page,
+  button.proceso-video__play
+):hover::before {
+  opacity: 1;
+}
+
 button.blog__page:disabled:hover {
-  background-size: 0% 100%;
   color: var(--color-primary);
+}
+
+button.blog__page:disabled:hover::before {
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,7 +173,7 @@ button.blog__page:disabled:hover {
     a.contacto__cta,
     a.proceso-hero__cta,
     a.clinicas-hero__cta,
-  a.protesis-hero__cta,
+    a.protesis-hero__cta,
     a.seguro-hero__cta,
     a.process-steps__cta,
     a.seguro-pago__cta,
@@ -105,14 +182,11 @@ button.blog__page:disabled:hover {
     a.seguro-dudas__whatsapp,
     a.ubicaciones__btn,
     a.site-header__link,
-  a.gracias__whatsapp,
+    a.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
     button.proceso-video__play
-  ) {
-    transition: none;
-  }
-
+  ),
   :is(
     a.hero__link,
     a.hero__pill,
@@ -120,7 +194,7 @@ button.blog__page:disabled:hover {
     a.contacto__cta,
     a.proceso-hero__cta,
     a.clinicas-hero__cta,
-  a.protesis-hero__cta,
+    a.protesis-hero__cta,
     a.seguro-hero__cta,
     a.process-steps__cta,
     a.seguro-pago__cta,
@@ -129,13 +203,11 @@ button.blog__page:disabled:hover {
     a.seguro-dudas__whatsapp,
     a.ubicaciones__btn,
     a.site-header__link,
-  a.gracias__whatsapp,
+    a.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
     button.proceso-video__play
-  ):hover {
-    background-color: var(--btn-ink);
-    background-image: none;
+  )::before {
     transition: none;
   }
 }
