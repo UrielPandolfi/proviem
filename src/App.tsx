@@ -186,8 +186,8 @@ function App() {
         ) : page === 'proceso' ? (
           <>
             <ProcesoHero />
-            <ProcesoEtapas />
             <ProcesoVideo />
+            <ProcesoEtapas />
             <Contact
               photo={contactProcesoImg}
               photoAlt="Especialista de Proviem junto a las barras paralelas"

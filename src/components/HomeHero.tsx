@@ -309,7 +309,7 @@ export function HomeHero() {
             Ofrecemos un <span>Servicio Integral</span>
           </h2>
           <p>
-            Te incluimos terapias de rehabilitación, para que aprendas a usar tu
+            Te incluimos entrenamiento protésico, para que aprendas a usar tu
             nueva prótesis.
           </p>
         </div>

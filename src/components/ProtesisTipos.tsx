@@ -104,7 +104,7 @@ const SUSPENSION_TEXT =
 type LimbDiagram = 'transfemoral' | 'transtibial' | 'transhumeral' | 'transradial'
 
 const TRANSFEMORAL_PARTS: Part[] = [
-  { id: 'liner', title: 'Liner', side: 'right', top: '13%', edge: 0.62 },
+  { id: 'liner', title: 'Bolsa de colocación / Liner', side: 'right', top: '13%', edge: 0.62 },
   {
     id: 'socket',
     title: 'Socket / Encaje',
@@ -112,14 +112,6 @@ const TRANSFEMORAL_PARTS: Part[] = [
     side: 'right',
     top: '32%',
     edge: 0.78,
-  },
-  {
-    id: 'suspension',
-    title: 'Suspensión',
-    text: SUSPENSION_TEXT,
-    side: 'left',
-    top: '43%',
-    edge: 0.56,
   },
   { id: 'rodillas', title: 'Rodillas', side: 'right', top: '55%', edge: 0.87 },
   {
@@ -173,7 +165,7 @@ const TRANSHUMERAL_PARTS: Part[] = [
   },
   {
     id: 'motor',
-    title: 'Motor',
+    title: 'Codo',
     text: 'Componente eléctrico que transforma las señales de control en movimiento dentro de determinadas prótesis mioeléctricas.',
     side: 'left',
     top: '46%',
@@ -223,7 +215,7 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   transhumeral: {
     src: transhumeralImg,
-    alt: 'Prótesis transhumeral con suspensión, encaje, motor, brazo y mano',
+    alt: 'Prótesis transhumeral con suspensión, encaje, codo, brazo y mano',
     parts: TRANSHUMERAL_PARTS,
   },
   transradial: {
