@@ -22,3 +22,35 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Recursos originales locales que no utiliza la web
+*.zip
+/src/assets/pacientes/icono_proviem_home.svg
+/src/assets/protesis/PROTESIS/Access.png
+/src/assets/protesis/PROTESIS/Brazo.png
+/src/assets/protesis/PROTESIS/BrazoTransradial.png
+/src/assets/protesis/PROTESIS/Brazo_Transhumeral.png
+/src/assets/protesis/PROTESIS/Dinamico.png
+/src/assets/protesis/PROTESIS/ENCAJE DEFINITIVO  (1).png
+/src/assets/protesis/PROTESIS/ENCAJE PRUEBA TERMOFORMABLE .png
+/src/assets/protesis/PROTESIS/Firefly - 2026-08-16T222251.273.png
+/src/assets/protesis/PROTESIS/Firefly - 2026-08-16T222301.306.png
+/src/assets/protesis/PROTESIS/Liners.png
+/src/assets/protesis/PROTESIS/Mecanica.png
+/src/assets/protesis/PROTESIS/Myofacil.png
+/src/assets/protesis/PROTESIS/Pierna.png
+/src/assets/protesis/PROTESIS/PiernaLiner.png
+/src/assets/protesis/PROTESIS/PiernaLiner2.png
+/src/assets/protesis/PROTESIS/PiernaProtesis.png
+/src/assets/protesis/PROTESIS/PiernaProtesis2.png
+/src/assets/protesis/PROTESIS/PiernaTransfemoral.png
+/src/assets/protesis/PROTESIS/PiernaTranstibial.png
+/src/assets/protesis/PROTESIS/PiernaTubo.png
+/src/assets/protesis/PROTESIS/PiernaTubo2.png
+/src/assets/protesis/PROTESIS/Rodilla3B1-3.png
+/src/assets/protesis/PROTESIS/ossur-iceross-seal-in-x-locking-prosthetic-liner.png
+/src/assets/protesis/drive-download-20261006T183451Z-1-001/_AMG1452.JPG
+/src/assets/protesis/drive-download-20261006T183451Z-1-001/_AMG1456.JPG
+/src/assets/protesis/drive-download-20261006T183451Z-1-001/_AMG1470.JPG
+/src/assets/protesis/drive-download-20261006T183451Z-1-001/_AMG1489.ARW
+/src/assets/protesis/drive-download-20261006T183451Z-1-001/_AMG1497.ARW
