@@ -11,16 +11,103 @@ import desarticulacionHombroImg from '../assets/protesis/desarticulacion-hombro.
 import linerImg from '../assets/protesis/liner.png'
 import rodillaImg from '../assets/protesis/rodilla.png'
 import linerElementsImg from '../assets/protesis/liner-elements.png'
-import pie1d10 from '../assets/protesis/PROTESIS/1D10 Dynamic.png'
-import pieTerion from '../assets/protesis/PROTESIS/Terion 1D10.png'
-import pieTrias from '../assets/protesis/PROTESIS/Trias 1C30-1.png'
-import rodilla3r78 from '../assets/protesis/PROTESIS/Rodilla 3R78.png'
-import rodilla3r90 from '../assets/protesis/PROTESIS/Rodilla 3R90.png'
-import rodilla3r95 from '../assets/protesis/PROTESIS/Rodilla 3R95.png'
+import pieSach from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/SACH 1549.png'
+import pie1d10 from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/1D10 Dynamic.png'
+import pieTerion from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/Terion 1D10.png'
+import pieTrias from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/Trias 1C30-1.png'
+import pieTaleo from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TALEO 1c50.png'
+import pieTriton from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON 1C60.png'
+import pieTritonHeavy from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TROTON HEAVY DUTY 1C64.png'
+import pieTritonHarmony from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON HARMONY 1C62.png'
+import rodilla3r78 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R78.png'
+import rodilla3r90 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R90.png'
+import rodilla3r95 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R95.png'
+import rodilla3r92 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R92.png'
+import rodilla3r106 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R106.png'
+import rodilla3r15 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R15.png'
+import rodilla3r20 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R20.png'
+import rodilla3r85 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R85DYNION.png'
+import rodillaCleg from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/C-LEG 4.png'
+import rodilla3r80 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R80.png'
 import myofacilImg from '../assets/protesis/myofacil.png'
 import accesImg from '../assets/protesis/acces.png'
 import mecanicoImg from '../assets/protesis/mecanico.png'
 import './ProtesisTipos.css'
+
+const IMAGE_SIZE: Record<string, { width: number; height: number }> = {
+  [piernaImg]: { width: 322, height: 670 },
+  [brazoImg]: { width: 331, height: 640 },
+  [transfemoralImg]: { width: 336, height: 698 },
+  [transtibialImg]: { width: 335, height: 697 },
+  [transhumeralImg]: { width: 337, height: 634 },
+  [transradialImg]: { width: 379, height: 659 },
+  [desarticulacionCaderaImg]: { width: 475, height: 661 },
+  [desarticulacionHombroImg]: { width: 736, height: 736 },
+  [linerImg]: { width: 336, height: 698 },
+  [rodillaImg]: { width: 336, height: 698 },
+  [linerElementsImg]: { width: 642, height: 329 },
+}
+
+const readyImages = new Set<string>()
+const inflightImages = new Map<string, Promise<void>>()
+
+function whenImageReady(src: string): Promise<void> {
+  if (readyImages.has(src)) return Promise.resolve()
+  const pending = inflightImages.get(src)
+  if (pending) return pending
+  const promise = new Promise<void>((resolve) => {
+    const img = new Image()
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      readyImages.add(src)
+      resolve()
+    }
+    img.onload = () => {
+      if (typeof img.decode === 'function') void img.decode().then(finish, finish)
+      else finish()
+    }
+    img.onerror = finish
+    img.src = src
+  })
+  inflightImages.set(src, promise)
+  void promise.then(() => {
+    inflightImages.delete(src)
+  })
+  return promise
+}
+
+function whenImagesReady(srcs: string[]): Promise<void> {
+  return new Promise((resolve) => {
+    const finish = () => resolve()
+    const timeout = window.setTimeout(finish, 5000)
+    void Promise.all(srcs.map(whenImageReady)).then(() => {
+      window.clearTimeout(timeout)
+      finish()
+    })
+  })
+}
+
+function useHeldImage(src?: string) {
+  const [shown, setShown] = useState(src)
+
+  useEffect(() => {
+    if (!src) {
+      setShown(undefined)
+      return
+    }
+    let active = true
+    void whenImageReady(src).then(() => {
+      if (active) setShown(src)
+    })
+    return () => {
+      active = false
+    }
+  }, [src])
+
+  return shown
+}
 
 type Member = 'inferior' | 'superior'
 
@@ -321,6 +408,7 @@ const FEET: CatalogItem[] = [
     activity: 'Baja actividad y estabilidad básica',
     mobility: '1 - 2',
     weight: '125 kg',
+    image: pieSach,
   },
   {
     id: '1d10-dynamic',
@@ -356,6 +444,7 @@ const FEET: CatalogItem[] = [
     activity: 'Actividad alta y terrenos variados',
     mobility: '2 - 4',
     weight: '150 kg',
+    image: pieTaleo,
   },
   {
     id: 'triton-1c60',
@@ -364,6 +453,7 @@ const FEET: CatalogItem[] = [
     activity: 'Alta actividad y mayor dinamismo',
     mobility: '3 - 4',
     weight: 'Hasta 150 kg*',
+    image: pieTriton,
   },
   {
     id: 'triton-1c64',
@@ -372,6 +462,7 @@ const FEET: CatalogItem[] = [
     activity: 'Alta actividad y uso exigente',
     mobility: '3 - 4',
     weight: '150 kg',
+    image: pieTritonHeavy,
   },
   {
     id: 'triton-1c62',
@@ -380,6 +471,7 @@ const FEET: CatalogItem[] = [
     activity: 'Alta actividad y sujeción dinámica',
     mobility: '3 - 4',
     weight: 'Hasta 150 kg*',
+    image: pieTritonHarmony,
   },
 ]
 
@@ -418,6 +510,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Actividad moderada y control de marcha',
     mobility: '2 - 3',
     weight: '125 kg',
+    image: rodilla3r92,
   },
   {
     id: '3r106',
@@ -426,6 +519,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Actividad moderada y uso diario',
     mobility: '2 - 3',
     weight: '100 kg',
+    image: rodilla3r106,
   },
   {
     id: '3r15',
@@ -434,6 +528,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Baja actividad y trayectos cortos',
     mobility: '1 - 2',
     weight: '100 kg',
+    image: rodilla3r15,
   },
   {
     id: '3r20',
@@ -442,6 +537,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Baja actividad y marcha estable',
     mobility: '1 - 2',
     weight: '100 kg',
+    image: rodilla3r20,
   },
   {
     id: '3r85-dynion',
@@ -450,6 +546,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Alta actividad y terrenos variados',
     mobility: '3 - 4',
     weight: '100 kg',
+    image: rodilla3r85,
   },
   {
     id: 'c-leg-4',
@@ -458,6 +555,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Actividad variable y movilidad avanzada',
     mobility: '2 - 4',
     weight: '136 kg',
+    image: rodillaCleg,
   },
   {
     id: '3r80',
@@ -466,6 +564,7 @@ const KNEES: CatalogItem[] = [
     activity: 'Alta actividad y uso dinámico',
     mobility: '3 - 4',
     weight: '150 kg',
+    image: rodilla3r80,
   },
 ]
 
@@ -485,6 +584,8 @@ function PartCatalog({
   const [progress, setProgress] = useState(0)
   const current = items.find((item) => item.id === itemId) ?? items[0]
   const index = Math.max(0, items.findIndex((item) => item.id === current.id))
+  const heldImage = useHeldImage(current.image)
+  const heldName = items.find((item) => item.image === heldImage)?.name ?? current.name
 
   useLayoutEffect(() => {
     const measure = () => {
@@ -560,8 +661,8 @@ function PartCatalog({
 
   return (
     <div className="protesis-pies">
-      <div className={`protesis-pies__photo${current.image ? '' : ' is-empty'}`}>
-        {current.image ? <img src={current.image} alt={label(current.name)} /> : null}
+      <div className={`protesis-pies__photo${heldImage ? '' : ' is-empty'}`}>
+        {heldImage ? <img src={heldImage} alt={label(heldName)} decoding="sync" /> : null}
       </div>
       <div className="protesis-pies__panel">
       <div className="protesis-pies__list" ref={listRef} style={windowHeight ? { maxHeight: windowHeight } : undefined}>
@@ -645,6 +746,8 @@ function HandMenu() {
   const [handId, setHandId] = useState(HANDS[0].id)
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([])
   const current = HANDS.find((hand) => hand.id === handId) ?? HANDS[0]
+  const heldImage = useHeldImage(current.image) ?? current.image
+  const heldName = HANDS.find((hand) => hand.image === heldImage)?.name ?? current.name
 
   useEffect(() => {
     optionRefs.current[0]?.focus({ preventScroll: true })
@@ -659,7 +762,7 @@ function HandMenu() {
 
   return (
     <div className="protesis-manos">
-      <img className="protesis-manos__photo" src={current.image} alt={`Mano ${current.name}`} />
+      <img className="protesis-manos__photo" src={heldImage} alt={`Mano ${heldName}`} decoding="sync" />
       <div className="protesis-manos__panel">
         <h3 className="protesis-manos__title">Mano</h3>
         <div className="protesis-manos__list">
@@ -755,6 +858,8 @@ function ProsthesisDetail({
   const catalog = view === 'pie' || view === 'rodillas'
   const hands = view === 'mano'
   const showingParts = !liner && !rodilla && !catalog && !hands
+  const photoSrc = rodilla ? rodillaImg : liner ? linerImg : DIAGRAMS[diagram].src
+  const photoSize = IMAGE_SIZE[photoSrc]
 
   return (
     <div
@@ -787,7 +892,10 @@ function ProsthesisDetail({
         <div className="protesis-partes__figure">
           <img
             className="protesis-partes__photo"
-            src={rodilla ? rodillaImg : liner ? linerImg : DIAGRAMS[diagram].src}
+            src={photoSrc}
+            width={photoSize.width}
+            height={photoSize.height}
+            decoding="sync"
             alt={
               rodilla
                 ? 'Prótesis transfemoral con la rodilla señalada'
@@ -814,6 +922,9 @@ function ProsthesisDetail({
             <img
               className="protesis-liner__products"
               src={linerElementsImg}
+              width={IMAGE_SIZE[linerElementsImg].width}
+              height={IMAGE_SIZE[linerElementsImg].height}
+              decoding="sync"
               alt="Liners de distintas formas y materiales"
             />
           </div>
@@ -943,6 +1054,7 @@ function LimbMap({
   onOpenDiagram: (diagram: LimbDiagram) => void
 }) {
   const limb = LIMBS[member]
+  const limbSize = IMAGE_SIZE[limb.src]
   const [expanded, setExpanded] = useState(() => limb.points.map((point) => point.id))
 
   function toggle(id: string) {
@@ -959,7 +1071,14 @@ function LimbMap({
       aria-labelledby={limb.tabId}
     >
       <div className="protesis-miembro__figure">
-        <img className="protesis-tipos__leg" src={limb.src} alt={limb.alt} />
+        <img
+          className="protesis-tipos__leg"
+          src={limb.src}
+          alt={limb.alt}
+          width={limbSize.width}
+          height={limbSize.height}
+          decoding="sync"
+        />
         {limb.points.map((point) => (
           <button
             key={point.id}
@@ -1028,33 +1147,128 @@ function LimbMap({
   )
 }
 
+type Shown = {
+  member: Member
+  diagram: LimbDiagram
+  detail: null | 'parts' | PartView
+}
+
+function sameScene(a: Shown, b: Shown) {
+  return a.member === b.member && a.diagram === b.diagram && a.detail === b.detail
+}
+
+function sceneImages(scene: Shown): string[] {
+  if (scene.detail == null) return [LIMBS[scene.member].src]
+  if (scene.detail === 'parts') return [DIAGRAMS[scene.diagram].src]
+  if (scene.detail === 'liner') return [linerImg, linerElementsImg]
+  if (scene.detail === 'rodilla') return [rodillaImg]
+  if (scene.detail === 'mano') return [HANDS[0].image]
+  if (scene.detail === 'rodillas') {
+    const image = KNEES.find((item) => item.id === '3r95')?.image
+    return image ? [image] : []
+  }
+  if (scene.detail === 'pie') {
+    const image = FEET[0]?.image
+    return image ? [image] : []
+  }
+  return []
+}
+
+function detailView(detail: Shown['detail']): PartView | null {
+  if (
+    detail === 'liner' ||
+    detail === 'pie' ||
+    detail === 'rodilla' ||
+    detail === 'rodillas' ||
+    detail === 'mano'
+  ) {
+    return detail
+  }
+  return null
+}
+
 export function ProtesisTipos() {
-  const [member, setMember] = useState<Member>(() => memberFromHash(window.location.hash))
+  const initialMember = memberFromHash(window.location.hash)
+  const [tab, setTab] = useState<Member>(initialMember)
+  const [shown, setShown] = useState<Shown>({
+    member: initialMember,
+    diagram: 'transfemoral',
+    detail: null,
+  })
   const [open, setOpen] = useState<string | null>(null)
-  const [diagram, setDiagram] = useState<LimbDiagram>('transfemoral')
-  const [detail, setDetail] = useState<null | 'parts' | PartView>(null)
-  const showDetail = detail !== null
+  const [busy, setBusy] = useState(false)
+  const shownRef = useRef(shown)
+  const requestRef = useRef(0)
+  shownRef.current = shown
+
+  useEffect(() => {
+    const srcs = [
+      piernaImg,
+      brazoImg,
+      transfemoralImg,
+      transtibialImg,
+      transhumeralImg,
+      transradialImg,
+      desarticulacionCaderaImg,
+      desarticulacionHombroImg,
+      linerImg,
+      linerElementsImg,
+      rodillaImg,
+      myofacilImg,
+      accesImg,
+      mecanicoImg,
+      ...FEET.flatMap((item) => (item.image ? [item.image] : [])),
+      ...KNEES.flatMap((item) => (item.image ? [item.image] : [])),
+    ]
+    srcs.forEach((src) => {
+      void whenImageReady(src)
+    })
+  }, [])
+
+  function go(next: Shown) {
+    if (sameScene(shownRef.current, next)) {
+      requestRef.current += 1
+      setBusy(false)
+      return
+    }
+    const request = ++requestRef.current
+    const apply = () => {
+      if (requestRef.current !== request) return
+      shownRef.current = next
+      setShown(next)
+      setOpen(null)
+      setBusy(false)
+    }
+    const images = sceneImages(next)
+    if (images.every((src) => readyImages.has(src))) {
+      apply()
+      return
+    }
+    setBusy(true)
+    void whenImagesReady(images).then(apply)
+  }
 
   function selectMember(next: Member) {
-    setMember(next)
-    setOpen(null)
-    setDetail(null)
+    setTab(next)
+    go({ member: next, diagram: shownRef.current.diagram, detail: null })
   }
+
+  const selectMemberRef = useRef(selectMember)
+  selectMemberRef.current = selectMember
 
   useEffect(() => {
     function syncMember() {
       const hash = window.location.hash
       if (hash !== '#protesis' && hash !== '#protesis-pierna' && hash !== '#protesis-brazo') return
-      selectMember(memberFromHash(hash))
+      selectMemberRef.current(memberFromHash(hash))
     }
     window.addEventListener('hashchange', syncMember)
     return () => window.removeEventListener('hashchange', syncMember)
   }, [])
 
   function openDiagram(next: LimbDiagram) {
-    setDiagram(next)
-    setDetail('parts')
-    setOpen(null)
+    setTab(shownRef.current.member)
+    go({ member: shownRef.current.member, diagram: next, detail: 'parts' })
   }
 
   function show(id: string) {
@@ -1065,6 +1279,30 @@ export function ProtesisTipos() {
     if (staysOnPoint(id, event)) return
     setOpen((current) => (current === id ? null : current))
   }
+
+  function openView(next: PartView) {
+    go({ ...shownRef.current, detail: next })
+  }
+
+  function goBack() {
+    const current = shownRef.current
+    if (current.detail === 'rodillas') {
+      go({ ...current, detail: 'rodilla' })
+      return
+    }
+    if (
+      current.detail === 'liner' ||
+      current.detail === 'pie' ||
+      current.detail === 'rodilla' ||
+      current.detail === 'mano'
+    ) {
+      go({ ...current, detail: 'parts' })
+      return
+    }
+    go({ ...current, detail: null })
+  }
+
+  const showDetail = shown.detail !== null
 
   return (
     <section id="protesis-tipos" className="section section--narrow protesis-tipos" aria-labelledby="protesis-tipos-title">
@@ -1081,7 +1319,7 @@ export function ProtesisTipos() {
 
         <div
           className={
-            member === 'superior'
+            tab === 'superior'
               ? 'protesis-tipos__switch is-superior'
               : 'protesis-tipos__switch'
           }
@@ -1093,9 +1331,9 @@ export function ProtesisTipos() {
             type="button"
             role="tab"
             id="protesis-tab-inferior"
-            aria-selected={member === 'inferior'}
+            aria-selected={tab === 'inferior'}
             aria-controls="protesis-panel-inferior"
-            className={member === 'inferior' ? 'is-active' : undefined}
+            className={tab === 'inferior' ? 'is-active' : undefined}
             onClick={() => selectMember('inferior')}
           >
             Miembro Inferior
@@ -1104,52 +1342,32 @@ export function ProtesisTipos() {
             type="button"
             role="tab"
             id="protesis-tab-superior"
-            aria-selected={member === 'superior'}
+            aria-selected={tab === 'superior'}
             aria-controls="protesis-panel-superior"
-            className={member === 'superior' ? 'is-active' : undefined}
+            className={tab === 'superior' ? 'is-active' : undefined}
             onClick={() => selectMember('superior')}
           >
             Miembro Superior
           </button>
         </div>
 
-        {showDetail ? (
-          <ProsthesisDetail
-            diagram={diagram}
-            parts={DIAGRAMS[diagram].parts}
-            open={open}
-            view={
-              detail === 'liner' ||
-              detail === 'pie' ||
-              detail === 'rodilla' ||
-              detail === 'rodillas' ||
-              detail === 'mano'
-                ? detail
-                : null
-            }
-            show={show}
-            hide={hide}
-            toggle={(id) => setOpen((current) => (current === id ? null : id))}
-            onOpenView={(next) => {
-              setDetail(next)
-              setOpen(null)
-            }}
-            onBack={() => {
-              if (detail === 'rodillas') {
-                setDetail('rodilla')
-                return
-              }
-              if (detail === 'liner' || detail === 'pie' || detail === 'rodilla' || detail === 'mano') {
-                setDetail('parts')
-                return
-              }
-              setDetail(null)
-              setOpen(null)
-            }}
-          />
-        ) : (
-          <LimbMap key={member} member={member} onOpenDiagram={openDiagram} />
-        )}
+        <div aria-busy={busy || undefined}>
+          {showDetail ? (
+            <ProsthesisDetail
+              diagram={shown.diagram}
+              parts={DIAGRAMS[shown.diagram].parts}
+              open={open}
+              view={detailView(shown.detail)}
+              show={show}
+              hide={hide}
+              toggle={(id) => setOpen((current) => (current === id ? null : id))}
+              onOpenView={openView}
+              onBack={goBack}
+            />
+          ) : (
+            <LimbMap key={shown.member} member={shown.member} onOpenDiagram={openDiagram} />
+          )}
+        </div>
       </div>
     </section>
   )

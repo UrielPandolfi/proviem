@@ -6,54 +6,46 @@
   min-height: calc(100svh - var(--header-offset));
   overflow: clip;
   padding: 2.4rem 0 2.8rem;
-  background: var(--color-bg);
-}
-
-.clinicas-hero__filters {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-.clinicas-hero__mark {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 0;
-  width: 30%;
-  height: auto;
-  max-width: none;
-  filter: url(#clinicas-mark);
-  pointer-events: none;
-  user-select: none;
-}
-
-.clinicas-hero__visual {
-  position: absolute;
-  top: 52%;
-  right: -2%;
-  z-index: 1;
-  width: max(50%, min(66%, 54rem));
-  transform: translateY(-48%);
-  pointer-events: none;
-}
-
-.clinicas-hero__ramp {
-  width: 100%;
-  max-width: none;
-  height: auto;
-  object-fit: contain;
-  object-position: right center;
+  background:
+    radial-gradient(
+      80% 70% at 86% 30%,
+      color-mix(in srgb, var(--color-secondary) 9%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(165deg, #fbfdff 0%, #f7fcfe 62%, #f3f9fc 100%);
 }
 
 .clinicas-hero .section__inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+}
+
+.clinicas-hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(16rem, 1.1fr);
+  align-items: center;
+  column-gap: clamp(1.6rem, 3.4vw, 3.4rem);
+}
+
+.clinicas-hero__visual {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 34rem);
+}
+
+.clinicas-hero__ramp {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(100svh - var(--header-offset) - 6.2rem);
+  margin-left: auto;
+  object-fit: contain;
+  object-position: right center;
 }
 
 .clinicas-hero__copy {
-  max-width: min(34rem, 46%);
+  max-width: 34rem;
 }
 
 .clinicas-hero__eyebrow {
@@ -111,13 +103,9 @@
 }
 
 @media (max-width: 1040px) {
-  .clinicas-hero__visual {
-    right: 0;
-    width: 50%;
-  }
-
-  .clinicas-hero__copy {
-    max-width: 44%;
+  .clinicas-hero__layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(14rem, 1fr);
+    column-gap: 1.4rem;
   }
 
   .clinicas-hero__copy h1 {
@@ -134,8 +122,11 @@
     padding: 1.35rem 0 2.4rem;
   }
 
-  .clinicas-hero .section__inner {
-    order: 1;
+  .clinicas-hero__layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 1.6rem;
   }
 
   .clinicas-hero__copy {
@@ -168,18 +159,7 @@
   }
 
   .clinicas-hero__visual {
-    position: relative;
-    top: auto;
-    right: auto;
-    order: 2;
-    width: calc(100% - 1.2rem);
-    margin: 1.6rem 0 0 auto;
-    transform: none;
-  }
-
-  .clinicas-hero__mark {
-    top: 0;
-    right: -6%;
-    width: 8.5rem;
+    width: min(100%, 28rem);
+    margin-inline: auto 0;
   }
 }
