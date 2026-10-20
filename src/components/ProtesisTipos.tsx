@@ -215,7 +215,7 @@ type LimbDiagram =
   | 'desarticulacion-hombro'
 
 const TRANSFEMORAL_PARTS: Part[] = [
-  { id: 'liner', title: 'Bolsa de colocación / Liner', side: 'right', top: '13%', edge: 0.62 },
+  { id: 'liner', title: 'Liner', side: 'right', top: '13%', edge: 0.62 },
   {
     id: 'socket',
     title: 'Socket / Encaje',
@@ -317,7 +317,7 @@ const HIP_DISARTICULATION_PARTS: Part[] = [
   {
     id: 'socket',
     title: 'Socket / Encaje',
-    text: SOCKET_TEXT,
+    text: 'Integra la zona pélvica y conecta la prótesis al cuerpo.',
     side: 'right',
     top: '12%',
     edge: 0.7,
@@ -789,7 +789,10 @@ function HandMenu() {
                   }
                 }}
               >
-                <span className="protesis-manos__name">{hand.name}</span>
+                <span className="protesis-manos__name">
+                  {hand.name}
+                  <ChevronIcon />
+                </span>
                 <span className="protesis-manos__detail" aria-hidden={!selected}>
                   <span>{hand.text}</span>
                 </span>
