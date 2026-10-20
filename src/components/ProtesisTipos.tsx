@@ -6,6 +6,8 @@ import transfemoralImg from '../assets/protesis/transfemoral.png'
 import transtibialImg from '../assets/protesis/transtibial.png'
 import transhumeralImg from '../assets/protesis/transhumeral.png'
 import transradialImg from '../assets/protesis/transradial.png'
+import desarticulacionCaderaImg from '../assets/protesis/desarticulacion-cadera.png'
+import desarticulacionHombroImg from '../assets/protesis/desarticulacion-hombro.png'
 import linerImg from '../assets/protesis/liner.png'
 import rodillaImg from '../assets/protesis/rodilla.png'
 import linerElementsImg from '../assets/protesis/liner-elements.png'
@@ -26,7 +28,7 @@ type Point = {
   id: string
   title: string
   text: string
-  side: 'left' | 'right'
+  placement: 'top-left' | 'bottom-left' | 'right'
   top: string
   left: string
 }
@@ -42,10 +44,18 @@ const LIMBS: Record<
     alt: 'Silueta de una pierna en perfil',
     points: [
       {
+        id: 'desarticulacion-cadera',
+        title: 'Desarticulación de cadera',
+        text: 'Amputación realizada a nivel de la articulación de la cadera. En este nivel, la pelvis participa en el control de la prótesis.',
+        placement: 'top-left',
+        top: '13%',
+        left: '24%',
+      },
+      {
         id: 'transfemoral',
         title: 'Transfemoral',
         text: 'Opciones protésicas para amputaciones arriba de la rodilla, con configuraciones de rodilla y pie según la movilidad y necesidades de cada persona.',
-        side: 'right',
+        placement: 'right',
         top: '28%',
         left: '76%',
       },
@@ -53,7 +63,7 @@ const LIMBS: Record<
         id: 'transtibial',
         title: 'Transtibial',
         text: 'Soluciones para amputaciones debajo de la rodilla, enfocadas en ajuste, estabilidad y respuesta durante la marcha.',
-        side: 'left',
+        placement: 'bottom-left',
         top: '62%',
         left: '58%',
       },
@@ -66,10 +76,18 @@ const LIMBS: Record<
     alt: 'Silueta de un brazo en perfil',
     points: [
       {
+        id: 'desarticulacion-hombro',
+        title: 'Desarticulación de hombro',
+        text: 'En este caso, la amputación se realiza en la zona donde el húmero se une con la clavícula y la escápula.',
+        placement: 'top-left',
+        top: '16%',
+        left: '38%',
+      },
+      {
         id: 'transhumeral',
         title: 'Transhumeral',
         text: 'Opciones protésicas para amputaciones arriba del codo, configuradas de acuerdo con las necesidades funcionales y el tipo de control requerido.',
-        side: 'right',
+        placement: 'right',
         top: '34%',
         left: '75%',
       },
@@ -77,7 +95,7 @@ const LIMBS: Record<
         id: 'transradial',
         title: 'Transradial',
         text: 'Opciones protésicas para amputaciones abajo del codo, con alternativas mecánicas y mioeléctricas según la función que se requiera.',
-        side: 'left',
+        placement: 'bottom-left',
         top: '57%',
         left: '64%',
       },
@@ -101,7 +119,13 @@ const TUBO_TEXT =
 const SUSPENSION_TEXT =
   'Sistema que ayuda a mantener la prótesis en su posición durante el movimiento y las actividades del usuario.'
 
-type LimbDiagram = 'transfemoral' | 'transtibial' | 'transhumeral' | 'transradial'
+type LimbDiagram =
+  | 'transfemoral'
+  | 'transtibial'
+  | 'transhumeral'
+  | 'transradial'
+  | 'desarticulacion-cadera'
+  | 'desarticulacion-hombro'
 
 const TRANSFEMORAL_PARTS: Part[] = [
   { id: 'liner', title: 'Bolsa de colocación / Liner', side: 'right', top: '13%', edge: 0.62 },
@@ -202,7 +226,54 @@ const TRANSRADIAL_PARTS: Part[] = [
   { id: 'mano', title: 'Mano', side: 'left', top: '75%', edge: 0.34 },
 ]
 
+const HIP_DISARTICULATION_PARTS: Part[] = [
+  {
+    id: 'socket',
+    title: 'Socket / Encaje',
+    text: SOCKET_TEXT,
+    side: 'right',
+    top: '12%',
+    edge: 0.7,
+  },
+  {
+    id: 'articulacion-cadera',
+    title: 'Articulación de cadera',
+    text: 'Permite el movimiento y ayuda durante la marcha.',
+    side: 'right',
+    top: '31%',
+    edge: 0.7,
+  },
+  {
+    id: 'suspension',
+    title: 'Suspensión',
+    text: SUSPENSION_TEXT,
+    side: 'left',
+    top: '40%',
+    edge: 0.6,
+  },
+  { id: 'rodillas', title: 'Rodillas', side: 'right', top: '53%', edge: 0.7 },
+  {
+    id: 'tubo',
+    title: 'Tubo',
+    text: TUBO_TEXT,
+    side: 'left',
+    top: '76%',
+    edge: 0.6,
+  },
+  { id: 'pie', title: 'Pie', side: 'left', top: '89%', edge: 0.62 },
+]
+
 const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }> = {
+  'desarticulacion-cadera': {
+    src: desarticulacionCaderaImg,
+    alt: 'Prótesis para desarticulación de cadera con encaje, articulación de cadera, suspensión, rodilla, tubo y pie',
+    parts: HIP_DISARTICULATION_PARTS,
+  },
+  'desarticulacion-hombro': {
+    src: desarticulacionHombroImg,
+    alt: 'Prótesis para desarticulación de hombro con suspensión, encaje, codo, brazo y mano',
+    parts: TRANSHUMERAL_PARTS,
+  },
   transfemoral: {
     src: transfemoralImg,
     alt: 'Prótesis transfemoral con liner, encaje, rodilla, tubo y pie',
@@ -226,7 +297,7 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
 }
 
 function isLimbDiagram(id: string): id is LimbDiagram {
-  return id === 'transfemoral' || id === 'transtibial' || id === 'transhumeral' || id === 'transradial'
+  return Object.prototype.hasOwnProperty.call(DIAGRAMS, id)
 }
 
 type PartView = 'liner' | 'pie' | 'rodilla' | 'rodillas' | 'mano'
@@ -687,7 +758,7 @@ function ProsthesisDetail({
 
   return (
     <div
-      className={`protesis-partes${liner || rodilla ? ' is-liner' : ''}${catalog ? ' is-pie' : ''}${hands ? ' is-mano' : ''}${rodilla ? ' is-rodilla' : ''}${showingParts && diagram === 'transfemoral' ? ' is-transfemoral' : ''}`}
+      className={`protesis-partes${liner || rodilla ? ' is-liner' : ''}${catalog ? ' is-pie' : ''}${hands ? ' is-mano' : ''}${rodilla ? ' is-rodilla' : ''}${showingParts ? ` is-${diagram}` : ''}`}
     >
       <button type="button" className="protesis-partes__back" aria-label="Volver" onClick={onBack}>
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -758,6 +829,7 @@ function ProsthesisDetail({
               </p>
               <button type="button" className="protesis-rodilla__cta" onClick={() => onOpenView('rodillas')}>
                 Ver algunos de nuestros modelos
+                <ChevronIcon />
               </button>
             </div>
           </div>
@@ -796,7 +868,7 @@ function ProsthesisDetail({
                         if (viewId) partRefs.current[viewId] = node
                       }}
                       type="button"
-                      className="protesis-partes__name"
+                      className={`protesis-partes__name ${viewId ? 'protesis-partes__name--link' : 'protesis-partes__name--info'}`}
                       aria-expanded={interactive ? active : undefined}
                       aria-controls={interactive ? `${part.id}-text` : undefined}
                       onPointerUp={(event) => {
@@ -818,7 +890,8 @@ function ProsthesisDetail({
                         show(part.id)
                       }}
                     >
-                      {part.title}
+                      <span>{part.title}</span>
+                      {viewId ? <ChevronIcon /> : <InfoIcon />}
                     </button>
                   ) : (
                     <span className="protesis-partes__name">{part.title}</span>
@@ -844,12 +917,122 @@ function memberFromHash(hash: string): Member {
   return hash === '#protesis-brazo' ? 'superior' : 'inferior'
 }
 
+function ChevronIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="m5 9 7 7 7-7" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  )
+}
+
+function InfoIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M12 11v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="12" cy="7.5" r="1.1" fill="currentColor" />
+    </svg>
+  )
+}
+
+function LimbMap({
+  member,
+  onOpenDiagram,
+}: {
+  member: Member
+  onOpenDiagram: (diagram: LimbDiagram) => void
+}) {
+  const limb = LIMBS[member]
+  const [expanded, setExpanded] = useState(() => limb.points.map((point) => point.id))
+
+  function toggle(id: string) {
+    setExpanded((current) =>
+      current.includes(id) ? current.filter((pointId) => pointId !== id) : [...current, id],
+    )
+  }
+
+  return (
+    <div
+      className="protesis-miembro"
+      id={limb.panelId}
+      role="tabpanel"
+      aria-labelledby={limb.tabId}
+    >
+      <div className="protesis-miembro__figure">
+        <img className="protesis-tipos__leg" src={limb.src} alt={limb.alt} />
+        {limb.points.map((point) => (
+          <button
+            key={point.id}
+            type="button"
+            className="protesis-tipos__dot protesis-miembro__dot"
+            data-point={point.id}
+            style={{ top: point.top, left: point.left }}
+            aria-label={point.title}
+            aria-expanded={expanded.includes(point.id)}
+            aria-controls={`${point.id}-text`}
+            onClick={() => toggle(point.id)}
+          />
+        ))}
+      </div>
+      {limb.points.map((point) => {
+        const active = expanded.includes(point.id)
+        const available = isLimbDiagram(point.id)
+        return (
+          <div
+            key={point.id}
+            className={`protesis-miembro__item protesis-miembro__item--${point.placement}`}
+          >
+            <h3 className="protesis-miembro__heading">
+              <button
+                type="button"
+                className="protesis-miembro__toggle"
+                id={`${point.id}-title`}
+                aria-expanded={active}
+                aria-controls={`${point.id}-text`}
+                onClick={() => toggle(point.id)}
+              >
+                <span>
+                  {point.title.startsWith('Desarticulación ') ? (
+                    <>Desarticulación<br />{point.title.slice('Desarticulación '.length)}</>
+                  ) : point.title}
+                </span>
+                <ChevronIcon />
+              </button>
+            </h3>
+            <div
+              className="protesis-miembro__detail"
+              id={`${point.id}-text`}
+              role="region"
+              aria-labelledby={`${point.id}-title`}
+              hidden={!active}
+            >
+              <p>{point.text}</p>
+              <button
+                type="button"
+                className="protesis-miembro__more"
+                aria-label={`Ver más sobre ${point.title}`}
+                disabled={!available}
+                title={available ? undefined : 'Información próximamente'}
+                onClick={() => {
+                  if (isLimbDiagram(point.id)) onOpenDiagram(point.id)
+                }}
+              >
+                Ver más
+                <ChevronIcon />
+              </button>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export function ProtesisTipos() {
   const [member, setMember] = useState<Member>(() => memberFromHash(window.location.hash))
   const [open, setOpen] = useState<string | null>(null)
   const [diagram, setDiagram] = useState<LimbDiagram>('transfemoral')
   const [detail, setDetail] = useState<null | 'parts' | PartView>(null)
-  const limb = LIMBS[member]
   const showDetail = detail !== null
 
   function selectMember(next: Member) {
@@ -965,98 +1148,7 @@ export function ProtesisTipos() {
             }}
           />
         ) : (
-        <div
-          className={`protesis-tipos__map protesis-tipos__map--${member}`}
-          id={limb.panelId}
-          role="tabpanel"
-          aria-labelledby={limb.tabId}
-        >
-            <div className="protesis-tipos__figure">
-              <img className="protesis-tipos__leg" src={limb.src} alt={limb.alt} />
-              {limb.points.map((point) => {
-                const active = open === point.id
-                return (
-                  <button
-                    key={point.id}
-                    type="button"
-                    className={active ? 'protesis-tipos__dot is-open' : 'protesis-tipos__dot'}
-                    style={{ top: point.top, left: point.left }}
-                    data-point={point.id}
-                    aria-expanded={active}
-                    aria-controls={`${point.id}-text`}
-                    aria-label={point.title}
-                    onPointerEnter={(event) => {
-                      if (event.pointerType === 'mouse') show(point.id)
-                    }}
-                    onPointerLeave={(event) => hide(point.id, event)}
-                    onPointerUp={(event) => {
-                      if (isLimbDiagram(point.id) && event.pointerType !== 'mouse') {
-                        openDiagram(point.id)
-                        return
-                      }
-                      if (event.pointerType === 'mouse') return
-                      setOpen((current) => (current === point.id ? null : point.id))
-                    }}
-                    onFocus={() => show(point.id)}
-                    onBlur={(event) => hide(point.id, event)}
-                    onClick={(event) => {
-                      if (isLimbDiagram(point.id)) {
-                        openDiagram(point.id)
-                        return
-                      }
-                      if (event.detail !== 0) return
-                      show(point.id)
-                    }}
-                  />
-                )
-              })}
-            </div>
-            {limb.points.map((point) => {
-              const active = open === point.id
-              return (
-                <div
-                  key={point.id}
-                  className={`protesis-tipos__callout protesis-tipos__callout--${point.side}${active ? ' is-open' : ''}`}
-                  style={{ top: point.top }}
-                  data-point={point.id}
-                  onPointerEnter={(event) => {
-                    if (event.pointerType === 'mouse') show(point.id)
-                  }}
-                  onPointerLeave={(event) => hide(point.id, event)}
-                >
-                  <button
-                    type="button"
-                    className="protesis-tipos__name"
-                    aria-expanded={active}
-                    aria-controls={`${point.id}-text`}
-                    onPointerUp={(event) => {
-                      if (isLimbDiagram(point.id) && event.pointerType !== 'mouse') {
-                        openDiagram(point.id)
-                        return
-                      }
-                      if (event.pointerType === 'mouse') return
-                      setOpen((current) => (current === point.id ? null : point.id))
-                    }}
-                    onFocus={() => show(point.id)}
-                    onBlur={(event) => hide(point.id, event)}
-                    onClick={(event) => {
-                      if (isLimbDiagram(point.id)) {
-                        openDiagram(point.id)
-                        return
-                      }
-                      if (event.detail !== 0) return
-                      show(point.id)
-                    }}
-                  >
-                    {point.title}
-                  </button>
-                  <div className="protesis-tipos__detail" id={`${point.id}-text`} aria-hidden={!active}>
-                    <p>{point.text}</p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <LimbMap key={member} member={member} onOpenDiagram={openDiagram} />
         )}
       </div>
     </section>

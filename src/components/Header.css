@@ -25,7 +25,6 @@
   width: 2.15rem;
   aspect-ratio: 69 / 64;
   background: var(--color-primary);
-  clip-path: inset(1.5px 0 0 0);
   mask-mode: alpha;
   mask-repeat: no-repeat;
   mask-position: center;

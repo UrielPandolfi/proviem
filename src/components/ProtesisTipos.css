@@ -88,16 +88,6 @@
   outline-offset: 2px;
 }
 
-.protesis-tipos__map {
-  position: relative;
-  width: min(17.5rem, 34vw);
-  margin: 3.6rem auto 1.2rem;
-}
-
-.protesis-tipos__figure {
-  position: relative;
-}
-
 .protesis-tipos__leg {
   width: 100%;
   height: auto;
@@ -121,34 +111,178 @@
   cursor: pointer;
 }
 
-.protesis-tipos__dot.is-open {
-  transform: translate(-50%, -50%) scale(1.08);
-}
-
 .protesis-tipos__dot:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
-.protesis-tipos__callout {
-  position: absolute;
-  z-index: 3;
-  width: min(20rem, 26vw);
-  transform: translateY(-0.72rem);
+.protesis-miembro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 19rem) minmax(0, 1fr);
+  grid-template-rows: 1fr 1fr;
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  margin: 3rem auto 1.2rem;
 }
 
-.protesis-tipos__callout--right {
-  left: calc(100% + 0.85rem);
-  text-align: left;
+.protesis-miembro__figure {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: start;
 }
 
-.protesis-tipos__callout--left {
-  right: calc(100% + 0.35rem);
+.protesis-miembro__dot {
+  width: 4.25rem;
+  height: 4.25rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.protesis-miembro__dot[data-point='desarticulacion-hombro'] {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.protesis-miembro__dot:hover {
+  box-shadow: 0 0 0 6px rgb(0 107 196 / 15%);
+}
+
+.protesis-miembro__item {
+  min-width: 0;
+  align-self: start;
+  padding-top: 2.5rem;
+}
+
+.protesis-miembro__item--top-left {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.protesis-miembro__item--bottom-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.protesis-miembro__item--right {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding-top: 0;
   text-align: right;
 }
 
-.protesis-tipos__map--superior .protesis-tipos__callout--left {
-  right: calc(100% + 1.35rem);
+.protesis-miembro__heading {
+  margin: 0;
+}
+
+.protesis-miembro__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0 0 0.65rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-primary);
+  background: none;
+  color: var(--color-primary);
+  font-size: clamp(1.55rem, 2.75vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  text-align: left;
+  cursor: pointer;
+}
+
+.protesis-miembro__toggle svg {
+  flex: 0 0 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  transition: transform 0.2s ease;
+}
+
+.protesis-miembro__toggle[aria-expanded='true'] svg {
+  transform: rotate(180deg);
+}
+
+.protesis-miembro__detail p {
+  margin: 1rem 0 0;
+  color: #111;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.protesis-miembro__item--right .protesis-miembro__detail p {
+  text-align: center;
+}
+
+.protesis-miembro__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  margin-top: 0.85rem;
+  padding: 0.45rem 0.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.protesis-miembro__more svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: rotate(-90deg);
+}
+
+.protesis-miembro__more:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.protesis-miembro__toggle:focus-visible,
+.protesis-miembro__more:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1099px) {
+  .protesis-miembro {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    max-width: 32rem;
+    margin-top: 2.2rem;
+  }
+
+  .protesis-miembro__figure {
+    grid-column: auto;
+    grid-row: auto;
+    width: min(16rem, 72%);
+    margin-inline: auto;
+  }
+
+  .protesis-miembro__item {
+    grid-column: auto;
+    grid-row: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .protesis-miembro__item--right .protesis-miembro__detail p {
+    text-align: left;
+  }
+
+  .protesis-miembro__dot,
+  .protesis-miembro__dot[data-point='desarticulacion-hombro'] {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
 }
 
 .protesis-partes {
@@ -203,6 +337,44 @@
   height: auto;
   pointer-events: none;
   user-select: none;
+}
+
+/* Frame the supplied images without changing their transparent source files. */
+.protesis-partes.is-desarticulacion-cadera .protesis-partes__photo {
+  aspect-ratio: 300 / 661;
+  object-fit: cover;
+  object-position: center;
+}
+
+.protesis-partes.is-desarticulacion-hombro .protesis-partes__photo {
+  aspect-ratio: 350 / 736;
+  object-fit: cover;
+  object-position: 70% center;
+}
+
+@media (min-width: 900px) {
+  .protesis-partes.is-desarticulacion-cadera .protesis-partes__copy {
+    max-width: min(17rem, calc((100vw - var(--photo)) / 2 - 5.5rem));
+  }
+
+  .protesis-partes.is-desarticulacion-cadera .protesis-partes__item:is([data-point='socket'], [data-point='tubo']) .protesis-tipos__detail {
+    position: absolute;
+    z-index: 2;
+    bottom: calc(100% + 0.55rem);
+    width: min(17rem, calc((100vw - var(--photo)) / 2 - 5.5rem));
+    margin-top: 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+  }
+
+  .protesis-partes.is-desarticulacion-cadera .protesis-partes__item[data-point='socket'] .protesis-tipos__detail {
+    right: 0;
+  }
+
+  .protesis-partes.is-desarticulacion-cadera .protesis-partes__item[data-point='tubo'] .protesis-tipos__detail {
+    left: 0;
+  }
 }
 
 .protesis-partes.is-liner .protesis-partes__stage {
@@ -295,6 +467,9 @@
 }
 
 .protesis-rodilla__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   margin-top: 1.45rem;
   padding: 0.78rem 1.45rem;
   border: 0;
@@ -641,7 +816,7 @@
 .protesis-partes__line {
   flex: none;
   height: 1px;
-  margin-top: 0.78rem;
+  margin-top: 1.375rem;
   background: var(--color-primary);
 }
 
@@ -658,6 +833,11 @@
 }
 
 .protesis-partes__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
@@ -668,6 +848,30 @@
   letter-spacing: -0.03em;
   line-height: 1.1;
   text-align: inherit;
+}
+
+.protesis-partes__name svg {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.protesis-partes__name--link {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+}
+
+.protesis-partes__name--link:hover {
+  background: color-mix(in srgb, var(--color-secondary) 75%, #fff);
+}
+
+.protesis-partes__name--link svg,
+.protesis-rodilla__cta svg {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: rotate(-90deg);
 }
 
 button.protesis-partes__name {
@@ -691,26 +895,6 @@ button.protesis-partes__name:focus-visible {
   transition: opacity 0.18s ease;
 }
 
-.protesis-tipos__name {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--color-primary);
-  font-size: clamp(1.55rem, 2.15vw, 1.9rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  cursor: pointer;
-  text-align: inherit;
-}
-
-.protesis-tipos__name:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
 .protesis-tipos__detail {
   display: grid;
   grid-template-rows: 0fr;
@@ -721,7 +905,6 @@ button.protesis-partes__name:focus-visible {
     margin-top 0.32s ease;
 }
 
-.protesis-tipos__callout.is-open .protesis-tipos__detail,
 .protesis-partes__item.is-open .protesis-tipos__detail {
   grid-template-rows: 1fr;
   margin-top: 0.55rem;
@@ -738,10 +921,6 @@ button.protesis-partes__name:focus-visible {
   line-height: 1.45;
 }
 
-.protesis-tipos__callout--left .protesis-tipos__detail p {
-  text-align: right;
-}
-
 @media (max-width: 899px) {
   .protesis-tipos {
     padding: 3.2rem 0 3.6rem;
@@ -756,30 +935,6 @@ button.protesis-partes__name:focus-visible {
     font-size: 0.92rem;
   }
 
-  .protesis-tipos__map {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    margin-top: 2.2rem;
-  }
-
-  .protesis-tipos__figure {
-    width: min(14rem, 72%);
-    margin-inline: auto;
-  }
-
-  .protesis-tipos__callout,
-  .protesis-tipos__callout--left,
-  .protesis-tipos__callout--right {
-    position: static;
-    width: 100%;
-    margin-top: 1.15rem;
-    text-align: left;
-    transform: none;
-  }
-
-  .protesis-tipos__callout--left .protesis-tipos__detail p,
   .protesis-partes__item--left .protesis-tipos__detail p {
     text-align: left;
   }
@@ -929,6 +1084,7 @@ button.protesis-partes__name:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .protesis-miembro__toggle svg,
   .protesis-tipos__detail,
   .protesis-tipos__dot,
   .protesis-tipos__switch-thumb,

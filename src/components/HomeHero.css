@@ -6,7 +6,7 @@
   --blob-h: calc(90cqi * 0.56 * 742 / 690);
   --blob-nest: 0.42;
   --hero-end: 3.75rem;
-  --hero-lift: 7rem;
+  --hero-lift: calc(7rem + clamp(3rem, 5vw, 6rem));
   --process-lift: 2rem;
   container-type: inline-size;
   position: relative;
@@ -558,7 +558,7 @@
   .hero__needs-visual {
     position: relative;
     width: 100%;
-    margin: 2.85rem 0 0;
+    margin: clamp(1.5rem, 4vw, 2rem) 0 0;
     padding-bottom: 3.1rem;
   }
 
