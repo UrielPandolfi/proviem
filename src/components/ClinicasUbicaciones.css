@@ -64,6 +64,10 @@
   object-fit: cover;
 }
 
+.ubicaciones__shot {
+  object-position: center bottom;
+}
+
 .ubicaciones__card {
   display: flex;
   flex-direction: column;

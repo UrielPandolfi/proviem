@@ -53,6 +53,7 @@ export function ClinicasUbicaciones() {
       <div className="ubicaciones__row">
         <div className="ubicaciones__frame" {...reveal('scale')}>
           <img
+            className="ubicaciones__shot"
             src={mtyImg}
             alt="Clínica Proviem en Monterrey"
             draggable={false}
