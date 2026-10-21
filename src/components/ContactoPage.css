@@ -91,13 +91,7 @@
 }
 
 .contacto__card .contact__form {
-  margin-top: 0;
-  border-color: transparent;
-  border-radius: 1.35rem;
-}
-
-.contacto__card .contact__form iframe {
-  height: 55rem;
+  margin-top: 0 !important;
 }
 
 .contacto__card .contact__disclaimer {
@@ -150,7 +144,4 @@
     border-radius: 1.35rem;
   }
 
-  .contacto__card .contact__form iframe {
-    height: 64rem;
-  }
 }
