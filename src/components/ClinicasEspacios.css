@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+#instalaciones .espacios__intro {
+  margin-bottom: 4.6rem;
+}
+
 .espacios__eyebrow {
   margin: 0;
   color: color-mix(in srgb, var(--color-primary) 42%, #d0e0ec);
@@ -113,6 +117,10 @@
 
   .espacios__intro {
     margin-bottom: 1.6rem;
+  }
+
+  #instalaciones .espacios__intro {
+    margin-bottom: 2.6rem;
   }
 
   .espacios__eyebrow {
