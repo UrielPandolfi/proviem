@@ -344,6 +344,39 @@
   letter-spacing: -0.025em;
 }
 
+@media (min-width: 1700px) {
+  .hero__closing {
+    bottom: calc(var(--hero-end) + 4.25rem + var(--hero-lift) + max(0px, var(--blob-h) * 0.42 - 15rem));
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1699px) {
+  .hero {
+    --cluster-lift: clamp(8rem, 10vw, 13rem);
+    min-height: max(
+      calc(215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end) - var(--cluster-lift)),
+      calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) - var(--cluster-lift))
+    );
+  }
+
+  .hero__mask {
+    bottom: calc(
+      var(--blob-h) * var(--blob-nest) + var(--hero-end) + var(--hero-lift) +
+        clamp(2rem, 18vw - 9rem, 9rem)
+    );
+  }
+
+  .hero__photo {
+    bottom: calc(var(--hero-end) + var(--hero-lift) + clamp(2rem, 18vw - 9rem, 9rem));
+  }
+
+  .hero__closing {
+    bottom: calc(
+      var(--hero-end) + 4.25rem + var(--hero-lift) + max(0px, var(--blob-h) * 0.42 - 15rem)
+    );
+  }
+}
+
 .hero__link:focus-visible,
 .hero__stat:focus-visible,
 .hero__pill:focus-visible {
