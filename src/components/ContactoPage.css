@@ -94,6 +94,11 @@
   margin-top: 0 !important;
 }
 
+.contacto__card .contact__consent,
+.contacto__card .contact__consent a {
+  color: #fff !important;
+}
+
 .contacto__card .contact__disclaimer {
   color: color-mix(in srgb, #fff 78%, var(--color-secondary));
 }
