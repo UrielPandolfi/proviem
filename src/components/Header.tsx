@@ -53,27 +53,32 @@ export function Header({ page = 'home' }: HeaderProps) {
           />
         </a>
 
-        <nav className="site-header__nav" aria-label="Principal">
-          {LINKS.map((link) => {
-            const active =
-              PAGE_LINKS.has(link.label) &&
-              'page' in link &&
-              link.page === page
+        <div className="site-header__actions">
+          <nav className="site-header__nav" aria-label="Principal">
+            {LINKS.map((link) => {
+              const active =
+                PAGE_LINKS.has(link.label) &&
+                'page' in link &&
+                link.page === page
 
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                className={
-                  active ? 'site-header__link is-active' : 'site-header__link'
-                }
-                {...(active ? { 'aria-current': 'page' as const } : {})}
-              >
-                {link.label}
-              </a>
-            )
-          })}
-        </nav>
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={
+                    active ? 'site-header__link is-active' : 'site-header__link'
+                  }
+                  {...(active ? { 'aria-current': 'page' as const } : {})}
+                >
+                  {link.label}
+                </a>
+              )
+            })}
+          </nav>
+          <a className="site-header__cta" href="#formulario">
+            Agenda una valoración
+          </a>
+        </div>
       </div>
     </header>
   )

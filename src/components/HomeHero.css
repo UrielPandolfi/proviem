@@ -353,26 +353,44 @@
 @media (min-width: 900px) and (max-width: 1699px) {
   .hero {
     --cluster-lift: clamp(8rem, 10vw, 13rem);
+    --bottom-trim: calc(var(--hero-lift) + clamp(2rem, 18vw - 9rem, 9rem) - 1.25rem);
     min-height: max(
-      calc(215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end) - var(--cluster-lift)),
-      calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) - var(--cluster-lift))
+      calc(
+        215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end) -
+          var(--cluster-lift) - var(--bottom-trim)
+      ),
+      calc(
+        20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) - var(--cluster-lift) -
+          var(--bottom-trim)
+      )
     );
   }
 
   .hero__mask {
     bottom: calc(
       var(--blob-h) * var(--blob-nest) + var(--hero-end) + var(--hero-lift) +
-        clamp(2rem, 18vw - 9rem, 9rem)
+        clamp(2rem, 18vw - 9rem, 9rem) - var(--bottom-trim)
     );
   }
 
   .hero__photo {
-    bottom: calc(var(--hero-end) + var(--hero-lift) + clamp(2rem, 18vw - 9rem, 9rem));
+    bottom: calc(
+      var(--hero-end) + var(--hero-lift) + clamp(2rem, 18vw - 9rem, 9rem) -
+        var(--bottom-trim)
+    );
   }
 
   .hero__closing {
     bottom: calc(
-      var(--hero-end) + 4.25rem + var(--hero-lift) + max(0px, var(--blob-h) * 0.42 - 15rem)
+      var(--hero-end) + 4.25rem + var(--hero-lift) + max(0px, var(--blob-h) * 0.42 - 15rem) -
+        var(--bottom-trim)
+    );
+  }
+
+  .hero__process {
+    bottom: calc(
+      var(--blob-h) * (1 + var(--blob-nest)) + 1.5rem + var(--hero-end) +
+        var(--process-lift) - var(--bottom-trim)
     );
   }
 }

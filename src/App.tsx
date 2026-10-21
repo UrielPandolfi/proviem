@@ -74,7 +74,7 @@ function getBlogSlug(hash: string) {
 
 function resolvePage(hash: string, fallback: Page): Page {
   if (NOSOTROS_HASHES.has(hash)) return 'nosotros'
-  if (CONTACTO_HASHES.has(hash)) return 'contacto'
+  if (CONTACTO_HASHES.has(hash) || hash === '#formulario') return 'contacto'
   if (CLINICAS_HASHES.has(hash)) return 'clinicas'
   if (PROCESO_HASHES.has(hash)) return 'proceso'
   if (SEGURO_HASHES.has(hash)) return 'seguro'

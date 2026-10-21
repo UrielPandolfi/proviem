@@ -39,7 +39,7 @@ export function ContactoPage() {
             </a>
           </div>
 
-          <div className="contacto__card" {...reveal('up', 80)}>
+          <div className="contacto__card" id="formulario" {...reveal('up', 80)}>
             <ContactForm />
           </div>
         </div>

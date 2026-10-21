@@ -14,6 +14,7 @@
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
+  a.site-header__cta,
   a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
@@ -44,6 +45,7 @@
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
+  a.site-header__cta,
   a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page
@@ -66,7 +68,8 @@ a.ubicaciones__btn--maps {
   a.seguro-dudas__cita,
   button.blog__filter.is-active,
   button.blog__page.is-active,
-  a.site-header__link.is-active
+  a.site-header__link.is-active,
+  a.site-header__cta
 ) {
   --btn-fill: var(--color-primary);
   --btn-ink: #fff;
@@ -88,6 +91,7 @@ a.ubicaciones__btn--maps {
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
+  a.site-header__cta,
   a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
@@ -120,6 +124,7 @@ a.ubicaciones__btn--maps {
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
+  a.site-header__cta,
   a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
@@ -149,6 +154,7 @@ a.ubicaciones__btn--maps {
   a.seguro-dudas__whatsapp,
   a.ubicaciones__btn,
   a.site-header__link,
+  a.site-header__cta,
   a.gracias__whatsapp,
   button.blog__filter,
   button.blog__page,
@@ -182,6 +188,7 @@ button.blog__page:disabled:hover::before {
     a.seguro-dudas__whatsapp,
     a.ubicaciones__btn,
     a.site-header__link,
+  a.site-header__cta,
     a.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
@@ -203,6 +210,7 @@ button.blog__page:disabled:hover::before {
     a.seguro-dudas__whatsapp,
     a.ubicaciones__btn,
     a.site-header__link,
+  a.site-header__cta,
     a.gracias__whatsapp,
     button.blog__filter,
     button.blog__page,
