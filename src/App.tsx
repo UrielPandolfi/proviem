@@ -32,6 +32,7 @@ import { ProtesisTipos } from './components/ProtesisTipos'
 import { ProtesisGaleria } from './components/ProtesisGaleria'
 import { LegalPage } from './components/LegalPage'
 import { GraciasPage } from './components/GraciasPage'
+import { WhatsAppFloat } from './components/WhatsAppFloat'
 import { avisoBlocks, cookiesBlocks, terminosBlocks } from './data/legal'
 import { useReveal } from './motion/useReveal'
 import './button-hover.css'
@@ -253,6 +254,7 @@ function App() {
         )}
       </main>
       <Footer squareTop={page === 'contacto'} />
+      <WhatsAppFloat />
     </>
   )
 }
