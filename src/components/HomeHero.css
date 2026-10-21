@@ -3,15 +3,15 @@
   --stage-w: var(--section-width);
   --stage-inset: calc((100% - var(--stage-w)) / 2);
   --blob-w: calc(var(--stage-w) * 0.56);
-  --blob-h: calc(90cqi * 0.56 * 742 / 690);
+  --blob-h: calc(90vw * 0.56 * 742 / 690);
   --blob-nest: 0.42;
   --hero-end: 3.75rem;
   --hero-lift: calc(7rem + clamp(3rem, 5vw, 6rem));
   --process-lift: 2rem;
-  container-type: inline-size;
   position: relative;
   display: flex;
   flex-direction: column;
+  min-height: calc(215vh + 20rem);
   min-height: max(
     calc(215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end)),
     calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)))
@@ -24,7 +24,7 @@
 @media (min-width: 1420px) {
   .hero {
     --stage-w: min(100%, max(var(--section-width), var(--section-min-width)));
-    --blob-h: calc(max(90cqi, 1420px) * 0.56 * 742 / 690);
+    --blob-h: calc(max(90vw, 1420px) * 0.56 * 742 / 690);
   }
 }
 
@@ -157,6 +157,7 @@
 
 .hero__copyblock {
   position: absolute;
+  z-index: 2;
   top: calc(8.75rem + 4.25rem);
   left: 0;
   max-width: 28rem;
@@ -210,6 +211,7 @@
 
 .hero__aside {
   position: absolute;
+  z-index: 2;
   top: 8.75rem;
   right: 0;
   display: flex;
@@ -268,6 +270,7 @@
 
 .hero__process {
   position: absolute;
+  z-index: 2;
   right: 0;
   bottom: calc(var(--blob-h) * (1 + var(--blob-nest)) + 1.5rem + var(--hero-end) + var(--process-lift));
   display: flex;
@@ -318,6 +321,7 @@
 
 .hero__closing {
   position: absolute;
+  z-index: 2;
   left: 0;
   bottom: calc(var(--hero-end) + 4.25rem + var(--hero-lift));
   max-width: min(34rem, 48%);
