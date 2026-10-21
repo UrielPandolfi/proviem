@@ -10,8 +10,10 @@
 }
 
 .wa-float__button {
+  flex: none;
   width: 3.6rem;
   height: 3.6rem;
+  aspect-ratio: 1;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -24,8 +26,9 @@
 }
 
 .wa-float__button svg {
-  width: 1.9rem;
-  height: 1.9rem;
+  display: block;
+  width: 2.15rem;
+  height: 2.15rem;
 }
 
 .wa-float__button:focus-visible,
