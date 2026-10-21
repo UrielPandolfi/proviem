@@ -8,6 +8,15 @@ export function ClinicasHero() {
       className="section clinicas-hero"
       aria-label="Clínicas Proviem"
     >
+      <div className="clinicas-hero__visual">
+        <img
+          className="clinicas-hero__ramp"
+          src={rampImg}
+          alt="Rampa y escalera de entrenamiento en la clínica Proviem"
+          draggable={false}
+        />
+      </div>
+
       <div className="section__inner">
         <div className="clinicas-hero__layout">
           <div className="clinicas-hero__copy">
@@ -25,15 +34,6 @@ export function ClinicasHero() {
             <a className="clinicas-hero__cta" href="#cita" data-motion="lift">
               Agenda una valoración
             </a>
-          </div>
-
-          <div className="clinicas-hero__visual">
-            <img
-              className="clinicas-hero__ramp"
-              src={rampImg}
-              alt="Rampa y escalera de entrenamiento en la clínica Proviem"
-              draggable={false}
-            />
           </div>
         </div>
       </div>
