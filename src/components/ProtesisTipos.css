@@ -546,6 +546,10 @@
   user-select: none;
 }
 
+.protesis-partes.is-rodillas .protesis-pies__photo {
+  width: 12rem;
+}
+
 .protesis-pies__photo img {
   display: block;
   width: 100%;
@@ -1036,6 +1040,10 @@ button.protesis-partes__name:focus-visible {
   .protesis-pies__photo {
     width: min(13.5rem, 68%);
     margin-inline: auto;
+  }
+
+  .protesis-partes.is-rodillas .protesis-pies__photo {
+    width: min(10.5rem, 58%);
   }
 
   .protesis-pies__photo.is-empty {

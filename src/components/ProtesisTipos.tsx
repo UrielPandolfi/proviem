@@ -866,7 +866,7 @@ function ProsthesisDetail({
 
   return (
     <div
-      className={`protesis-partes${liner || rodilla ? ' is-liner' : ''}${catalog ? ' is-pie' : ''}${hands ? ' is-mano' : ''}${rodilla ? ' is-rodilla' : ''}${showingParts ? ` is-${diagram}` : ''}`}
+      className={`protesis-partes${liner || rodilla ? ' is-liner' : ''}${catalog ? ' is-pie' : ''}${view === 'rodillas' ? ' is-rodillas' : ''}${hands ? ' is-mano' : ''}${rodilla ? ' is-rodilla' : ''}${showingParts ? ` is-${diagram}` : ''}`}
     >
       <button type="button" className="protesis-partes__back" aria-label="Volver" onClick={onBack}>
         <svg viewBox="0 0 24 24" aria-hidden="true">
