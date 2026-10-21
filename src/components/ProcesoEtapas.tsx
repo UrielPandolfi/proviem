@@ -95,7 +95,7 @@ function prefersReducedMotion() {
 }
 
 export function ProcesoEtapas() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
   const step = STEPS[active]
 

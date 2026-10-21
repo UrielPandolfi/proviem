@@ -186,9 +186,11 @@
   }
 
   .etapas__sticky {
-    justify-content: flex-start;
-    padding: 1.15rem 0 1.2rem;
-    overflow: hidden;
+    display: contents;
+  }
+
+  .etapas__intro {
+    padding: 1.5rem 0 0.2rem;
   }
 
   .etapas__eyebrow {
@@ -205,9 +207,16 @@
   }
 
   .etapas__stage {
-    grid-template-columns: 1fr;
+    position: sticky;
+    top: var(--header-offset);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100svh - var(--header-offset));
+    margin-top: 0;
+    padding: 0.85rem 0 1rem;
     gap: 0.9rem;
-    margin-top: 1.1rem;
+    background: var(--color-primary);
   }
 
   .etapas__rail {
@@ -244,7 +253,7 @@
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 10;
-    max-height: none;
+    max-height: min(42vh, calc(100svh - var(--header-offset) - 16.5rem));
   }
 
   .etapas__heading img {
@@ -268,9 +277,14 @@
     height: auto;
   }
 
-  .etapas__sticky {
+  .etapas__sticky,
+  .etapas__stage {
     position: static;
     height: auto;
+  }
+
+  .etapas__sticky {
+    display: flex;
     padding: 2.4rem 0;
   }
 
