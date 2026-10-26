@@ -21,7 +21,6 @@ import pieTritonHeavy from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-0
 import pieTritonHarmony from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON HARMONY 1C62.png'
 import rodilla3r78 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R78.png'
 import rodilla3r90 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R90.png'
-import rodilla3r95 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R95.png'
 import rodilla3r92 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R92.png'
 import rodilla3r106 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R106.png'
 import rodilla3r15 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R15.png'
@@ -201,8 +200,6 @@ type Part = {
 
 const SOCKET_TEXT =
   'Estructura personalizada que se adapta al muñón y sirve como punto de unión entre el usuario y los componentes de la prótesis.'
-const TUBO_TEXT =
-  'Elemento estructural que conecta los componentes de la prótesis y permite realizar ajustes de longitud y alineación.'
 const SUSPENSION_TEXT =
   'Sistema que ayuda a mantener la prótesis en su posición durante el movimiento y las actividades del usuario.'
 
@@ -215,7 +212,6 @@ type LimbDiagram =
   | 'desarticulacion-hombro'
 
 const TRANSFEMORAL_PARTS: Part[] = [
-  { id: 'liner', title: 'Liner', side: 'right', top: '13%', edge: 0.62 },
   {
     id: 'socket',
     title: 'Socket / Encaje',
@@ -225,14 +221,6 @@ const TRANSFEMORAL_PARTS: Part[] = [
     edge: 0.78,
   },
   { id: 'rodillas', title: 'Rodillas', side: 'right', top: '55%', edge: 0.87 },
-  {
-    id: 'tubo',
-    title: 'Tubo',
-    text: TUBO_TEXT,
-    side: 'left',
-    top: '68%',
-    edge: 0.62,
-  },
   { id: 'pie', title: 'Pie', side: 'left', top: '84%', edge: 0.38 },
 ]
 
@@ -245,14 +233,6 @@ const TRANSTIBIAL_PARTS: Part[] = [
     side: 'right',
     top: '46%',
     edge: 0.87,
-  },
-  {
-    id: 'tubo',
-    title: 'Tubo',
-    text: TUBO_TEXT,
-    side: 'right',
-    top: '71%',
-    edge: 0.53,
   },
   { id: 'pie', title: 'Pie', side: 'left', top: '83%', edge: 0.44 },
 ]
@@ -330,30 +310,14 @@ const HIP_DISARTICULATION_PARTS: Part[] = [
     top: '31%',
     edge: 0.7,
   },
-  {
-    id: 'suspension',
-    title: 'Suspensión',
-    text: SUSPENSION_TEXT,
-    side: 'left',
-    top: '40%',
-    edge: 0.6,
-  },
   { id: 'rodillas', title: 'Rodillas', side: 'right', top: '53%', edge: 0.7 },
-  {
-    id: 'tubo',
-    title: 'Tubo',
-    text: TUBO_TEXT,
-    side: 'left',
-    top: '76%',
-    edge: 0.6,
-  },
   { id: 'pie', title: 'Pie', side: 'left', top: '89%', edge: 0.62 },
 ]
 
 const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }> = {
   'desarticulacion-cadera': {
     src: desarticulacionCaderaImg,
-    alt: 'Prótesis para desarticulación de cadera con encaje, articulación de cadera, suspensión, rodilla, tubo y pie',
+    alt: 'Prótesis para desarticulación de cadera con encaje, articulación de cadera, rodilla y pie',
     parts: HIP_DISARTICULATION_PARTS,
   },
   'desarticulacion-hombro': {
@@ -363,12 +327,12 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   transfemoral: {
     src: transfemoralImg,
-    alt: 'Prótesis transfemoral con liner, encaje, rodilla, tubo y pie',
+    alt: 'Prótesis transfemoral con encaje, rodilla y pie',
     parts: TRANSFEMORAL_PARTS,
   },
   transtibial: {
     src: transtibialImg,
-    alt: 'Prótesis transtibial con liner, encaje, tubo y pie',
+    alt: 'Prótesis transtibial con liner, encaje y pie',
     parts: TRANSTIBIAL_PARTS,
   },
   transhumeral: {
@@ -430,7 +394,7 @@ const FEET: CatalogItem[] = [
   },
   {
     id: 'trias-1c30-1',
-    name: 'Trias 1C30-1',
+    name: 'Trias 1C30 1',
     summary: 'Pie protésico de material compuesto',
     activity: 'Actividad moderada y marcha estable',
     mobility: '2 - 3',
@@ -484,15 +448,6 @@ const KNEES: CatalogItem[] = [
     mobility: '1 - 2',
     weight: '125 kg',
     image: rodilla3r90,
-  },
-  {
-    id: '3r95',
-    name: '3R95',
-    summary: 'Rodilla hidráulica',
-    activity: 'Alta actividad y marcha dinámica',
-    mobility: '3 - 4',
-    weight: '150 kg',
-    image: rodilla3r95,
   },
   {
     id: '3r78',
@@ -762,7 +717,9 @@ function HandMenu() {
 
   return (
     <div className="protesis-manos">
-      <img className="protesis-manos__photo" src={heldImage} alt={`Mano ${heldName}`} decoding="sync" />
+      <div className="protesis-manos__frame">
+        <img className="protesis-manos__photo" src={heldImage} alt={`Mano ${heldName}`} decoding="sync" />
+      </div>
       <div className="protesis-manos__panel">
         <h3 className="protesis-manos__title">Mano</h3>
         <div className="protesis-manos__list">
@@ -887,7 +844,7 @@ function ProsthesisDetail({
           <PartCatalog
             key={view}
             items={view === 'pie' ? FEET : KNEES}
-            initialId={view === 'pie' ? FEET[0].id : '3r95'}
+            initialId={view === 'pie' ? FEET[0].id : KNEES[0].id}
             label={(name) => (view === 'pie' ? `Pie protésico ${name}` : `Rodilla protésica ${name}`)}
           />
         ) : (
@@ -1167,7 +1124,7 @@ function sceneImages(scene: Shown): string[] {
   if (scene.detail === 'rodilla') return [rodillaImg]
   if (scene.detail === 'mano') return [HANDS[0].image]
   if (scene.detail === 'rodillas') {
-    const image = KNEES.find((item) => item.id === '3r95')?.image
+    const image = KNEES[0]?.image
     return image ? [image] : []
   }
   if (scene.detail === 'pie') {

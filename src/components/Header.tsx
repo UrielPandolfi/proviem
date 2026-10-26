@@ -19,7 +19,6 @@ const PAGE_LINKS = new Set([
   'Prótesis',
   'Nosotros',
   'Blog',
-  'Contacto',
   'Clínicas',
   'Proceso',
   'Seguro',
@@ -32,7 +31,6 @@ const LINKS = [
   { label: 'Clínicas', href: '#clinicas', page: 'clinicas' },
   { label: 'Seguro', href: '#seguro', page: 'seguro' },
   { label: 'Blog', href: '#blog', page: 'blog' },
-  { label: 'Contacto', href: '#contacto', page: 'contacto' },
 ] as const
 
 type HeaderProps = {

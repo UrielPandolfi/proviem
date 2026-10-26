@@ -360,18 +360,6 @@
   .protesis-partes.is-desarticulacion-cadera .protesis-partes__copy {
     max-width: min(17rem, calc((100vw - var(--photo)) / 2 - 5.5rem));
   }
-
-  .protesis-partes.is-desarticulacion-cadera .protesis-partes__item[data-point='tubo'] .protesis-tipos__detail {
-    position: absolute;
-    z-index: 2;
-    bottom: calc(100% + 0.55rem);
-    left: 0;
-    width: min(17rem, calc((100vw - var(--photo)) / 2 - 5.5rem));
-    margin-top: 0;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background: var(--color-bg);
-  }
 }
 
 .protesis-partes.is-liner .protesis-partes__stage {
@@ -697,17 +685,29 @@
 
 .protesis-manos {
   display: grid;
-  grid-template-columns: minmax(13rem, 20rem) minmax(0, 1fr);
-  align-items: start;
+  grid-template-columns: minmax(16rem, 32rem) minmax(0, 1fr);
+  align-items: center;
   column-gap: clamp(1.4rem, 3vw, 3.2rem);
   width: 100%;
   padding-right: 4.6rem;
   animation: protesis-liner-in 0.4s ease;
 }
 
+.protesis-manos__frame {
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  width: min(100%, 30rem);
+  height: 22rem;
+}
+
 .protesis-manos__photo {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
   user-select: none;
 }
 
@@ -716,7 +716,6 @@
   flex-direction: column;
   align-items: flex-end;
   min-width: 0;
-  padding-top: 4rem;
   text-align: right;
 }
 
@@ -903,7 +902,6 @@ button.protesis-partes__name:focus-visible {
   text-align: right;
 }
 
-.protesis-partes.is-transfemoral .protesis-partes__item[data-point='tubo'].is-open ~ .protesis-partes__item[data-point='pie'],
 .protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'],
 .protesis-partes.is-transradial .protesis-partes__item[data-point='suspension'].is-open ~ .protesis-partes__item[data-point='mano'] {
   visibility: hidden;
@@ -988,7 +986,6 @@ button.protesis-partes__name:focus-visible {
     text-align: left;
   }
 
-  .protesis-partes.is-transfemoral .protesis-partes__item[data-point='tubo'].is-open ~ .protesis-partes__item[data-point='pie'],
   .protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'],
   .protesis-partes.is-transradial .protesis-partes__item[data-point='suspension'].is-open ~ .protesis-partes__item[data-point='mano'] {
     visibility: visible;
@@ -1086,8 +1083,13 @@ button.protesis-partes__name:focus-visible {
     animation: none;
   }
 
+  .protesis-manos__frame {
+    width: min(18rem, 86%);
+    height: 16rem;
+    margin-inline: auto;
+  }
+
   .protesis-manos__photo {
-    width: min(16rem, 78%);
     margin-inline: auto;
   }
 
