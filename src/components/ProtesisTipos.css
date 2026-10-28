@@ -351,9 +351,9 @@
 }
 
 .protesis-partes.is-desarticulacion-hombro .protesis-partes__photo {
-  aspect-ratio: 350 / 736;
-  object-fit: cover;
-  object-position: 70% center;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 @media (min-width: 900px) {
@@ -902,6 +902,78 @@ button.protesis-partes__name:focus-visible {
   text-align: right;
 }
 
+.protesis-partes.is-transfemoral .protesis-partes__notes {
+  position: absolute;
+  top: 1%;
+  bottom: 2%;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min(18.5rem, calc(50% - var(--photo) / 2 - 1.15rem));
+}
+
+.protesis-partes__note h3 {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.35rem, 1.7vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.protesis-partes__note h3 svg {
+  flex: 0 0 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.12rem;
+}
+
+.protesis-partes__note p {
+  max-width: 17.5rem;
+  margin: 0.7rem 0 0;
+  color: var(--color-primary);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.protesis-partes__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+  padding: 0.5rem 0.95rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.protesis-partes__more svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  transform: rotate(-90deg);
+}
+
+.protesis-partes__more:hover {
+  background: color-mix(in srgb, var(--color-secondary) 75%, #fff);
+}
+
+.protesis-partes__more:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 .protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'],
 .protesis-partes.is-transradial .protesis-partes__item[data-point='suspension'].is-open ~ .protesis-partes__item[data-point='mano'] {
   visibility: hidden;
@@ -977,6 +1049,17 @@ button.protesis-partes__name:focus-visible {
 
   .protesis-partes__line {
     display: none;
+  }
+
+  .protesis-partes.is-transfemoral .protesis-partes__notes {
+    position: static;
+    width: 100%;
+    margin-top: 1.2rem;
+    gap: 1.6rem;
+  }
+
+  .protesis-partes__note p {
+    max-width: none;
   }
 
   .protesis-partes__copy,

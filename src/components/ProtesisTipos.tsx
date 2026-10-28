@@ -41,7 +41,7 @@ const IMAGE_SIZE: Record<string, { width: number; height: number }> = {
   [transhumeralImg]: { width: 337, height: 634 },
   [transradialImg]: { width: 379, height: 659 },
   [desarticulacionCaderaImg]: { width: 475, height: 661 },
-  [desarticulacionHombroImg]: { width: 736, height: 736 },
+  [desarticulacionHombroImg]: { width: 1024, height: 1536 },
   [linerImg]: { width: 336, height: 698 },
   [rodillaImg]: { width: 336, height: 698 },
   [linerElementsImg]: { width: 642, height: 329 },
@@ -221,7 +221,7 @@ const TRANSFEMORAL_PARTS: Part[] = [
     edge: 0.78,
   },
   { id: 'rodillas', title: 'Rodillas', side: 'right', top: '55%', edge: 0.87 },
-  { id: 'pie', title: 'Pie', side: 'left', top: '84%', edge: 0.38 },
+  { id: 'pie', title: 'Pie', side: 'right', top: '81%', edge: 0.56 },
 ]
 
 const TRANSTIBIAL_PARTS: Part[] = [
@@ -293,6 +293,34 @@ const TRANSRADIAL_PARTS: Part[] = [
   { id: 'mano', title: 'Mano', side: 'left', top: '75%', edge: 0.34 },
 ]
 
+const SHOULDER_PARTS: Part[] = [
+  {
+    id: 'suspension',
+    title: 'Suspensión',
+    text: SUSPENSION_TEXT,
+    side: 'left',
+    top: '12%',
+    edge: 0.44,
+  },
+  {
+    id: 'socket',
+    title: 'Socket',
+    text: SOCKET_TEXT,
+    side: 'right',
+    top: '34%',
+    edge: 0.89,
+  },
+  {
+    id: 'cople',
+    title: 'Cople',
+    text: 'Componente que une y asegura las partes de la prótesis de brazo, proporcionando estabilidad y alineación durante su uso.',
+    side: 'left',
+    top: '43%',
+    edge: 0.8,
+  },
+  { id: 'mano', title: 'Mano', side: 'left', top: '82%', edge: 0.2 },
+]
+
 const HIP_DISARTICULATION_PARTS: Part[] = [
   {
     id: 'socket',
@@ -322,8 +350,8 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   'desarticulacion-hombro': {
     src: desarticulacionHombroImg,
-    alt: 'Prótesis para desarticulación de hombro con suspensión, encaje, codo, brazo y mano',
-    parts: TRANSHUMERAL_PARTS,
+    alt: 'Prótesis para desarticulación de hombro con suspensión, encaje, cople y mano',
+    parts: SHOULDER_PARTS,
   },
   transfemoral: {
     src: transfemoralImg,
@@ -868,6 +896,7 @@ function ProsthesisDetail({
             <span className={`protesis-rodilla__pulse${liner ? ' is-liner' : ''}`} aria-hidden="true" />
           ) : null}
         </div>
+        {diagram === 'transfemoral' && showingParts ? <TransfemoralNotes /> : null}
         {liner ? (
           <div className="protesis-liner" role="region" aria-labelledby="protesis-liner-title">
             <div className="protesis-liner__copy">
@@ -986,6 +1015,45 @@ function ProsthesisDetail({
 
 function memberFromHash(hash: string): Member {
   return hash === '#protesis-brazo' ? 'superior' : 'inferior'
+}
+
+function TransfemoralNotes() {
+  return (
+    <aside className="protesis-partes__notes">
+      <article className="protesis-partes__note">
+        <h3>
+          <span>¿Qué es un liner?</span>
+          <InfoIcon />
+        </h3>
+        <p>
+          Interfaz que se coloca entre la piel y el encaje para ayudar a proteger el
+          muñón, mejorar el ajuste y facilitar el uso de la prótesis.
+        </p>
+        <button type="button" className="protesis-partes__more">
+          Ver más
+          <ChevronIcon />
+        </button>
+      </article>
+      <article className="protesis-partes__note">
+        <h3>
+          <span>
+            ¿Qué es una bolsa
+            <br />
+            de colocación?
+          </span>
+          <InfoIcon />
+        </h3>
+        <p>
+          Accesorio que facilita la introducción del muñón en el encaje, reduciendo
+          la fricción y mejorando el ajuste.
+        </p>
+        <button type="button" className="protesis-partes__more">
+          Ver más
+          <ChevronIcon />
+        </button>
+      </article>
+    </aside>
+  )
 }
 
 function ChevronIcon() {

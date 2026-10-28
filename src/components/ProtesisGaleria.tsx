@@ -1,25 +1,43 @@
 import { useEffect, useRef, useState } from 'react'
-import fotoBarras from '../assets/protesis/amg1452.webp'
-import fotoEncaje from '../assets/protesis/amg1456.webp'
-import fotoEntreno from '../assets/protesis/amg1470.webp'
+import foto01 from '../assets/protesis/CARRUSEL/CARRUSEL_01.jpg'
+import foto02 from '../assets/protesis/CARRUSEL/CARRUSEL_02.jpg'
+import foto03 from '../assets/protesis/CARRUSEL/CARRUSEL_03.jpg'
+import foto04 from '../assets/protesis/CARRUSEL/CARRUSEL_04.jpg'
+import foto05 from '../assets/protesis/CARRUSEL/CARRUSEL_05.jpg'
+import foto06 from '../assets/protesis/CARRUSEL/CARRUSEL_06.jpg'
 import { Section } from './Section'
 import { reveal } from '../motion/reveal'
 import './ClinicasEspacios.css'
 
 const SLIDES = [
   {
-    src: fotoBarras,
-    alt: 'Paciente con prótesis entrenando en las barras paralelas junto a un especialista',
-    position: 'center 22%',
+    src: foto01,
+    alt: 'Paciente practicando el alcance con una prótesis de brazo junto a una especialista',
+    position: 'center',
   },
   {
-    src: fotoEncaje,
-    alt: 'Especialista mostrando un encaje protésico a un paciente',
-    position: 'center 42%',
+    src: foto02,
+    alt: 'Paciente con prótesis de pierna entrenando en las barras paralelas',
+    position: 'center',
   },
   {
-    src: fotoEntreno,
-    alt: 'Especialista acompañando el entrenamiento de un paciente en las barras paralelas',
+    src: foto03,
+    alt: 'Paciente caminando entre las barras paralelas acompañado por una especialista',
+    position: 'center',
+  },
+  {
+    src: foto04,
+    alt: 'Paciente caminando de espaldas entre las barras paralelas con una prótesis de pierna',
+    position: 'center',
+  },
+  {
+    src: foto05,
+    alt: 'Paciente caminando con muletas y prótesis de pierna acompañado por el equipo',
+    position: 'center',
+  },
+  {
+    src: foto06,
+    alt: 'Especialista ajustando el calzado de un paciente en las barras paralelas',
     position: 'center',
   },
 ] as const

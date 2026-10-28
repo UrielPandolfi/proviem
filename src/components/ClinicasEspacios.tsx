@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import barrasImg from '../assets/clinicas/amg1445.webp'
 import consultaImg from '../assets/clinicas/amg1498.webp'
 import rampaImg from '../assets/clinicas/amg1419.webp'
-import escaleraImg from '../assets/clinicas/amg1420.webp'
-import protesisImg from '../assets/clinicas/amg1439.webp'
-import salaImg from '../assets/clinicas/amg1520.webp'
+import ejercicioImg from '../assets/clinicas/4_clinicas.jpg'
+import brazoImg from '../assets/clinicas/5_clinicas.jpg'
+import barrasPacienteImg from '../assets/clinicas/6_clinica.jpg'
 import { Section } from './Section'
 import { reveal } from '../motion/reveal'
 import './ClinicasEspacios.css'
@@ -23,16 +23,16 @@ const SLIDES = [
     alt: 'Paciente con prótesis subiendo la rampa acompañado por un especialista',
   },
   {
-    src: escaleraImg,
-    alt: 'Entrenamiento en la escalera y la rampa de la clínica',
+    src: ejercicioImg,
+    alt: 'Paciente con prótesis de pierna en el área de ejercicio de la clínica',
   },
   {
-    src: protesisImg,
-    alt: 'Especialista mostrando una prótesis de pierna en la clínica',
+    src: brazoImg,
+    alt: 'Paciente practicando movilidad fina con una prótesis de brazo',
   },
   {
-    src: salaImg,
-    alt: 'Rampa de entrenamiento y barras paralelas en la clínica Proviem',
+    src: barrasPacienteImg,
+    alt: 'Paciente entrenando en las barras paralelas junto a una especialista',
   },
 ] as const
 

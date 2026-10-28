@@ -1,11 +1,15 @@
 .partners {
-  padding: 5.25rem 0 5.75rem;
+  padding: 5.25rem 0 4.25rem;
   background: var(--color-primary);
   color: #fff;
 }
 
+.partners .section__inner {
+  width: 100%;
+}
+
 .partners__intro {
-  max-width: 58rem;
+  width: min(90%, 58rem);
   margin: 0 auto;
   text-align: center;
 }
@@ -35,80 +39,82 @@
   line-height: 1.5;
 }
 
-.partners__logos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 2.25rem;
-  row-gap: 3.75rem;
+.partners__slider {
+  --partners-ink: 3.85rem;
+  margin-top: 3.15rem;
+  background: #fff;
+}
+
+.partners__viewport {
+  overflow: hidden;
+  padding: 2.05rem 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.partners__track {
+  display: flex;
+  width: max-content;
+  animation: partners-marquee 42s linear infinite;
+}
+
+.partners__slider:hover .partners__track,
+.partners__slider:focus-within .partners__track {
+  animation-play-state: paused;
+}
+
+.partners__group {
+  display: flex;
   align-items: center;
-  justify-items: center;
-  margin-top: 3.4rem;
+  gap: 4.75rem;
+  margin: 0;
+  padding: 0 4.75rem 0 0;
+  list-style: none;
 }
 
 .partners__logo {
-  display: block;
-  width: auto;
-  height: 3.35rem;
-  max-width: 11.5rem;
-  object-fit: contain;
+  position: relative;
+  flex: 0 0 auto;
+  width: calc(var(--partners-ink) * var(--aspect) * var(--fit, 1));
+  height: calc(var(--partners-ink) * var(--fit, 1));
+  overflow: hidden;
 }
 
-.partners__logo:nth-child(1) {
-  order: 4;
-}
-
-.partners__logo:nth-child(2) {
-  order: 1;
-}
-
-.partners__logo:nth-child(3) {
-  order: 2;
-}
-
-.partners__logo:nth-child(4) {
-  order: 3;
-}
-
-.partners__logo:nth-child(5) {
-  order: 5;
-}
-
-.partners__logo:nth-child(6) {
-  order: 6;
-}
-
-.partners__logo:nth-child(2) {
-  height: 4.45rem;
-  max-width: 5.35rem;
-}
-
-.partners__logo:nth-child(3) {
-  height: 4.75rem;
-  max-width: 4.85rem;
-}
-
-.partners__logo:nth-child(4) {
-  height: 3.85rem;
-}
-
-.partners__logo:nth-child(5),
-.partners__logo:nth-child(6) {
-  width: 58%;
-  height: auto;
-  max-height: 3.35rem;
+.partners__logo img {
+  position: absolute;
+  top: calc(100% * var(--ty));
+  left: calc(100% * var(--lx));
+  width: calc(100% * var(--cw));
+  height: calc(100% * var(--ch));
+  max-width: none;
+  object-fit: fill;
 }
 
 .partners__title-break {
   display: none;
 }
 
+@keyframes partners-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 899px) {
   .partners {
-    padding: 3.75rem 0 4.5rem;
+    padding: 3.75rem 0 2.75rem;
+  }
+
+  .partners.section > .section__inner {
+    width: 100%;
   }
 
   .partners__intro {
-    max-width: none;
+    width: calc(100% - 2.1rem);
   }
 
   .partners__eyebrow {
@@ -130,53 +136,48 @@
     line-height: var(--mobile-lead-leading);
   }
 
-  .partners__logos {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1.35rem;
-    row-gap: 3.1rem;
-    margin-top: 2.65rem;
+  .partners__slider {
+    --partners-ink: 2.7rem;
+    margin-top: 2.35rem;
   }
 
-  .partners__logo {
-    height: 2.45rem;
-    max-width: 8.5rem;
+  .partners__viewport {
+    padding: 1.35rem 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   }
 
-  .partners__logo:nth-child(1) {
-    order: 1;
+  .partners__track {
+    animation-duration: 32s;
   }
 
-  .partners__logo:nth-child(5) {
-    order: 2;
-    width: auto;
-    height: 2.35rem;
-    max-width: 8.5rem;
-    max-height: none;
+  .partners__group {
+    gap: 2.75rem;
+    padding-right: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners__viewport {
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
-  .partners__logo:nth-child(2) {
-    order: 3;
-    height: 3.15rem;
-    max-width: 3.85rem;
+  .partners__track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
   }
 
-  .partners__logo:nth-child(3) {
-    order: 4;
-    height: 3.15rem;
-    max-width: 3.25rem;
+  .partners__group[aria-hidden='true'] {
+    display: none;
   }
 
-  .partners__logo:nth-child(6) {
-    order: 5;
-    width: 78%;
-    height: auto;
-    max-height: 2.45rem;
-  }
-
-  .partners__logo:nth-child(4) {
-    order: 6;
-    width: auto;
-    height: 2.65rem;
-    max-width: 8.5rem;
+  .partners__group {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min(90%, 70rem);
+    padding: 0.4rem 1.25rem;
+    row-gap: 1.75rem;
   }
 }
