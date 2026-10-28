@@ -119,7 +119,7 @@
   .seguro-hero__photo {
     right: auto;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% + 6vw));
     object-position: center bottom;
   }
 }
