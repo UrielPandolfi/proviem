@@ -408,6 +408,13 @@ type CatalogItem = {
   image?: string
 }
 
+const PRODUCT_NOTE =
+  'Los productos mostrados son referencias de las soluciones disponibles. La selección de componentes depende de la valoración, necesidades, compatibilidad y configuración de cada paciente.'
+
+function ProductNote() {
+  return <p className="protesis-catalogo__note">{PRODUCT_NOTE}</p>
+}
+
 const FEET: CatalogItem[] = [
   {
     id: 'sach-1s49',
@@ -1053,8 +1060,12 @@ function ProsthesisDetail({
       </button>
       <div className="protesis-partes__stage">
         {hands ? (
-          <HandMenu />
+          <>
+            <HandMenu />
+            <ProductNote />
+          </>
         ) : catalog ? (
+          <>
           <PartCatalog
             key={view}
             items={
@@ -1079,6 +1090,8 @@ function ProsthesisDetail({
                   : `Rodilla protésica ${name}`
             }
           />
+          {view === 'pie' || view === 'rodillas' || view === 'codos' ? <ProductNote /> : null}
+          </>
         ) : bolsa ? (
           <BagProduct />
         ) : (

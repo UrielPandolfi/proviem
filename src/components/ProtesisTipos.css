@@ -509,6 +509,16 @@
   }
 }
 
+.protesis-catalogo__note {
+  max-width: 46rem;
+  margin: 1.6rem auto 0.2rem;
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: center;
+}
+
 .protesis-partes.is-pie .protesis-partes__stage {
   margin-top: 0.35rem;
 }
