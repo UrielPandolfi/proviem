@@ -1088,8 +1088,7 @@ button.protesis-partes__name:focus-visible {
   outline-offset: 3px;
 }
 
-.protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'],
-.protesis-partes.is-transradial .protesis-partes__item[data-point='suspension'].is-open ~ .protesis-partes__item[data-point='mano'] {
+.protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'] {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -1199,8 +1198,7 @@ button.protesis-partes__name:focus-visible {
     text-align: left;
   }
 
-  .protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'],
-  .protesis-partes.is-transradial .protesis-partes__item[data-point='suspension'].is-open ~ .protesis-partes__item[data-point='mano'] {
+  .protesis-partes.is-transfemoral .protesis-partes__item[data-point='socket'].is-open ~ .protesis-partes__item[data-point='rodillas'] {
     visibility: visible;
     opacity: 1;
   }

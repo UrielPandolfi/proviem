@@ -221,8 +221,6 @@ type Part = {
 
 const SOCKET_TEXT =
   'Estructura personalizada que se adapta al muñón y sirve como punto de unión entre el usuario y los componentes de la prótesis.'
-const SUSPENSION_TEXT =
-  'Sistema que ayuda a mantener la prótesis en su posición durante el movimiento y las actividades del usuario.'
 
 type LimbDiagram =
   | 'transfemoral'
@@ -260,14 +258,6 @@ const TRANSTIBIAL_PARTS: Part[] = [
 
 const TRANSHUMERAL_PARTS: Part[] = [
   {
-    id: 'suspension',
-    title: 'Suspensión',
-    text: SUSPENSION_TEXT,
-    side: 'left',
-    top: '18%',
-    edge: 0.36,
-  },
-  {
     id: 'socket',
     title: 'Socket',
     text: SOCKET_TEXT,
@@ -278,7 +268,8 @@ const TRANSHUMERAL_PARTS: Part[] = [
   {
     id: 'motor',
     title: 'Codo',
-    text: 'Componente eléctrico que transforma las señales de control en movimiento dentro de determinadas prótesis mioeléctricas.',
+    asButton: true,
+    linkView: 'codos',
     side: 'left',
     top: '46%',
     edge: 0.57,
@@ -286,7 +277,9 @@ const TRANSHUMERAL_PARTS: Part[] = [
   {
     id: 'brazo',
     title: 'Cople',
-    text: 'Estructura protésica que integra y conecta los diferentes componentes necesarios según el nivel de amputación.',
+    text: 'Componente que une y asegura las partes de la prótesis de brazo, proporcionando estabilidad y alineación durante su uso.',
+    more: true,
+    moreView: 'coples',
     side: 'right',
     top: '66%',
     edge: 0.57,
@@ -295,14 +288,6 @@ const TRANSHUMERAL_PARTS: Part[] = [
 ]
 
 const TRANSRADIAL_PARTS: Part[] = [
-  {
-    id: 'suspension',
-    title: 'Suspensión',
-    text: SUSPENSION_TEXT,
-    side: 'left',
-    top: '49%',
-    edge: 0.53,
-  },
   {
     id: 'socket',
     title: 'Socket',
@@ -389,12 +374,12 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   transhumeral: {
     src: transhumeralImg,
-    alt: 'Prótesis transhumeral con suspensión, encaje, codo, cople y mano',
+    alt: 'Prótesis transhumeral con encaje, codo, cople y mano',
     parts: TRANSHUMERAL_PARTS,
   },
   transradial: {
     src: transradialImg,
-    alt: 'Prótesis transradial con suspensión, encaje y mano',
+    alt: 'Prótesis transradial con encaje y mano',
     parts: TRANSRADIAL_PARTS,
   },
 }
