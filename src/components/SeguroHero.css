@@ -115,13 +115,12 @@
   outline-offset: 3px;
 }
 
-@media (min-width: 1700px) {
-  .seguro-hero {
-    min-height: max(calc(100svh - var(--header-offset)), 72vw);
-  }
-
+@media (min-width: 1500px) {
   .seguro-hero__photo {
-    height: 72vw;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    object-position: center bottom;
   }
 }
 
