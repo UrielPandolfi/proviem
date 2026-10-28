@@ -536,6 +536,120 @@
 
 .protesis-partes.is-rodillas .protesis-pies__photo {
   width: 12rem;
+  background: transparent;
+}
+
+.protesis-partes.is-liners .protesis-pies__photo {
+  width: 8.5rem;
+}
+
+.protesis-partes.is-liners .protesis-pies__item.is-selected .protesis-pies__name,
+.protesis-partes.is-coples .protesis-pies__item.is-selected .protesis-pies__name,
+.protesis-partes.is-codos .protesis-pies__item.is-selected .protesis-pies__name {
+  color: var(--color-secondary);
+}
+
+.protesis-partes.is-coples .protesis-pies__photo,
+.protesis-partes.is-codos .protesis-pies__photo {
+  width: 13rem;
+  background: transparent;
+}
+
+.protesis-partes.is-codos .protesis-pies__photo {
+  width: 16rem;
+}
+
+.protesis-pies__aside {
+  max-width: 9.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.protesis-partes.is-coples .protesis-pies__activity,
+.protesis-partes.is-codos .protesis-pies__activity {
+  max-width: 22rem;
+}
+
+.protesis-partes.is-bolsa .protesis-partes__stage {
+  margin-top: 0.35rem;
+}
+
+.protesis-partes.is-bolsa .protesis-partes__back {
+  top: 0.2rem;
+}
+
+.protesis-bolsa {
+  display: grid;
+  grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(1.4rem, 3vw, 2.8rem);
+  width: 100%;
+  padding-right: 4.6rem;
+  animation: protesis-liner-in 0.4s ease;
+}
+
+.protesis-bolsa__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.protesis-bolsa__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 26rem) auto;
+  column-gap: clamp(1.4rem, 3vw, 3rem);
+  align-items: start;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 22%, #d7e7f4);
+}
+
+.protesis-bolsa__title {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.7rem, 2.2vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.protesis-bolsa__copy p {
+  max-width: 24rem;
+  margin: 1.05rem 0 0;
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.protesis-bolsa__specs {
+  display: flex;
+  gap: 1.35rem;
+  padding-top: 0.15rem;
+}
+
+.protesis-bolsa__spec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 8.6rem;
+}
+
+.protesis-bolsa__label,
+.protesis-bolsa__value {
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.protesis-bolsa__label {
+  font-size: 0.98rem;
+}
+
+.protesis-bolsa__value {
+  margin-top: 0.15rem;
+  font-size: 1.02rem;
 }
 
 .protesis-pies__photo img {
@@ -992,6 +1106,22 @@ button.protesis-partes__name:focus-visible {
     margin-top 0.32s ease;
 }
 
+.protesis-partes.is-desarticulacion-hombro .protesis-partes__item--left .protesis-partes__copy,
+.protesis-partes.is-desarticulacion-hombro .protesis-partes__item--left .protesis-tipos__detail p {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.protesis-partes__item.is-pinned .protesis-tipos__detail {
+  grid-template-rows: 1fr;
+  margin-top: 0.45rem;
+  opacity: 1;
+}
+
+.protesis-partes__item.is-pinned .protesis-partes__more {
+  margin-top: 0.75rem;
+}
+
 .protesis-partes__item.is-open .protesis-tipos__detail {
   grid-template-rows: 1fr;
   margin-top: 0.55rem;
@@ -1104,8 +1234,32 @@ button.protesis-partes__name:focus-visible {
     margin-top: 1.25rem;
   }
 
-  .protesis-partes.is-pie .protesis-partes__stage {
+  .protesis-partes.is-pie .protesis-partes__stage,
+  .protesis-partes.is-bolsa .protesis-partes__stage {
     margin-top: 3.1rem;
+  }
+
+  .protesis-bolsa {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-right: 0;
+    row-gap: 1.2rem;
+    animation: none;
+  }
+
+  .protesis-bolsa__photo {
+    width: min(18rem, 88%);
+    margin-inline: auto;
+  }
+
+  .protesis-bolsa__panel {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .protesis-bolsa__copy p {
+    max-width: none;
   }
 
   .protesis-pies {
@@ -1124,6 +1278,18 @@ button.protesis-partes__name:focus-visible {
 
   .protesis-partes.is-rodillas .protesis-pies__photo {
     width: min(10.5rem, 58%);
+  }
+
+  .protesis-partes.is-liners .protesis-pies__photo {
+    width: min(8rem, 46%);
+  }
+
+  .protesis-partes.is-coples .protesis-pies__photo {
+    width: min(11rem, 62%);
+  }
+
+  .protesis-partes.is-codos .protesis-pies__photo {
+    width: min(14rem, 72%);
   }
 
   .protesis-pies__photo.is-empty {

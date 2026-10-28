@@ -10,6 +10,17 @@ import desarticulacionCaderaImg from '../assets/protesis/desarticulacion-cadera.
 import desarticulacionHombroImg from '../assets/protesis/desarticulacion-hombro.png'
 import linerImg from '../assets/protesis/liner.png'
 import rodillaImg from '../assets/protesis/rodilla.png'
+import bolsaColocacionImg from '../assets/protesis/bolsa-colocacion.png'
+import skeoSealingImg from '../assets/protesis/liners/skeo-sealing.png'
+import skeoSkinguardImg from '../assets/protesis/liners/skeo-skinguard.png'
+import myolinoWristImg from '../assets/protesis/COPLE/MyolinoWrist 2000.png'
+import myoWristTranscarpalImg from '../assets/protesis/COPLE/MyoWrist Transcarpal.png'
+import electricWristImg from '../assets/protesis/COPLE/Electric wrist rotator.png'
+import disconnectAdapterImg from '../assets/protesis/COPLE/O.B. Disconnect Adapter.png'
+import ergoArmImg from '../assets/protesis/codos/ ErgoArm.png'
+import elbowSetupImg from '../assets/protesis/codos/Elbow Set-Up .png'
+import ergoArmHybridImg from '../assets/protesis/codos/ErgoArm Hybrid plus.png'
+import dynamicArmImg from '../assets/protesis/codos/DynamicArm.png'
 import linerElementsImg from '../assets/protesis/liner-elements.png'
 import pieSach from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/SACH 1549.png'
 import pie1d10 from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/1D10 Dynamic.png'
@@ -19,15 +30,21 @@ import pieTaleo from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE
 import pieTriton from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON 1C60.png'
 import pieTritonHeavy from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TROTON HEAVY DUTY 1C64.png'
 import pieTritonHarmony from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON HARMONY 1C62.png'
-import rodilla3r78 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R78.png'
-import rodilla3r90 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/Rodilla 3R90.png'
-import rodilla3r92 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R92.png'
-import rodilla3r106 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R106.png'
-import rodilla3r15 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R15.png'
-import rodilla3r20 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R20.png'
-import rodilla3r85 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R85DYNION.png'
-import rodillaCleg from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/C-LEG 4.png'
-import rodilla3r80 from '../assets/protesis/PROTESIS/RODILLA-20261020T214526Z-1-001/RODILLA/3R80.png'
+import rodillaF01 from '../assets/protesis/rodillas/f01.png'
+import rodilla3r20 from '../assets/protesis/rodillas/3r20.png'
+import rodillaF05 from '../assets/protesis/rodillas/f05.png'
+import rodilla6h23 from '../assets/protesis/rodillas/6h23.png'
+import rodilla3r78 from '../assets/protesis/rodillas/3r78.png'
+import rodilla3r106 from '../assets/protesis/rodillas/3r106.png'
+import rodilla3r60 from '../assets/protesis/rodillas/3r60.png'
+import rodilla6h30 from '../assets/protesis/rodillas/6h30.png'
+import rodilla3r80 from '../assets/protesis/rodillas/3r80.png'
+import rodillaRheo from '../assets/protesis/rodillas/rheo.png'
+import rodillaCleg from '../assets/protesis/rodillas/c-leg-4.png'
+import rodillaNavii from '../assets/protesis/rodillas/navii.png'
+import rodillaGenium from '../assets/protesis/rodillas/genium.png'
+import rodillaGeniumX4 from '../assets/protesis/rodillas/genium-x4.png'
+import rodillaPowerKnee from '../assets/protesis/rodillas/power-knee.png'
 import myofacilImg from '../assets/protesis/myofacil.png'
 import accesImg from '../assets/protesis/acces.png'
 import mecanicoImg from '../assets/protesis/mecanico.png'
@@ -196,6 +213,10 @@ type Part = {
   side: 'left' | 'right'
   top: string
   edge: number
+  asButton?: boolean
+  linkView?: 'codos'
+  more?: boolean
+  moreView?: 'coples'
 }
 
 const SOCKET_TEXT =
@@ -264,7 +285,7 @@ const TRANSHUMERAL_PARTS: Part[] = [
   },
   {
     id: 'brazo',
-    title: 'Brazo',
+    title: 'Cople',
     text: 'Estructura protésica que integra y conecta los diferentes componentes necesarios según el nivel de amputación.',
     side: 'right',
     top: '66%',
@@ -295,30 +316,33 @@ const TRANSRADIAL_PARTS: Part[] = [
 
 const SHOULDER_PARTS: Part[] = [
   {
-    id: 'suspension',
-    title: 'Suspensión',
-    text: SUSPENSION_TEXT,
-    side: 'left',
-    top: '12%',
-    edge: 0.44,
-  },
-  {
     id: 'socket',
     title: 'Socket',
-    text: SOCKET_TEXT,
+    text: 'Estructura personalizada que se adapta a la zona del hombro y torso, y sirve como punto de unión entre el usuario y los componentes de la prótesis.',
+    side: 'left',
+    top: '12%',
+    edge: 0.43,
+  },
+  {
+    id: 'codo',
+    title: 'Codo',
+    asButton: true,
+    linkView: 'codos',
     side: 'right',
-    top: '34%',
-    edge: 0.89,
+    top: '46%',
+    edge: 0.78,
   },
   {
     id: 'cople',
     title: 'Cople',
     text: 'Componente que une y asegura las partes de la prótesis de brazo, proporcionando estabilidad y alineación durante su uso.',
+    more: true,
+    moreView: 'coples',
     side: 'left',
-    top: '43%',
-    edge: 0.8,
+    top: '68%',
+    edge: 0.36,
   },
-  { id: 'mano', title: 'Mano', side: 'left', top: '82%', edge: 0.2 },
+  { id: 'mano', title: 'Mano', side: 'right', top: '82%', edge: 0.28 },
 ]
 
 const HIP_DISARTICULATION_PARTS: Part[] = [
@@ -350,7 +374,7 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   'desarticulacion-hombro': {
     src: desarticulacionHombroImg,
-    alt: 'Prótesis para desarticulación de hombro con suspensión, encaje, cople y mano',
+    alt: 'Prótesis para desarticulación de hombro con encaje, codo, cople y mano',
     parts: SHOULDER_PARTS,
   },
   transfemoral: {
@@ -365,7 +389,7 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   transhumeral: {
     src: transhumeralImg,
-    alt: 'Prótesis transhumeral con suspensión, encaje, codo, brazo y mano',
+    alt: 'Prótesis transhumeral con suspensión, encaje, codo, cople y mano',
     parts: TRANSHUMERAL_PARTS,
   },
   transradial: {
@@ -379,8 +403,13 @@ function isLimbDiagram(id: string): id is LimbDiagram {
   return Object.prototype.hasOwnProperty.call(DIAGRAMS, id)
 }
 
-type PartView = 'liner' | 'pie' | 'rodilla' | 'rodillas' | 'mano'
+type PartView = 'liner' | 'pie' | 'rodilla' | 'rodillas' | 'mano' | 'bolsa' | 'liners' | 'coples' | 'codos'
 type DiagramView = 'liner' | 'pie' | 'rodilla' | 'mano'
+
+type CatalogSpec = {
+  label: string
+  value: string
+}
 
 type CatalogItem = {
   id: string
@@ -389,6 +418,8 @@ type CatalogItem = {
   activity?: string
   mobility: string
   weight: string
+  specs?: CatalogSpec[]
+  aside?: string
   image?: string
 }
 
@@ -467,87 +498,251 @@ const FEET: CatalogItem[] = [
   },
 ]
 
+const LINERS: CatalogItem[] = [
+  {
+    id: 'skeo-sealing',
+    name: 'SKEO Sealing',
+    summary: 'Amputación transfemoral y suspensión por sellado/vacío',
+    mobility: '',
+    weight: '',
+    specs: [
+      { label: 'Material', value: 'Silicon' },
+      { label: 'Peso corporal', value: '125 kg' },
+    ],
+    image: skeoSealingImg,
+  },
+  {
+    id: 'skeo-skinguard',
+    name: 'Liner SKEO Skinguard',
+    summary: 'Amputación transfemoral con conexión distal y matriz continua',
+    mobility: '',
+    weight: '',
+    specs: [{ label: 'Liner de silicona', value: 'con bloqueo' }],
+    image: skeoSkinguardImg,
+  },
+]
+
+const WRISTS: CatalogItem[] = [
+  {
+    id: 'myolino-wrist-2000',
+    name: 'MyolinoWrist 2000',
+    summary: '',
+    aside: 'Muñeca mecánica pediátrica',
+    activity: 'Hasta 30° de flexión en combinación con rotación · 50 g · longitud 40 mm',
+    mobility: '',
+    weight: '',
+    image: myolinoWristImg,
+  },
+  {
+    id: 'myowrist-transcarpal',
+    name: 'MyoWrist Transcarpal',
+    summary: '',
+    aside: 'Muñeca transcarpal',
+    activity: '5 posiciones de –40° a +40° · pronación/supinación pasiva · 85–89 g',
+    mobility: '',
+    weight: '',
+    image: myoWristTranscarpalImg,
+  },
+  {
+    id: 'electric-wrist-rotator',
+    name: 'Electric wrist rotator',
+    summary: '',
+    aside: 'Rotador eléctrico de muñeca',
+    activity: 'Rotación >360° · 13.5 rpm · 96 g',
+    mobility: '',
+    weight: '',
+    image: electricWristImg,
+  },
+  {
+    id: 'ob-disconnect-adapter',
+    name: 'O.B. Disconnect Adapter',
+    summary: '',
+    aside: 'Adaptador de desconexión',
+    activity: 'Diámetro exterior 44 mm · vástago estándar Ø13 mm',
+    mobility: '',
+    weight: '',
+    image: disconnectAdapterImg,
+  },
+]
+
+const ELBOWS: CatalogItem[] = [
+  {
+    id: 'ergoarm-12k41',
+    name: 'ErgoArm 12K41',
+    summary: '',
+    aside: 'Codo mecánico',
+    activity: 'Bloqueo continuo bajo carga hasta 230 N con antebrazo de 305 mm',
+    mobility: '',
+    weight: '',
+    image: ergoArmImg,
+  },
+  {
+    id: 'elbow-set-up',
+    name: 'Elbow Set-Up',
+    summary: '',
+    aside: 'Codo mecánico',
+    activity: '13 posiciones de bloqueo en incrementos aprox. de 8°',
+    mobility: '',
+    weight: '',
+    image: elbowSetupImg,
+  },
+  {
+    id: 'ergoarm-hybrid-plus',
+    name: 'ErgoArm Hybrid plus',
+    summary: '',
+    aside: 'Codo híbrido',
+    activity: 'AFB + Easy Plug · bloqueo mecánico mediante correaje de tracción',
+    mobility: '',
+    weight: '',
+    image: ergoArmHybridImg,
+  },
+  {
+    id: 'dynamicarm-12k100n',
+    name: 'DynamicArm 12K100N',
+    summary: '',
+    aside: 'Codo motorizado',
+    activity: 'Fuerza máx. de elevación 6 kg · flexión aprox. 15°–145°',
+    mobility: '',
+    weight: '',
+    image: dynamicArmImg,
+  },
+]
+
 const KNEES: CatalogItem[] = [
   {
-    id: '3r90',
-    name: '3R90',
-    summary: 'Rodilla mecánica monocéntrica con freno',
-    activity: 'Baja actividad y uso cotidiano',
-    mobility: '1 - 2',
-    weight: '125 kg',
-    image: rodilla3r90,
-  },
-  {
-    id: '3r78',
-    name: '3R78',
-    summary: 'Rodilla mecánica policéntrica',
-    activity: 'Actividad moderada y marcha variable',
-    mobility: '2 - 3',
-    weight: '100 kg',
-    image: rodilla3r78,
-  },
-  {
-    id: '3r92',
-    name: '3R92',
-    summary: 'Rodilla mecánica monocéntrica',
-    activity: 'Actividad moderada y control de marcha',
-    mobility: '2 - 3',
-    weight: '125 kg',
-    image: rodilla3r92,
-  },
-  {
-    id: '3r106',
-    name: '3R106',
-    summary: 'Rodilla mecánica policéntrica',
-    activity: 'Actividad moderada y uso diario',
-    mobility: '2 - 3',
-    weight: '100 kg',
-    image: rodilla3r106,
-  },
-  {
-    id: '3r15',
-    name: '3R15',
-    summary: 'Rodilla mecánica monocéntrica',
-    activity: 'Baja actividad y trayectos cortos',
+    id: 'f01',
+    name: 'F01',
+    summary: 'Fénix · Mecánica policéntrica',
+    activity: 'Gama económica',
     mobility: '1 - 2',
     weight: '100 kg',
-    image: rodilla3r15,
+    image: rodillaF01,
   },
   {
     id: '3r20',
     name: '3R20',
-    summary: 'Rodilla mecánica policéntrica',
-    activity: 'Baja actividad y marcha estable',
+    summary: 'Ottobock · Mecánica',
+    activity: 'Gama básica',
     mobility: '1 - 2',
     weight: '100 kg',
     image: rodilla3r20,
   },
   {
-    id: '3r85-dynion',
-    name: '3R85 Dynion',
-    summary: 'Rodilla mecánica monocéntrica hidráulica',
-    activity: 'Alta actividad y terrenos variados',
+    id: 'f05',
+    name: 'F05',
+    summary: 'Fénix · Policéntrica neumática',
+    activity: 'Gama accesible',
     mobility: '3 - 4',
     weight: '100 kg',
-    image: rodilla3r85,
+    image: rodillaF05,
+  },
+  {
+    id: '6h23',
+    name: '6H23',
+    summary: 'Metiz · Policéntrica neumática',
+    activity: 'Gama intermedia',
+    mobility: '2 - 3',
+    weight: '100 kg',
+    image: rodilla6h23,
+  },
+  {
+    id: '3r78',
+    name: '3R78',
+    summary: 'Ottobock · Policéntrica neumática',
+    activity: 'Gama intermedia · flexión 150°',
+    mobility: '2 - 3',
+    weight: '100 kg',
+    image: rodilla3r78,
+  },
+  {
+    id: '3r106',
+    name: '3R106',
+    summary: 'Ottobock · Policéntrica neumática',
+    activity: 'Gama intermedia · flexión 172°',
+    mobility: '2 - 3',
+    weight: '100 kg',
+    image: rodilla3r106,
+  },
+  {
+    id: '3r60',
+    name: '3R60',
+    summary: 'Ottobock · Policéntrica hidráulica',
+    activity: 'Gama intermedia alta',
+    mobility: '2 - 3',
+    weight: '125 kg',
+    image: rodilla3r60,
+  },
+  {
+    id: '6h30',
+    name: '6H30',
+    summary: 'Metiz · Monocéntrica hidráulica',
+    activity: 'Gama intermedia alta · resistente al agua',
+    mobility: '3 - 4',
+    weight: '150 kg',
+    image: rodilla6h30,
+  },
+  {
+    id: '3r80',
+    name: '3R80',
+    summary: 'Ottobock · Hidráulica',
+    activity: 'Gama intermedia alta · flexión 150°',
+    mobility: '3 - 4',
+    weight: '150 kg',
+    image: rodilla3r80,
+  },
+  {
+    id: 'rheo',
+    name: 'Rheo',
+    summary: 'Össur · Control por microprocesador',
+    activity: 'Gama alta · IP34',
+    mobility: 'K2 - K3',
+    weight: '136 kg',
+    image: rodillaRheo,
   },
   {
     id: 'c-leg-4',
     name: 'C-Leg 4',
-    summary: 'Rodilla con microprocesador',
-    activity: 'Actividad variable y movilidad avanzada',
+    summary: 'Ottobock · Hidráulica con microprocesador',
+    activity: 'Gama alta · IP68',
     mobility: '2 - 4',
     weight: '136 kg',
     image: rodillaCleg,
   },
   {
-    id: '3r80',
-    name: '3R80',
-    summary: 'Rodilla mecánica monocéntrica hidráulica',
-    activity: 'Alta actividad y uso dinámico',
-    mobility: '3 - 4',
+    id: 'navii',
+    name: 'Navii',
+    summary: 'Össur · Control por microprocesador',
+    activity: 'Gama premium · IP68',
+    mobility: 'K2 - K4',
+    weight: '136 kg',
+    image: rodillaNavii,
+  },
+  {
+    id: 'genium',
+    name: 'Genium',
+    summary: 'Ottobock · Control por microprocesador',
+    activity: 'Gama premium · IP67',
+    mobility: '2 - 4',
     weight: '150 kg',
-    image: rodilla3r80,
+    image: rodillaGenium,
+  },
+  {
+    id: 'genium-x4',
+    name: 'Genium X4',
+    summary: 'Ottobock · Control por microprocesador',
+    activity: 'Gama premium · IP68',
+    mobility: '2 - 4',
+    weight: '150 kg',
+    image: rodillaGeniumX4,
+  },
+  {
+    id: 'power-knee',
+    name: 'Power Knee',
+    summary: 'Össur · Motorizada con microprocesador',
+    activity: 'Gama premium motorizada · IP54',
+    mobility: 'K3',
+    weight: '116 kg',
+    image: rodillaPowerKnee,
   },
 ]
 
@@ -674,19 +869,24 @@ function PartCatalog({
             >
               <span className="protesis-pies__main">
                 <span className="protesis-pies__name">{item.name}</span>
-                <span className="protesis-pies__summary">{item.summary}</span>
+                {item.summary ? <span className="protesis-pies__summary">{item.summary}</span> : null}
                 {item.activity ? <span className="protesis-pies__activity">{item.activity}</span> : null}
               </span>
-              <span className="protesis-pies__specs">
-                <span className="protesis-pies__spec">
-                  <span className="protesis-pies__label">Movilidad</span>
-                  <span className="protesis-pies__value">{item.mobility}</span>
+              {item.aside ? (
+                <span className="protesis-pies__aside">{item.aside}</span>
+              ) : (
+                <span className="protesis-pies__specs">
+                  {(item.specs ?? [
+                    { label: 'Movilidad', value: item.mobility },
+                    { label: 'Peso corporal', value: item.weight },
+                  ]).map((spec) => (
+                    <span className="protesis-pies__spec" key={`${spec.label}-${spec.value}`}>
+                      {spec.label ? <span className="protesis-pies__label">{spec.label}</span> : null}
+                      <span className="protesis-pies__value">{spec.value}</span>
+                    </span>
+                  ))}
                 </span>
-                <span className="protesis-pies__spec">
-                  <span className="protesis-pies__label">Peso corporal</span>
-                  <span className="protesis-pies__value">{item.weight}</span>
-                </span>
-              </span>
+              )}
             </button>
           )
         })}
@@ -834,7 +1034,7 @@ function ProsthesisDetail({
       returnTo.current = 'mano'
       return
     }
-    if (view === 'rodillas') return
+    if (view === 'rodillas' || view === 'bolsa' || view === 'liners' || view === 'coples' || view === 'codos') return
     if (returnTo.current) {
       partRefs.current[returnTo.current]?.focus({ preventScroll: true })
       returnTo.current = null
@@ -843,15 +1043,16 @@ function ProsthesisDetail({
 
   const liner = view === 'liner'
   const rodilla = view === 'rodilla'
-  const catalog = view === 'pie' || view === 'rodillas'
+  const catalog = view === 'pie' || view === 'rodillas' || view === 'liners' || view === 'coples' || view === 'codos'
   const hands = view === 'mano'
-  const showingParts = !liner && !rodilla && !catalog && !hands
+  const bolsa = view === 'bolsa'
+  const showingParts = !liner && !rodilla && !catalog && !hands && !bolsa
   const photoSrc = rodilla ? rodillaImg : liner ? linerImg : DIAGRAMS[diagram].src
   const photoSize = IMAGE_SIZE[photoSrc]
 
   return (
     <div
-      className={`protesis-partes${liner || rodilla ? ' is-liner' : ''}${catalog ? ' is-pie' : ''}${view === 'rodillas' ? ' is-rodillas' : ''}${hands ? ' is-mano' : ''}${rodilla ? ' is-rodilla' : ''}${showingParts ? ` is-${diagram}` : ''}`}
+      className={`protesis-partes${liner || rodilla ? ' is-liner' : ''}${catalog ? ' is-pie' : ''}${view === 'rodillas' ? ' is-rodillas' : ''}${view === 'liners' ? ' is-liners' : ''}${view === 'coples' ? ' is-coples' : ''}${view === 'codos' ? ' is-codos' : ''}${hands ? ' is-mano' : ''}${bolsa ? ' is-bolsa' : ''}${rodilla ? ' is-rodilla' : ''}${showingParts ? ` is-${diagram}` : ''}`}
     >
       <button type="button" className="protesis-partes__back" aria-label="Volver" onClick={onBack}>
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -871,10 +1072,30 @@ function ProsthesisDetail({
         ) : catalog ? (
           <PartCatalog
             key={view}
-            items={view === 'pie' ? FEET : KNEES}
-            initialId={view === 'pie' ? FEET[0].id : KNEES[0].id}
-            label={(name) => (view === 'pie' ? `Pie protésico ${name}` : `Rodilla protésica ${name}`)}
+            items={
+              view === 'pie' ? FEET : view === 'liners' ? LINERS : view === 'coples' ? WRISTS : view === 'codos' ? ELBOWS : KNEES
+            }
+            initialId={
+              view === 'pie'
+                ? FEET[0].id
+                : view === 'liners'
+                  ? LINERS[0].id
+                  : view === 'coples'
+                    ? WRISTS[0].id
+                    : view === 'codos'
+                      ? ELBOWS[0].id
+                      : KNEES[0].id
+            }
+            label={(name) =>
+              view === 'pie'
+                ? `Pie protésico ${name}`
+                : view === 'liners' || view === 'coples' || view === 'codos'
+                  ? name
+                  : `Rodilla protésica ${name}`
+            }
           />
+        ) : bolsa ? (
+          <BagProduct />
         ) : (
         <>
         <div className="protesis-partes__figure">
@@ -896,7 +1117,12 @@ function ProsthesisDetail({
             <span className={`protesis-rodilla__pulse${liner ? ' is-liner' : ''}`} aria-hidden="true" />
           ) : null}
         </div>
-        {diagram === 'transfemoral' && showingParts ? <TransfemoralNotes /> : null}
+        {diagram === 'transfemoral' && showingParts ? (
+          <TransfemoralNotes
+            onOpenLiners={() => onOpenView('liners')}
+            onOpenBag={() => onOpenView('bolsa')}
+          />
+        ) : null}
         {liner ? (
           <div className="protesis-liner" role="region" aria-labelledby="protesis-liner-title">
             <div className="protesis-liner__copy">
@@ -945,12 +1171,14 @@ function ProsthesisDetail({
                     : part.id === 'mano'
                       ? 'mano'
                       : null
-            const interactive = Boolean(part.text)
-            const active = interactive && open === part.id
+            const asButton = Boolean(part.asButton) || Boolean(viewId)
+            const pinned = Boolean(part.more)
+            const interactive = Boolean(part.text) && !pinned
+            const active = pinned || (interactive && open === part.id)
             return (
               <div
                 key={part.id}
-                className={`protesis-partes__item protesis-partes__item--${part.side}${active ? ' is-open' : ''}${interactive ? ' is-interactive' : ''}`}
+                className={`protesis-partes__item protesis-partes__item--${part.side}${active ? ' is-open' : ''}${pinned ? ' is-pinned' : ''}${interactive ? ' is-interactive' : ''}`}
                 style={{ top: part.top, ['--edge' as string]: part.edge }}
                 data-point={part.id}
                 onPointerEnter={(event) => {
@@ -962,17 +1190,19 @@ function ProsthesisDetail({
               >
                 <span className="protesis-partes__line" aria-hidden="true" />
                 <div className="protesis-partes__copy">
-                  {viewId || interactive ? (
+                  {part.more ? (
+                    <span className="protesis-partes__name">{part.title}</span>
+                  ) : viewId || interactive || part.asButton ? (
                     <button
                       ref={(node) => {
                         if (viewId) partRefs.current[viewId] = node
                       }}
                       type="button"
-                      className={`protesis-partes__name ${viewId ? 'protesis-partes__name--link' : 'protesis-partes__name--info'}`}
+                      className={`protesis-partes__name ${asButton ? 'protesis-partes__name--link' : 'protesis-partes__name--info'}`}
                       aria-expanded={interactive ? active : undefined}
                       aria-controls={interactive ? `${part.id}-text` : undefined}
                       onPointerUp={(event) => {
-                        if (viewId || event.pointerType === 'mouse') return
+                        if (asButton || pinned || event.pointerType === 'mouse') return
                         toggle(part.id)
                       }}
                       onFocus={() => {
@@ -986,12 +1216,17 @@ function ProsthesisDetail({
                           onOpenView(viewId)
                           return
                         }
+                        if (part.linkView) {
+                          onOpenView(part.linkView)
+                          return
+                        }
+                        if (part.asButton || pinned) return
                         if (event.detail !== 0) return
                         show(part.id)
                       }}
                     >
                       <span>{part.title}</span>
-                      {viewId ? <ChevronIcon /> : <InfoIcon />}
+                      {asButton ? <ChevronIcon /> : <InfoIcon />}
                     </button>
                   ) : (
                     <span className="protesis-partes__name">{part.title}</span>
@@ -1000,6 +1235,18 @@ function ProsthesisDetail({
                     <div className="protesis-tipos__detail" id={`${part.id}-text`} aria-hidden={!active}>
                       <p>{part.text}</p>
                     </div>
+                  ) : null}
+                  {part.more ? (
+                    <button
+                      type="button"
+                      className="protesis-partes__more"
+                      onClick={() => {
+                        if (part.moreView) onOpenView(part.moreView)
+                      }}
+                    >
+                      Ver más
+                      <ChevronIcon />
+                    </button>
                   ) : null}
                 </div>
               </div>
@@ -1017,7 +1264,42 @@ function memberFromHash(hash: string): Member {
   return hash === '#protesis-brazo' ? 'superior' : 'inferior'
 }
 
-function TransfemoralNotes() {
+function BagProduct() {
+  return (
+    <div className="protesis-bolsa">
+      <div className="protesis-bolsa__photo">
+        <img src={bolsaColocacionImg} alt="Bolsas de colocación de distintos colores" decoding="sync" />
+      </div>
+      <div className="protesis-bolsa__panel">
+        <div className="protesis-bolsa__copy">
+          <h3 className="protesis-bolsa__title">Bolsa de colocación</h3>
+          <p>
+            Accesorio textil diseñado para facilitar la entrada del muñón en prótesis de
+            miembro inferior con sistema de succión o vacío
+          </p>
+        </div>
+        <div className="protesis-bolsa__specs">
+          <span className="protesis-bolsa__spec">
+            <span className="protesis-bolsa__label">Tamaño</span>
+            <span className="protesis-bolsa__value">XL, XXL</span>
+          </span>
+          <span className="protesis-bolsa__spec">
+            <span className="protesis-bolsa__label">Textil</span>
+            <span className="protesis-bolsa__value">Resistente al jalón y rasgado</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TransfemoralNotes({
+  onOpenLiners,
+  onOpenBag,
+}: {
+  onOpenLiners: () => void
+  onOpenBag: () => void
+}) {
   return (
     <aside className="protesis-partes__notes">
       <article className="protesis-partes__note">
@@ -1029,7 +1311,7 @@ function TransfemoralNotes() {
           Interfaz que se coloca entre la piel y el encaje para ayudar a proteger el
           muñón, mejorar el ajuste y facilitar el uso de la prótesis.
         </p>
-        <button type="button" className="protesis-partes__more">
+        <button type="button" className="protesis-partes__more" onClick={onOpenLiners}>
           Ver más
           <ChevronIcon />
         </button>
@@ -1047,7 +1329,7 @@ function TransfemoralNotes() {
           Accesorio que facilita la introducción del muñón en el encaje, reduciendo
           la fricción y mejorando el ajuste.
         </p>
-        <button type="button" className="protesis-partes__more">
+        <button type="button" className="protesis-partes__more" onClick={onOpenBag}>
           Ver más
           <ChevronIcon />
         </button>
@@ -1195,6 +1477,19 @@ function sceneImages(scene: Shown): string[] {
     const image = KNEES[0]?.image
     return image ? [image] : []
   }
+  if (scene.detail === 'bolsa') return [bolsaColocacionImg]
+  if (scene.detail === 'liners') {
+    const image = LINERS[0]?.image
+    return image ? [image] : []
+  }
+  if (scene.detail === 'coples') {
+    const image = WRISTS[0]?.image
+    return image ? [image] : []
+  }
+  if (scene.detail === 'codos') {
+    const image = ELBOWS[0]?.image
+    return image ? [image] : []
+  }
   if (scene.detail === 'pie') {
     const image = FEET[0]?.image
     return image ? [image] : []
@@ -1208,7 +1503,11 @@ function detailView(detail: Shown['detail']): PartView | null {
     detail === 'pie' ||
     detail === 'rodilla' ||
     detail === 'rodillas' ||
-    detail === 'mano'
+    detail === 'mano' ||
+    detail === 'bolsa' ||
+    detail === 'liners' ||
+    detail === 'coples' ||
+    detail === 'codos'
   ) {
     return detail
   }
@@ -1242,6 +1541,11 @@ export function ProtesisTipos() {
       linerImg,
       linerElementsImg,
       rodillaImg,
+      bolsaColocacionImg,
+      skeoSealingImg,
+      skeoSkinguardImg,
+      ...WRISTS.flatMap((item) => (item.image ? [item.image] : [])),
+      ...ELBOWS.flatMap((item) => (item.image ? [item.image] : [])),
       myofacilImg,
       accesImg,
       mecanicoImg,
@@ -1322,7 +1626,11 @@ export function ProtesisTipos() {
       current.detail === 'liner' ||
       current.detail === 'pie' ||
       current.detail === 'rodilla' ||
-      current.detail === 'mano'
+      current.detail === 'mano' ||
+      current.detail === 'bolsa' ||
+      current.detail === 'liners' ||
+      current.detail === 'coples' ||
+      current.detail === 'codos'
     ) {
       go({ ...current, detail: 'parts' })
       return
