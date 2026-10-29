@@ -1026,7 +1026,8 @@ button.protesis-partes__name:focus-visible {
   text-align: right;
 }
 
-.protesis-partes.is-transfemoral .protesis-partes__notes {
+.protesis-partes.is-transfemoral .protesis-partes__notes,
+.protesis-partes.is-transtibial .protesis-partes__notes {
   position: absolute;
   top: 1%;
   bottom: 2%;
@@ -1190,7 +1191,8 @@ button.protesis-partes__name:focus-visible {
     display: none;
   }
 
-  .protesis-partes.is-transfemoral .protesis-partes__notes {
+  .protesis-partes.is-transfemoral .protesis-partes__notes,
+  .protesis-partes.is-transtibial .protesis-partes__notes {
     position: static;
     width: 100%;
     margin-top: 1.2rem;

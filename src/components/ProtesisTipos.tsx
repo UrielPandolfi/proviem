@@ -244,7 +244,6 @@ const TRANSFEMORAL_PARTS: Part[] = [
 ]
 
 const TRANSTIBIAL_PARTS: Part[] = [
-  { id: 'liner', title: 'Liner', side: 'left', top: '34%', edge: 0.4 },
   {
     id: 'socket',
     title: 'Socket',
@@ -369,7 +368,7 @@ const DIAGRAMS: Record<LimbDiagram, { src: string; alt: string; parts: Part[] }>
   },
   transtibial: {
     src: transtibialImg,
-    alt: 'Prótesis transtibial con liner, encaje y pie',
+    alt: 'Prótesis transtibial con encaje y pie',
     parts: TRANSTIBIAL_PARTS,
   },
   transhumeral: {
@@ -1121,6 +1120,11 @@ function ProsthesisDetail({
             onOpenBag={() => onOpenView('bolsa')}
           />
         ) : null}
+        {diagram === 'transtibial' && showingParts ? (
+          <aside className="protesis-partes__notes">
+            <LinerNote onOpen={() => onOpenView('liners')} />
+          </aside>
+        ) : null}
         {liner ? (
           <div className="protesis-liner" role="region" aria-labelledby="protesis-liner-title">
             <div className="protesis-liner__copy">
@@ -1291,6 +1295,25 @@ function BagProduct() {
   )
 }
 
+function LinerNote({ onOpen }: { onOpen: () => void }) {
+  return (
+    <article className="protesis-partes__note">
+      <h3>
+        <span>¿Qué es un liner?</span>
+        <InfoIcon />
+      </h3>
+      <p>
+        Interfaz que se coloca entre la piel y el encaje para ayudar a proteger el
+        muñón, mejorar el ajuste y facilitar el uso de la prótesis.
+      </p>
+      <button type="button" className="protesis-partes__more" onClick={onOpen}>
+        Ver más
+        <ChevronIcon />
+      </button>
+    </article>
+  )
+}
+
 function TransfemoralNotes({
   onOpenLiners,
   onOpenBag,
@@ -1300,20 +1323,7 @@ function TransfemoralNotes({
 }) {
   return (
     <aside className="protesis-partes__notes">
-      <article className="protesis-partes__note">
-        <h3>
-          <span>¿Qué es un liner?</span>
-          <InfoIcon />
-        </h3>
-        <p>
-          Interfaz que se coloca entre la piel y el encaje para ayudar a proteger el
-          muñón, mejorar el ajuste y facilitar el uso de la prótesis.
-        </p>
-        <button type="button" className="protesis-partes__more" onClick={onOpenLiners}>
-          Ver más
-          <ChevronIcon />
-        </button>
-      </article>
+      <LinerNote onOpen={onOpenLiners} />
       <article className="protesis-partes__note">
         <h3>
           <span>
