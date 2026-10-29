@@ -12,11 +12,12 @@
   display: flex;
   flex-direction: column;
   min-height: calc(215vh + 20rem);
+  min-height: calc(215vh + 55vw);
   min-height: max(
     calc(215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end)),
-    calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)))
+    calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest))),
+    calc(14.7vw + 48rem + var(--blob-h) * 1.42)
   );
-  overflow-x: clip;
   background:
     radial-gradient(ellipse 50% 40% at 50% 18%, #ffffff 0%, var(--color-bg) 55%);
 }
@@ -119,7 +120,7 @@
 .hero__mask,
 .hero__photo {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   width: var(--blob-w);
   max-width: none;
   pointer-events: none;
@@ -138,6 +139,7 @@
 .hero__stage {
   position: relative;
   z-index: 5;
+  isolation: isolate;
   flex: 1;
   width: var(--section-width);
   min-width: 0;
@@ -152,7 +154,7 @@
 }
 
 .hero__fold {
-  display: contents;
+  display: block;
 }
 
 .hero__copyblock {
@@ -354,12 +356,14 @@
 @media (min-width: 1700px) {
   .hero {
     --bottom-trim: calc(var(--hero-lift) - 1.25rem);
+    min-height: calc(215vh + 55vw);
     min-height: max(
       calc(
         215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end) -
           var(--bottom-trim)
       ),
-      calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) - var(--bottom-trim))
+      calc(20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) - var(--bottom-trim)),
+      calc(14.7vw + 48rem + var(--blob-h) * 1.42)
     );
   }
 
@@ -391,10 +395,28 @@
   }
 }
 
+@media (min-width: 2000px) and (max-height: 1280px) {
+  .hero {
+    min-height: calc(215vh + 55vw);
+    min-height: max(
+      calc(
+        215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end) -
+          var(--bottom-trim, 0px)
+      ),
+      calc(
+        20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) -
+          var(--bottom-trim, 0px)
+      ),
+      calc(18vw + 72rem + var(--blob-h) * 1.42)
+    );
+  }
+}
+
 @media (min-width: 900px) and (max-width: 1699px) {
   .hero {
     --cluster-lift: clamp(8rem, 10vw, 13rem);
     --bottom-trim: calc(var(--hero-lift) + clamp(2rem, 18vw - 9rem, 9rem) - 1.25rem);
+    min-height: calc(215vh + 55vw);
     min-height: max(
       calc(
         215vh + 14rem + var(--blob-h) * var(--blob-nest) + var(--hero-end) -
@@ -403,7 +425,8 @@
       calc(
         20vw + 52rem + var(--blob-h) * (1 + var(--blob-nest)) - var(--cluster-lift) -
           var(--bottom-trim)
-      )
+      ),
+      calc(14.7vw + 48rem + var(--blob-h) * 1.42)
     );
   }
 
