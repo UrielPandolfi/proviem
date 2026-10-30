@@ -423,7 +423,7 @@ type CatalogItem = {
 }
 
 const PRODUCT_NOTE =
-  'Los productos mostrados son referencias de las soluciones disponibles. La selección de componentes depende de la valoración, necesidades, compatibilidad y configuración de cada paciente.'
+  'Los productos mostrados son referencias de las soluciones disponibles. La selección de componentes depende de la valoración, necesidades, compatibilidad y configuración de\u00A0cada\u00A0paciente.'
 
 function ProductNote() {
   return <p className="protesis-catalogo__note">{PRODUCT_NOTE}</p>
