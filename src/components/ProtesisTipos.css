@@ -577,9 +577,15 @@
   text-align: right;
 }
 
+.protesis-partes.is-pie .protesis-pies__summary,
+.protesis-partes.is-pie .protesis-pies__activity,
 .protesis-partes.is-coples .protesis-pies__activity,
 .protesis-partes.is-codos .protesis-pies__activity {
   max-width: 22rem;
+}
+
+.protesis-partes.is-pie .protesis-pies__aside {
+  max-width: 11rem;
 }
 
 .protesis-partes.is-bolsa .protesis-partes__stage {

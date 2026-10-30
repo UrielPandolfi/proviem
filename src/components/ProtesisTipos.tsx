@@ -22,14 +22,29 @@ import elbowSetupImg from '../assets/protesis/codos/Elbow Set-Up .png'
 import ergoArmHybridImg from '../assets/protesis/codos/ErgoArm Hybrid plus.png'
 import dynamicArmImg from '../assets/protesis/codos/DynamicArm.png'
 import linerElementsImg from '../assets/protesis/liner-elements.png'
-import pieSach from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/SACH 1549.png'
-import pie1d10 from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/1D10 Dynamic.png'
-import pieTerion from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/Terion 1D10.png'
-import pieTrias from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/Trias 1C30-1.png'
-import pieTaleo from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TALEO 1c50.png'
-import pieTriton from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON 1C60.png'
-import pieTritonHeavy from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TROTON HEAVY DUTY 1C64.png'
-import pieTritonHarmony from '../assets/protesis/PROTESIS/PIE-20261020T214524Z-1-001/PIE/TRITON HARMONY 1C62.png'
+import pieSach1p66 from '../assets/protesis/PROTESIS/pies-ultima-tabla/SACH 1P66.png'
+import pieSach1s101 from '../assets/protesis/PROTESIS/pies-ultima-tabla/SACH 1S101.png'
+import pie1d10 from '../assets/protesis/PROTESIS/pies-ultima-tabla/1D10 Dynamic.png'
+import pieChapulin from '../assets/protesis/PROTESIS/pies-ultima-tabla/Chapulín 1CHF.png'
+import pieTerion from '../assets/protesis/PROTESIS/pies-ultima-tabla/Terion 1C10.png'
+import pieBreeze from '../assets/protesis/PROTESIS/pies-ultima-tabla/Breeze.png'
+import pieSahra from '../assets/protesis/PROTESIS/pies-ultima-tabla/Sahra.png'
+import pie1h20 from '../assets/protesis/PROTESIS/pies-ultima-tabla/1H20Y .png'
+import pie1h17 from '../assets/protesis/PROTESIS/pies-ultima-tabla/1H17Y.png'
+import pieTrias from '../assets/protesis/PROTESIS/pies-ultima-tabla/Trias 1C30-1.png'
+import pieTaleo from '../assets/protesis/PROTESIS/pies-ultima-tabla/TALEO 1c50.png'
+import pieProflexXc from '../assets/protesis/PROTESIS/pies-ultima-tabla/Pro-Flex XC.png'
+import pieProflexTerra from '../assets/protesis/PROTESIS/pies-ultima-tabla/Pro-Flex Terra.png'
+import pieTritonHeavy from '../assets/protesis/PROTESIS/pies-ultima-tabla/TROTON HEAVY DUTY 1C64.png'
+import pieRushHipro from '../assets/protesis/PROTESIS/pies-ultima-tabla/RUSH HiPro.png'
+import pieProflexTorsion from '../assets/protesis/PROTESIS/pies-ultima-tabla/Pro-Flex XC Torsion.png'
+import pieLobo from '../assets/protesis/PROTESIS/pies-ultima-tabla/Lobo 1LOF.png'
+import pieAsya from '../assets/protesis/PROTESIS/pies-ultima-tabla/ASYA.png'
+import pieTaleoAdjust from '../assets/protesis/PROTESIS/pies-ultima-tabla/Taleo Adjust 1C56.png'
+import pieBalance from '../assets/protesis/PROTESIS/pies-ultima-tabla/Balance Foot S.png'
+import pieFenixAlto from '../assets/protesis/PROTESIS/pies-ultima-tabla/1F2 .png'
+import pieFenixBajo from '../assets/protesis/PROTESIS/pies-ultima-tabla/1F1.png'
+import pieProprio from '../assets/protesis/PROTESIS/pies-ultima-tabla/Proprio Foot.png'
 import rodillaF01 from '../assets/protesis/rodillas/f01.png'
 import rodilla3r20 from '../assets/protesis/rodillas/3r20.png'
 import rodillaF05 from '../assets/protesis/rodillas/f05.png'
@@ -416,76 +431,234 @@ function ProductNote() {
 
 const FEET: CatalogItem[] = [
   {
-    id: 'sach-1s49',
-    name: 'SACH 1S49',
-    summary: 'Pie protésico SACH',
-    activity: 'Baja actividad y estabilidad básica',
-    mobility: '1 - 2',
-    weight: '125 kg',
-    image: pieSach,
+    id: 'sach-1p66',
+    name: 'SACH 1P66',
+    summary: 'O&P · SACH',
+    aside: 'Básica',
+    activity: 'Movilidad 1–2 · peso corporal máx. 100 kg',
+    mobility: '',
+    weight: '',
+    image: pieSach1p66,
   },
   {
-    id: '1d10-dynamic',
-    name: '1D10 Dynamic',
-    summary: 'Pie protésico dinámico',
-    activity: 'Baja a moderada actividad',
-    mobility: '1 - 2',
-    weight: '150 kg',
+    id: 'sach-1s101',
+    name: 'SACH 1S101',
+    summary: 'Ottobock · SACH',
+    aside: 'Básica',
+    activity: 'Movilidad 1–2 · peso corporal máx. 125 kg',
+    mobility: '',
+    weight: '',
+    image: pieSach1s101,
+  },
+  {
+    id: 'dinamico-1d10',
+    name: 'Dinámico 1D10',
+    summary: 'Ottobock · Dinámico convencional',
+    aside: 'Básica dinámica',
+    activity: 'Movilidad 1–2 · peso corporal máx. 150 kg',
+    mobility: '',
+    weight: '',
     image: pie1d10,
+  },
+  {
+    id: 'chapulin-1chf',
+    name: 'Chapulín 1CHF',
+    summary: 'O&P · Fibra de carbono, perfil bajo',
+    aside: 'Intermedia',
+    activity: 'Movilidad 1–2 · peso corporal máx. 125 kg · peso pieza 310 g',
+    mobility: '',
+    weight: '',
+    image: pieChapulin,
   },
   {
     id: 'terion-1c10',
     name: 'Terion 1C10',
-    summary: 'Pie protésico de material compuesto',
-    activity: 'Actividad moderada y uso cotidiano',
-    mobility: '2 - 3',
-    weight: '125 kg',
+    summary: 'Ottobock · Fibra de carbono con talón de espuma',
+    aside: 'Intermedia',
+    activity: 'Movilidad 2–3 · peso corporal máx. 125 kg',
+    mobility: '',
+    weight: '',
     image: pieTerion,
   },
   {
-    id: 'trias-1c30-1',
-    name: 'Trias 1C30 1',
-    summary: 'Pie protésico de material compuesto',
-    activity: 'Actividad moderada y marcha estable',
-    mobility: '2 - 3',
-    weight: '125 kg',
+    id: 'breeze',
+    name: 'Breeze',
+    summary: 'College Park · Pie de carbono',
+    aside: 'Intermedia',
+    activity: 'Peso máx. 100 kg (21–25 cm) / 125 kg (26–30 cm) · altura 6.2–6.5 cm',
+    mobility: '',
+    weight: '',
+    image: pieBreeze,
+  },
+  {
+    id: 'sahra',
+    name: 'Sahra',
+    summary: 'Proted · Fibra de carbono, perfil bajo',
+    aside: 'Intermedia',
+    activity: 'Movilidad 2–3 · hasta 150 kg · altura 60–70 mm sin funda',
+    mobility: '',
+    weight: '',
+    image: pieSahra,
+  },
+  {
+    id: '1h20',
+    name: '1H20',
+    summary: 'Metiz · Fibra de carbono',
+    aside: 'Intermedia',
+    activity: 'M1–M3 · categorías para 45–125 kg',
+    mobility: '',
+    weight: '',
+    image: pie1h20,
+  },
+  {
+    id: '1h17',
+    name: '1H17',
+    summary: 'Metiz · Fibra de carbono',
+    aside: 'Intermedia',
+    activity: 'M2–M4 · hasta 150 kg',
+    mobility: '',
+    weight: '',
+    image: pie1h17,
+  },
+  {
+    id: 'trias-1c30',
+    name: 'Trias 1C30',
+    summary: 'Ottobock · Fibra de carbono',
+    aside: 'Intermedia',
+    activity: 'Movilidad 2–3 · peso corporal máx. 125 kg',
+    mobility: '',
+    weight: '',
     image: pieTrias,
   },
   {
     id: 'taleo-1c50',
     name: 'Taleo 1C50',
-    summary: 'Pie protésico de material compuesto',
-    activity: 'Actividad alta y terrenos variados',
-    mobility: '2 - 4',
-    weight: '150 kg',
+    summary: 'Ottobock · Fibra de carbono',
+    aside: 'Intermedia alta',
+    activity: 'Movilidad 2–4 · peso corporal máx. 150 kg',
+    mobility: '',
+    weight: '',
     image: pieTaleo,
   },
   {
-    id: 'triton-1c60',
-    name: 'Triton 1C60',
-    summary: 'Pie protésico de material compuesto',
-    activity: 'Alta actividad y mayor dinamismo',
-    mobility: '3 - 4',
-    weight: 'Hasta 150 kg*',
-    image: pieTriton,
+    id: 'pro-flex-xc',
+    name: 'Pro-Flex XC',
+    summary: 'Össur · Pie dinámico de carbono',
+    aside: 'Intermedia alta',
+    activity: 'Nivel de impacto bajo, moderado y alto · 166 kg',
+    mobility: '',
+    weight: '',
+    image: pieProflexXc,
+  },
+  {
+    id: 'pro-flex-terra',
+    name: 'Pro-Flex Terra',
+    summary: 'Össur · Pie dinámico de carbono',
+    aside: 'Alta funcional',
+    activity: 'Nivel de impacto bajo, moderado y alto · 166 kg',
+    mobility: '',
+    weight: '',
+    image: pieProflexTerra,
   },
   {
     id: 'triton-1c64',
     name: 'Triton Heavy Duty 1C64',
-    summary: 'Pie protésico de material compuesto',
-    activity: 'Alta actividad y uso exigente',
-    mobility: '3 - 4',
-    weight: '150 kg',
+    summary: 'Ottobock · Carbono de alta exigencia',
+    aside: 'Alta funcional',
+    activity: 'Movilidad 3–4 · peso corporal máx. 150 kg',
+    mobility: '',
+    weight: '',
     image: pieTritonHeavy,
   },
   {
-    id: 'triton-1c62',
-    name: 'Triton Harmony 1C62',
-    summary: 'Pie protésico con sistema de vacío',
-    activity: 'Alta actividad y sujeción dinámica',
-    mobility: '3 - 4',
-    weight: 'Hasta 150 kg*',
-    image: pieTritonHarmony,
+    id: 'rush-hipro',
+    name: 'RUSH HiPro',
+    summary: 'PROTEOR / RUSH · Compuesto de fibra de vidrio',
+    aside: 'Alta funcional',
+    activity: 'Tallas 22–29 cm · hasta 166 kg según peso e impacto · impermeable',
+    mobility: '',
+    weight: '',
+    image: pieRushHipro,
+  },
+  {
+    id: 'pro-flex-xc-torsion',
+    name: 'Pro-Flex XC Torsion',
+    summary: 'Össur',
+    aside: 'Torsión',
+    activity: 'Impacto bajo, moderado y alto · peso máx. 147 kg · rotación y absorción vertical',
+    mobility: '',
+    weight: '',
+    image: pieProflexTorsion,
+  },
+  {
+    id: 'lobo-1lof',
+    name: 'Lobo 1LOF',
+    summary: 'O&P',
+    aside: 'Carbono, perfil alto',
+    activity: 'Movilidad 3–4 · peso máximo 125 kg',
+    mobility: '',
+    weight: '',
+    image: pieLobo,
+  },
+  {
+    id: 'asya',
+    name: 'Asya',
+    summary: 'Proted',
+    aside: 'Carbono, perfil alto',
+    activity: 'Actividad 3–4 · rango de peso 45–150 kg · altura 110–120 mm sin funda',
+    mobility: '',
+    weight: '',
+    image: pieAsya,
+  },
+  {
+    id: 'taleo-adjust-1c56',
+    name: 'Taleo Adjust 1C56',
+    summary: 'Ottobock',
+    aside: 'Tobillo ajustable',
+    activity: 'Movilidad 2–3 · peso corporal máx. 115 kg · altura de talón ajustable 0–70 mm',
+    mobility: '',
+    weight: '',
+    image: pieTaleoAdjust,
+  },
+  {
+    id: 'balance-foot-s',
+    name: 'Balance Foot S',
+    summary: 'Össur',
+    aside: 'Menor actividad',
+    activity: 'Impacto bajo · peso corporal máx. 147 kg · tallas 22–30 · impermeable',
+    mobility: '',
+    weight: '',
+    image: pieBalance,
+  },
+  {
+    id: 'fenix-1f2',
+    name: 'Carbono perfil alto 1F2',
+    summary: 'Fénix',
+    aside: 'Carbono, perfil alto',
+    activity: 'Movilidad 3–4 · peso máximo 160 kg',
+    mobility: '',
+    weight: '',
+    image: pieFenixAlto,
+  },
+  {
+    id: 'fenix-1f1',
+    name: 'Carbono perfil bajo 1F1',
+    summary: 'Fénix',
+    aside: 'Carbono, perfil bajo',
+    activity: 'Movilidad 1–3 · peso máximo 100 kg',
+    mobility: '',
+    weight: '',
+    image: pieFenixBajo,
+  },
+  {
+    id: 'proprio-foot',
+    name: 'Proprio Foot',
+    summary: 'Össur',
+    aside: 'Control electrónico',
+    activity: 'Impacto bajo y moderado · tobillo microprocesado · ajuste automático a superficies y altura de talón · resistente al agua',
+    mobility: '',
+    weight: '',
+    image: pieProprio,
   },
 ]
 
