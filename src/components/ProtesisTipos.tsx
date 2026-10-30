@@ -1476,8 +1476,9 @@ function LinerNote({ onOpen }: { onOpen: () => void }) {
         <InfoIcon />
       </h3>
       <p>
-        Interfaz que se coloca entre la piel y el encaje para ayudar a proteger el
-        muñón, mejorar el ajuste y facilitar el uso de la prótesis.
+        Interfaz que se coloca entre la piel y{'\u00A0'}el{'\u00A0'}encaje para ayudar a
+        proteger el{'\u00A0'}muñón, mejorar el{'\u00A0'}ajuste y facilitar el{'\u00A0'}uso de
+        la prótesis.
       </p>
       <button type="button" className="protesis-partes__more" onClick={onOpen}>
         Ver más
