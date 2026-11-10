@@ -1,7 +1,7 @@
 // Contenido temporal del blog. Más adelante se sustituye por el headless de WordPress.
-import coverValoracion from '../assets/nosotros/historia.png'
-import coverTecnologia from '../assets/nosotros/historia-2.png'
-import coverSeguros from '../assets/Proceso/image 16.png'
+import coverValoracion from '../assets/blog/¿Qué sucede durante una valoración protésica_.jpg'
+import coverTecnologia from '../assets/blog/Prótesis mecánica y mioeléctrica_.jpg'
+import coverSeguros from '../assets/blog/Pago directo para una prótesis.png'
 import coverRehab from '../assets/nosotros/historia-2.png'
 
 export const BLOG_CATEGORIES = [

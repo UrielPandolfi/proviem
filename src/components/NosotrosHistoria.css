@@ -58,6 +58,10 @@
   max-width: none;
 }
 
+.historia--equipo .historia__photo {
+  border-radius: 0.85rem;
+}
+
 .historia__card {
   display: flex;
   flex-direction: column;
