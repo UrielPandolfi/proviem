@@ -26,6 +26,7 @@ import contactNosotrosImg from './assets/nosotros/contact-nosotros.png'
 import contactBlogImg from './assets/blog/contact-blog.png'
 import contactClinicasImg from './assets/clinicas/contacto.png'
 import contactProcesoImg from './assets/Proceso/contacto.png'
+import contactProtesisImg from './assets/protesis/contacto-imagen.png'
 import contactSeguroImg from './assets/seguro/contacto.png'
 import { ProtesisHero } from './components/ProtesisHero'
 import { ProtesisTipos } from './components/ProtesisTipos'
@@ -211,8 +212,8 @@ function App() {
             <ProtesisTipos />
             <ProtesisGaleria />
             <Contact
-              photo={contactProcesoImg}
-              photoAlt="Especialista de Proviem junto a las barras paralelas"
+              photo={contactProtesisImg}
+              photoAlt="Persona con prótesis de pierna sentada en un banco de entrenamiento"
             />
           </>
         ) : page === 'aviso' ? (
