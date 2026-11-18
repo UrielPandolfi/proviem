@@ -97,7 +97,7 @@ select {
 
 @media (max-width: 899px) {
   :root {
-    --header-offset: 3.65rem;
+    --header-offset: 3.9rem;
   }
 
   .section:not(.section--full) > .section__inner,

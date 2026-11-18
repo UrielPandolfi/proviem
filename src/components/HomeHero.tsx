@@ -257,17 +257,14 @@ export function HomeHero() {
 
         <div className="hero__needs" {...reveal('up')}>
           <h2>
-            Elegir una prótesis
+            Cada recomendación
             <br />
-            comienza por entender
-            <br />
-            tus necesidades
+            parte de una valoración
           </h2>
           <p>
-            Una prótesis no debería elegirse únicamente por su apariencia o
-            nivel tecnológico. Consideramos tu nivel de amputación, condición
-            física, actividades, entorno y objetivos para orientarte hacia una
-            solución funcional para tu caso.
+            Tu nivel de amputación, movilidad, condición física, actividades y
+            objetivos ayudan a definir qué componentes pueden considerarse para
+            tu prótesis.
           </p>
           <a className="hero__pill" href="#proceso" data-motion="lift">
             Conoce nuestro proceso
@@ -309,8 +306,8 @@ export function HomeHero() {
             Ofrecemos un <span>Servicio Integral</span>
           </h2>
           <p>
-            Te incluimos entrenamiento protésico, para que aprendas a usar tu
-            nueva prótesis.
+            Te incluimos terapias de rehabilitación, para que aprendas a usar
+            tu nueva prótesis.
           </p>
         </div>
       </div>
